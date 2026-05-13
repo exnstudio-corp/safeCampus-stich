@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#2a2a2a",
+                    "secondary-fixed": "#9cf0ff",
+                    "primary-container": "#568dff",
+                    "on-tertiary-container": "#5b0011",
+                    "inverse-on-surface": "#313030",
+                    "on-surface": "#e5e2e1",
+                    "on-primary": "#002d6f",
+                    "on-surface-variant": "#c2c6d8",
+                    "background": "#131313",
+                    "on-primary-container": "#002661",
+                    "surface-container-low": "#1c1b1b",
+                    "on-secondary-container": "#00616d",
+                    "tertiary-fixed": "#ffdad9",
+                    "secondary": "#bdf4ff",
+                    "on-secondary-fixed": "#001f24",
+                    "inverse-primary": "#0058cb",
+                    "surface-tint": "#b0c6ff",
+                    "primary-fixed-dim": "#b0c6ff",
+                    "surface": "#131313",
+                    "tertiary-fixed-dim": "#ffb3b3",
+                    "primary-fixed": "#d9e2ff",
+                    "surface-dim": "#131313",
+                    "secondary-container": "#00e3fd",
+                    "outline": "#8c90a1",
+                    "surface-container-highest": "#353534",
+                    "secondary-fixed-dim": "#00daf3",
+                    "on-tertiary-fixed": "#400009",
+                    "error": "#ffb4ab",
+                    "on-secondary-fixed-variant": "#004f58",
+                    "on-primary-fixed": "#001945",
+                    "error-container": "#93000a",
+                    "surface-container": "#201f1f",
+                    "primary": "#b0c6ff",
+                    "surface-container-lowest": "#0e0e0e",
+                    "outline-variant": "#424655",
+                    "inverse-surface": "#e5e2e1",
+                    "on-secondary": "#00363d",
+                    "on-tertiary": "#680015",
+                    "on-tertiary-fixed-variant": "#920021",
+                    "tertiary": "#ffb3b3",
+                    "surface-bright": "#3a3939",
+                    "on-error": "#690005",
+                    "on-background": "#e5e2e1",
+                    "on-primary-fixed-variant": "#00429c",
+                    "on-error-container": "#ffdad6",
+                    "surface-variant": "#353534",
+                    "tertiary-container": "#ff5260",
+                    "safe-status": "#00ff9d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "md": "16px",
+                    "margin-desktop": "64px",
+                    "gutter": "16px",
+                    "xl": "40px",
+                    "sm": "8px",
+                    "unit": "4px",
+                    "lg": "24px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "body-md": ["Manrope"],
+                    "display-lg": ["Sora"],
+                    "body-lg": ["Manrope"],
+                    "label-md": ["Manrope"],
+                    "headline-md": ["Sora"],
+                    "headline-lg": ["Sora"],
+                    "headline-lg-mobile": ["Sora"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>.glass-level-1 {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08)
+    }
+.glass-level-2 {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 20px rgba(0, 112, 255, 0.15)
+    }
+.success-glow {
+    box-shadow: 0 0 30px rgba(0, 255, 157, 0.15);
+    border-color: rgba(0, 255, 157, 0.3)
+    }
+.cyber-border-outer {
+    position: relative
+    }
+.cyber-border-outer::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border: 1px solid rgba(176, 198, 255, 0.3);
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.2s
+    }
+.cyber-border-outer:hover::after {
+    opacity: 1
+    }
+.map-bg {
+    background-image: linear-gradient(rgba(5, 5, 5, 0.85), rgba(5, 5, 5, 0.85)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuBs6xwSubTxO2io_uP-5-j37AW2IxXG6noiFFDqS6YkHQeS9TBtZvvFpi4hgf6OwlU_ajri9v9iqOT9fgm9wS5P3bJqtE31ijJ-UC4MWJBeJRkxmKC-EHY5PsO84tRzDx7mw-vfBDTTsyZWQGFhZkC-Pm_t_pvw_ZVbHgHlN9Y2mF2E7jUKmNaOj2Fb-hPXYAzOPBCn3bQpEMIWoWf_8OLtAEeBUpcUqGwJ0gnS8faHoXNn9H2ZmR9N3SO9wb_MBaKIhRl60_O0AXU);
+    background-size: cover;
+    background-position: center
+    }</style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen selection:bg-primary/30">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 bg-surface-container-low/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="shield_with_heart" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">SafeCampus</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-primary transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+                Check-in
+            </a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+                Map
+            </a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+                Profile
+            </a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors active:scale-95" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors active:scale-95" data-icon="account_circle">account_circle</button>
+</div>
+</header>
+<main class="relative min-h-screen pt-24 pb-24 md:pb-12 flex items-center justify-center map-bg overflow-hidden" data-location="Los Angeles">
+<!-- Background Blur/Grid Pattern -->
+<div class="absolute inset-0 pointer-events-none opacity-20" style="background-image: radial-gradient(circle at 2px 2px, rgba(176, 198, 255, 0.1) 1px, transparent 0); background-size: 24px 24px;"></div>
+<!-- Content Canvas -->
+<div class="relative z-10 w-full max-w-4xl px-margin-mobile">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Main Status Card -->
+<div class="md:col-span-12 glass-level-2 success-glow rounded-xl p-lg flex flex-col items-center text-center space-y-6">
+<div class="w-24 h-24 rounded-full bg-safe-status/10 flex items-center justify-center border border-safe-status/30 animate-pulse">
+<span class="material-symbols-outlined text-[48px] text-safe-status" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="space-y-2">
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Status Confirmed: Safe</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mx-auto">
+                            Thank you for checking in. Your location and safety status have been updated in the campus network.
+                        </p>
+</div>
+<div class="flex items-center gap-3 bg-safe-status/5 px-4 py-2 rounded-full border border-safe-status/20">
+<span class="w-2 h-2 rounded-full bg-safe-status"></span>
+<span class="font-label-md text-label-md text-safe-status">LAST UPDATED: JUST NOW</span>
+</div>
+</div>
+<!-- Bento Action Grid -->
+<div class="md:col-span-4 glass-level-1 rounded-xl p-lg space-y-4 hover:border-primary/30 transition-all cursor-pointer group">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="near_me">near_me</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary">Update Location</h3>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">Recalibrate your real-time position on campus map.</p>
+</div>
+<div class="pt-4 flex justify-end">
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+<div class="md:col-span-4 glass-level-1 rounded-xl p-lg space-y-4 hover:border-primary/30 transition-all cursor-pointer group">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary">Message Security</h3>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">Direct encrypted line to Campus Security Dispatch.</p>
+</div>
+<div class="pt-4 flex justify-end">
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+<div class="md:col-span-4 glass-level-1 rounded-xl p-lg space-y-4 hover:border-tertiary-container/30 transition-all cursor-pointer group">
+<div class="w-12 h-12 rounded-lg bg-tertiary-container/10 flex items-center justify-center text-tertiary-container">
+<span class="material-symbols-outlined" data-icon="emergency_share">emergency_share</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-tertiary-container">Request Assistance</h3>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">Notify nearest patrol if you require a non-emergency escort.</p>
+</div>
+<div class="pt-4 flex justify-end">
+<span class="material-symbols-outlined text-tertiary-container group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-surface-container-lowest/90 backdrop-blur-2xl border-t border-outline-variant/20 shadow-lg rounded-t-xl">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 rounded-full transition-all p-2 active:scale-90">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-label-md text-label-md">Map</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary-fixed-dim font-bold hover:bg-surface-container-highest/50 rounded-full transition-all p-2 active:scale-90">
+<span class="material-symbols-outlined" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-label-md text-label-md">Check-in</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 rounded-full transition-all p-2 active:scale-90">
+<div class="w-12 h-12 bg-error-container rounded-full flex items-center justify-center shadow-lg -mt-8 border-4 border-background">
+<span class="material-symbols-outlined text-on-error-container" data-icon="emergency" style="font-variation-settings: 'FILL' 1;">emergency</span>
+</div>
+<span class="font-label-md text-label-md mt-1">SOS</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 rounded-full transition-all p-2 active:scale-90">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span class="font-label-md text-label-md">Support</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 rounded-full transition-all p-2 active:scale-90">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</button>
+</nav>
+<!-- Map Contextual Element (Decorative/High-Tech) -->
+<div class="fixed top-24 right-margin-desktop hidden lg:block w-72 h-48 glass-level-1 rounded-xl overflow-hidden border border-primary/20 pointer-events-none">
+<div class="absolute inset-0 opacity-40 mix-blend-overlay">
+<img alt="Mini Map" class="w-full h-full object-cover" data-alt="A dark-themed digital satellite map interface of a university campus. The map shows intricate building footprints in deep navy and black with glowing neon blue paths connecting them. A single pulsating bright green dot indicates the current user location, surrounded by a subtle data overlay showing coordinates and signal strength." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEYAQELFqfH-fgh41OqlXo8aF4T58ek1Df-1UhkeZ2niXyEntkhL4S63NrLE1ID9NshOeoHtcEtlSVB9tT_v6eHgVR92xSuNww_XDcDHXHzJxEeDIO0q0Hhp34T_yQLIIv9-oS5mwXuiEP0cMy-h390iwebvvXYLkNcYv5klD5ZvEr9CD0WnYAyM4XJmKTggg5xD6-HFEZh3wPCsx2yT7WcJWAkXprOOfDOheGcOTCiIgsqONcyP40lOHw4ujGYjMRfxdkp7j_zTo"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+<div class="absolute bottom-3 left-3 flex flex-col gap-1">
+<span class="font-label-md text-[10px] text-primary/80 uppercase tracking-widest">Zone: North Quad</span>
+<span class="font-label-md text-[12px] text-on-surface">Signal: Optimized</span>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,281 @@
+<html class="dark"><head>
+<meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "secondary-container": "#00e3fd",
+                  "primary": "#b0c6ff",
+                  "on-tertiary-fixed-variant": "#920021",
+                  "background": "#131313",
+                  "on-tertiary-fixed": "#400009",
+                  "surface-container-highest": "#353534",
+                  "on-primary-fixed": "#001945",
+                  "surface": "#131313",
+                  "outline-variant": "#424655",
+                  "on-background": "#e5e2e1",
+                  "tertiary": "#ffb3b3",
+                  "surface-tint": "#b0c6ff",
+                  "secondary": "#bdf4ff",
+                  "on-primary-container": "#002661",
+                  "on-error-container": "#ffdad6",
+                  "tertiary-container": "#ff5260",
+                  "primary-fixed": "#d9e2ff",
+                  "primary-container": "#568dff",
+                  "on-surface-variant": "#c2c6d8",
+                  "outline": "#8c90a1",
+                  "error-container": "#93000a",
+                  "surface-container": "#201f1f",
+                  "surface-bright": "#3a3939",
+                  "on-error": "#690005",
+                  "on-surface": "#e5e2e1",
+                  "surface-dim": "#131313",
+                  "primary-fixed-dim": "#b0c6ff",
+                  "secondary-fixed-dim": "#00daf3",
+                  "tertiary-fixed-dim": "#ffb3b3",
+                  "surface-container-low": "#1c1b1b",
+                  "inverse-on-surface": "#313030",
+                  "on-secondary": "#00363d",
+                  "on-tertiary-container": "#5b0011",
+                  "on-secondary-fixed-variant": "#004f58",
+                  "on-primary-fixed-variant": "#00429c",
+                  "error": "#ffb4ab",
+                  "tertiary-fixed": "#ffdad9",
+                  "inverse-surface": "#e5e2e1",
+                  "on-secondary-container": "#00616d",
+                  "on-tertiary": "#680015",
+                  "surface-variant": "#353534",
+                  "surface-container-lowest": "#0e0e0e",
+                  "surface-container-high": "#2a2a2a",
+                  "on-primary": "#002d6f",
+                  "secondary-fixed": "#9cf0ff",
+                  "inverse-primary": "#0058cb",
+                  "on-secondary-fixed": "#001f24"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "md": "16px",
+                  "margin-desktop": "64px",
+                  "sm": "8px",
+                  "xs": "4px",
+                  "unit": "4px",
+                  "lg": "24px",
+                  "margin-mobile": "20px",
+                  "gutter": "16px",
+                  "xl": "40px"
+          },
+          "fontFamily": {
+                  "label-md": ["Manrope"],
+                  "display-lg": ["Sora"],
+                  "headline-md": ["Sora"],
+                  "headline-lg-mobile": ["Sora"],
+                  "body-lg": ["Manrope"],
+                  "headline-lg": ["Sora"],
+                  "body-md": ["Manrope"]
+          },
+          "fontSize": {
+                  "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                  "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                  "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                  "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                  "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                  "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .emergency-glow {
+      box-shadow: 0 0 40px rgba(147, 0, 10, 0.2);
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .fill-icon {
+      font-variation-settings: 'FILL' 1;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm">
+<div class="flex items-center gap-md">
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">SafeCampus</span>
+<div class="hidden md:flex gap-md ml-xl items-center">
+<span class="flex items-center gap-xs px-md py-xs rounded-full bg-error-container/20 text-error border border-error/20">
+<span class="material-symbols-outlined text-[18px] fill-icon" style="font-variation-settings: 'FILL' 1;">error</span>
+<span class="font-label-md text-label-md">3 ACTIVE INCIDENTS</span>
+</span>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors scale-95 active:opacity-80 transition-all">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors scale-95 active:opacity-80 transition-all">help</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Manager Avatar" data-alt="Professional headshot of a campus security officer with a focused expression, wearing a dark tactical uniform. The lighting is sharp and cinematic, with cool blue ambient tones reflecting the high-tech security terminal environment. The background is a clean, modern command center." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-gZCESvsCMfreUVcpeZEgUbXo4K6HsPxh_7XejDiXpfSWq4YYweqVH-az8efGX2nuBSxmG3t-OmYA2Dy23YL1hdNfpV8olAz45p-XJSHNtlCf9Lk_mkG9vhU5cIlziip6YAMLuWGtjt9Kk6qcNG2lZPRozdgp40fIjxEc6QUIrY2dESA-rFVb3WOSyvn1VDDmsBkhEPn96-cYjfIv0UrZfplyky69MOlbONTk3Bp4fAQdiX8uFKCvMIyAs1ZaEt7UBl3Uti4hoiY"/>
+</div>
+</div>
+</header>
+<main class="pt-16 pb-20 md:pb-0 h-screen flex flex-col md:flex-row overflow-hidden">
+<!-- Left Panel: Real-time Campus Map -->
+<section class="flex-1 relative h-[512px] md:h-full border-r border-outline-variant/20">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover grayscale brightness-50 contrast-125" data-alt="A sophisticated dark-mode architectural map of a sprawling modern university campus. The map uses a palette of deep blacks and graphite grays, with glowing neon blue lines representing walking paths and soft red pulsing markers indicating incident locations. The visual style is high-utility, precision-engineered, and futuristic, following a cyber-minimalist aesthetic." data-location="Stanford University Campus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5kPDUMpe3Yr1AWdZLkn9hyA5w00DcOPG_51dl51zyQJOTP91MF5X6hRdnd17Z7XugQeSgxwWTPCBgstL2XjManfmxiEVWj5O_plkfUl3btAXVHCnCGqyPJA9EVPAkF2l8dH2Ygzt6Azyz5ARBWDFjH6_O2hDch5GDAfptLNTY6-4F-6fY-fE1-lj6WiizxSuJFXAWXNei6mdxvph-6QETD4HJzm6lwY5QZAeM3XkssBKT6bbXyyJ_IdnZVVz51cmusHyDYon8fNY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50"></div>
+</div>
+<!-- Map Overlays -->
+<div class="absolute top-md left-md z-10 flex flex-col gap-sm">
+<div class="glass-card p-sm rounded-lg flex items-center gap-sm">
+<div class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></div>
+<span class="font-label-md text-label-md text-secondary-container">LIVE DATA FEED</span>
+</div>
+</div>
+<div class="absolute bottom-md left-md z-10 flex gap-sm">
+<button class="glass-card px-md py-sm rounded-lg flex items-center gap-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined">layers</span>
+<span class="font-label-md text-label-md">LAYERS</span>
+</button>
+<button class="glass-card px-md py-sm rounded-lg flex items-center gap-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined">near_me</span>
+<span class="font-label-md text-label-md">RECENTER</span>
+</button>
+</div>
+<!-- Active Pings (Simulated on Map) -->
+<div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 group">
+<div class="relative">
+<div class="absolute -inset-4 bg-tertiary-container/30 rounded-full blur-xl animate-pulse"></div>
+<div class="w-10 h-10 bg-tertiary-container rounded-full flex items-center justify-center border-2 border-on-tertiary shadow-lg cursor-pointer">
+<span class="material-symbols-outlined text-on-tertiary fill-icon" style="font-variation-settings: 'FILL' 1;">emergency</span>
+</div>
+</div>
+</div>
+<div class="absolute bottom-1/4 right-1/3 z-20 group">
+<div class="relative">
+<div class="w-8 h-8 bg-secondary-container rounded-full flex items-center justify-center border-2 border-on-secondary shadow-lg cursor-pointer">
+<span class="material-symbols-outlined text-on-secondary text-[18px] fill-icon" style="font-variation-settings: 'FILL' 1;">directions_walk</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Panel: Dispatch Queue & Comms -->
+<section class="w-full md:w-[450px] bg-surface-container-low flex flex-col h-full overflow-hidden">
+<!-- Queue Header -->
+<div class="p-lg border-b border-outline-variant/20 flex justify-between items-center bg-surface-container">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary">Incident Queue</h2>
+<p class="font-label-md text-label-md text-on-surface-variant">3 High Priority • 2 Escorts</p>
+</div>
+<button class="bg-tertiary-container hover:bg-tertiary text-on-tertiary-container font-label-md text-label-md px-md py-sm rounded-lg flex items-center gap-xs transition-colors">
+<span class="material-symbols-outlined text-[20px]">broadcast_on_home</span>
+          ALL-CLEAR
+        </button>
+</div>
+<!-- Active Requests List -->
+<div class="flex-1 overflow-y-auto p-md space-y-md custom-scrollbar">
+<!-- SOS Incident (High Priority) -->
+<div class="glass-card p-lg rounded-xl border-l-4 border-l-tertiary-container emergency-glow">
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-tertiary-container fill-icon" style="font-variation-settings: 'FILL' 1;">emergency</span>
+<span class="font-label-md text-label-md text-tertiary-container tracking-widest uppercase">SOS ALERT</span>
+</div>
+<span class="text-on-surface-variant font-label-md text-[12px]">2m ago</span>
+</div>
+<h3 class="font-headline-md text-[20px] mb-xs">Library North Wing</h3>
+<p class="text-on-surface-variant font-body-md text-sm mb-lg">Student: Sarah Jenkins • Floor 2, Study Pod C</p>
+<!-- Dispatch Controls -->
+<div class="flex gap-sm">
+<button class="flex-1 bg-primary text-on-primary py-sm rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity">
+              DISPATCH UNIT 4
+            </button>
+<button class="px-md bg-surface-container-highest text-on-surface py-sm rounded-lg hover:bg-outline-variant/30 transition-colors">
+<span class="material-symbols-outlined">forum</span>
+</button>
+</div>
+</div>
+<!-- Safe Walk Request -->
+<div class="glass-card p-lg rounded-xl border-l-4 border-l-secondary-container">
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary-container fill-icon" style="font-variation-settings: 'FILL' 1;">directions_walk</span>
+<span class="font-label-md text-label-md text-secondary-container tracking-widest uppercase">WALK ESCORT</span>
+</div>
+<span class="text-on-surface-variant font-label-md text-[12px]">5m ago</span>
+</div>
+<h3 class="font-headline-md text-[20px] mb-xs">Science Plaza → Lot G</h3>
+<p class="text-on-surface-variant font-body-md text-sm mb-lg">Student: Marcus V. • Estim. 12 min walk</p>
+<div class="flex gap-sm">
+<button class="flex-1 border border-secondary-container text-secondary-container py-sm rounded-lg font-label-md text-label-md hover:bg-secondary-container/10 transition-colors">
+              ASSIGN OFFICER
+            </button>
+<button class="px-md bg-surface-container-highest text-on-surface py-sm rounded-lg hover:bg-outline-variant/30 transition-colors">
+<span class="material-symbols-outlined">forum</span>
+</button>
+</div>
+</div>
+<!-- Routine Node Check -->
+<div class="glass-card p-lg rounded-xl border-l-4 border-l-outline opacity-70">
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-outline">hub</span>
+<span class="font-label-md text-label-md text-outline tracking-widest uppercase">NODE STATUS</span>
+</div>
+<span class="text-on-surface-variant font-label-md text-[12px]">12m ago</span>
+</div>
+<h3 class="font-headline-md text-[20px] mb-xs">Node #42 Offline</h3>
+<p class="text-on-surface-variant font-body-md text-sm mb-lg">Location: West Gate Entrance • Technical</p>
+<button class="w-full bg-surface-container-highest text-on-surface py-sm rounded-lg font-label-md text-label-md hover:bg-outline-variant/30 transition-colors">
+            LOG MAINTENANCE
+          </button>
+</div>
+</div>
+<!-- Quick Communication Hub (Fixed at bottom of right panel) -->
+<div class="p-lg bg-surface border-t border-outline-variant/20">
+<div class="relative">
+<input class="w-full bg-background border-outline-variant/30 rounded-full py-sm px-xl text-on-surface font-body-md focus:ring-1 focus:ring-primary focus:border-primary placeholder:text-on-surface-variant/50" placeholder="Broadcast to all units..." type="text"/>
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant">send</span>
+<div class="absolute right-md top-1/2 -translate-y-1/2 flex gap-sm">
+<button class="material-symbols-outlined text-primary">mic</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center h-20 pb-safe px-4 bg-surface/80 backdrop-blur-xl border-t border-outline-variant/30 shadow-[0_-4px_20px_rgba(0,112,255,0.1)] rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary-fixed-dim">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-label-md text-label-md">Verify</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary-fixed-dim">
+<span class="material-symbols-outlined">badge</span>
+<span class="font-label-md text-label-md">Profile</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary-fixed-dim">
+<span class="material-symbols-outlined">hub</span>
+<span class="font-label-md text-label-md">Nodes</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary fill-primary scale-110 transition-transform duration-200">
+<span class="material-symbols-outlined fill-icon" style="font-variation-settings: 'FILL' 1;">admin_panel_settings</span>
+<span class="font-label-md text-label-md">Security</span>
+</div>
+</nav>
+</body></html>

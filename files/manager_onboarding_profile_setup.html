@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SafeCampus - Manager Onboarding Step 2</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&amp;family=Manrope:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-lowest": "#0e0e0e",
+                      "tertiary-fixed-dim": "#ffb3b3",
+                      "surface": "#131313",
+                      "primary-fixed-dim": "#b0c6ff",
+                      "on-tertiary-container": "#5b0011",
+                      "secondary": "#bdf4ff",
+                      "inverse-on-surface": "#313030",
+                      "secondary-container": "#00e3fd",
+                      "primary": "#b0c6ff",
+                      "secondary-fixed-dim": "#00daf3",
+                      "on-primary-container": "#002661",
+                      "background": "#131313",
+                      "secondary-fixed": "#9cf0ff",
+                      "outline-variant": "#424655",
+                      "on-error-container": "#ffdad6",
+                      "on-secondary-container": "#00616d",
+                      "surface-container-high": "#2a2a2a",
+                      "tertiary-container": "#ff5260",
+                      "on-tertiary-fixed-variant": "#920021",
+                      "on-background": "#e5e2e1",
+                      "on-tertiary-fixed": "#400009",
+                      "on-surface": "#e5e2e1",
+                      "surface-dim": "#131313",
+                      "primary-container": "#568dff",
+                      "surface-container-highest": "#353534",
+                      "surface-variant": "#353534",
+                      "on-primary": "#002d6f",
+                      "inverse-primary": "#0058cb",
+                      "tertiary-fixed": "#ffdad9",
+                      "tertiary": "#ffb3b3",
+                      "error-container": "#93000a",
+                      "on-secondary-fixed-variant": "#004f58",
+                      "on-tertiary": "#680015",
+                      "inverse-surface": "#e5e2e1",
+                      "surface-container": "#201f1f",
+                      "on-error": "#690005",
+                      "outline": "#8c90a1",
+                      "on-primary-fixed": "#001945",
+                      "error": "#ffb4ab",
+                      "on-secondary": "#00363d",
+                      "on-secondary-fixed": "#001f24",
+                      "on-primary-fixed-variant": "#00429c",
+                      "surface-bright": "#3a3939",
+                      "surface-tint": "#b0c6ff",
+                      "on-surface-variant": "#c2c6d8",
+                      "primary-fixed": "#d9e2ff",
+                      "surface-container-low": "#1c1b1b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "64px",
+                      "gutter": "16px",
+                      "unit": "4px",
+                      "sm": "8px",
+                      "lg": "24px",
+                      "xs": "4px",
+                      "xl": "40px",
+                      "margin-mobile": "20px",
+                      "md": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Sora"],
+                      "body-lg": ["Manrope"],
+                      "label-md": ["Manrope"],
+                      "headline-lg": ["Sora"],
+                      "headline-md": ["Sora"],
+                      "display-lg": ["Sora"],
+                      "body-md": ["Manrope"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .cyber-input:focus {
+            outline: none;
+            border-bottom-color: #b0c6ff;
+            box-shadow: 0 4px 20px rgba(0, 112, 255, 0.15);
+        }
+        .cyber-button {
+            position: relative;
+        }
+        .cyber-button:hover::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 1px solid #b0c6ff;
+            border-radius: inherit;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="text-on-surface antialiased min-h-screen flex flex-col items-center justify-center p-margin-mobile md:p-margin-desktop bg-[url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&amp;w=2564&amp;auto=format&amp;fit=crop')] bg-cover bg-center bg-no-repeat bg-fixed relative" data-alt="A dark, abstract digital background with subtle, deep blue and black fluid gradients. The scene is minimal and futuristic, representing a secure digital environment. Faint, glowing neon blue lines weave through the deep black void, establishing a cyber-minimal aesthetic. The overall mood is vigilant, calm, and highly technical, perfect for a high-security administrative interface.">
+<div class="absolute inset-0 bg-[#050505]/90 backdrop-blur-3xl z-0"></div>
+<main class="w-full max-w-[600px] z-10 flex flex-col gap-lg">
+<!-- Header / Progress -->
+<header class="flex flex-col items-center text-center gap-sm mb-sm">
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Profile &amp; Credentials</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Step 2 of 4</p>
+<div class="flex gap-2 mt-sm w-full max-w-[200px] justify-center">
+<div class="h-1 flex-1 bg-primary rounded-full opacity-40"></div>
+<div class="h-1 flex-1 bg-primary rounded-full shadow-[0_0_10px_rgba(176,198,255,0.5)]"></div>
+<div class="h-1 flex-1 bg-surface-container-high rounded-full"></div>
+<div class="h-1 flex-1 bg-surface-container-high rounded-full"></div>
+</div>
+</header>
+<!-- Form Container -->
+<section class="glass-panel rounded-xl p-lg md:p-xl flex flex-col gap-lg w-full">
+<form class="flex flex-col gap-lg">
+<!-- Full Name -->
+<div class="flex flex-col gap-xs relative group">
+<label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-sm" for="fullName">
+<span class="material-symbols-outlined text-[16px]">person</span>
+                        Full Name
+                    </label>
+<input class="cyber-input bg-[#050505] border-t-0 border-l-0 border-r-0 border-b border-outline-variant/30 text-on-surface font-body-lg text-body-lg py-sm px-0 transition-all duration-300 w-full placeholder:text-on-surface-variant/50" id="fullName" placeholder="Enter your full legal name" type="text"/>
+</div>
+<!-- University ID -->
+<div class="flex flex-col gap-xs relative group">
+<label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-sm" for="uniId">
+<span class="material-symbols-outlined text-[16px]">badge</span>
+                        University ID Number
+                    </label>
+<input class="cyber-input bg-[#050505] border-t-0 border-l-0 border-r-0 border-b border-outline-variant/30 text-on-surface font-body-lg text-body-lg py-sm px-0 transition-all duration-300 w-full placeholder:text-on-surface-variant/50" id="uniId" placeholder="e.g. SC-1029384" type="text"/>
+</div>
+<!-- Official Email -->
+<div class="flex flex-col gap-xs relative group">
+<label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-sm" for="email">
+<span class="material-symbols-outlined text-[16px]">mail</span>
+                        Official Email
+                    </label>
+<input class="cyber-input bg-[#050505] border-t-0 border-l-0 border-r-0 border-b border-outline-variant/30 text-on-surface font-body-lg text-body-lg py-sm px-0 transition-all duration-300 w-full placeholder:text-on-surface-variant/50" id="email" placeholder="manager@university.edu" type="email"/>
+</div>
+<!-- ID Upload Area -->
+<div class="flex flex-col gap-sm mt-sm">
+<label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-sm">
+<span class="material-symbols-outlined text-[16px]">upload_file</span>
+                        Staff ID Scan
+                    </label>
+<div class="border border-dashed border-outline-variant/50 rounded-lg bg-[#050505]/50 p-lg flex flex-col items-center justify-center text-center gap-sm cursor-pointer hover:border-primary/50 transition-colors group">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_photo_alternate</span>
+</div>
+<div>
+<p class="font-body-md text-body-md text-on-surface">Click to upload digital ID</p>
+<p class="font-label-md text-label-md text-on-surface-variant mt-xs">JPEG, PNG or PDF (Max 5MB)</p>
+</div>
+</div>
+</div>
+</form>
+</section>
+<!-- Action Buttons -->
+<div class="flex justify-between items-center mt-sm w-full">
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface flex items-center gap-sm transition-colors py-sm px-md">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                Back
+            </button>
+<button class="cyber-button bg-primary text-on-primary-container font-label-md text-label-md py-md px-xl rounded-lg flex items-center gap-sm hover:brightness-110 transition-all shadow-[0_4px_20px_rgba(176,198,255,0.15)]">
+                Continue
+                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guardian Shield | Emergency Broadcast Protocol</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .emergency-glow {
+            box-shadow: 0 0 30px rgba(255, 82, 96, 0.15);
+            border: 1px solid rgba(255, 82, 96, 0.3);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-high": "#2a2a2a",
+                      "outline-variant": "#424655",
+                      "on-tertiary-fixed-variant": "#920021",
+                      "on-secondary-fixed": "#001f24",
+                      "on-primary-container": "#002661",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-error-container": "#ffdad6",
+                      "inverse-primary": "#0058cb",
+                      "surface-variant": "#353534",
+                      "primary-fixed-dim": "#b0c6ff",
+                      "primary-fixed": "#d9e2ff",
+                      "inverse-surface": "#e5e2e1",
+                      "tertiary": "#ffb3b3",
+                      "on-secondary-container": "#00616d",
+                      "on-secondary": "#00363d",
+                      "on-primary-fixed-variant": "#00429c",
+                      "tertiary-fixed": "#ffdad9",
+                      "surface-tint": "#b0c6ff",
+                      "surface-container": "#201f1f",
+                      "surface-container-low": "#1c1b1b",
+                      "on-background": "#e5e2e1",
+                      "background": "#131313",
+                      "primary-container": "#568dff",
+                      "on-primary-fixed": "#001945",
+                      "surface": "#131313",
+                      "on-secondary-fixed-variant": "#004f58",
+                      "error": "#ffb4ab",
+                      "tertiary-container": "#ff5260",
+                      "on-tertiary": "#680015",
+                      "surface-bright": "#3a3939",
+                      "surface-dim": "#131313",
+                      "on-surface": "#e5e2e1",
+                      "secondary-container": "#00e3fd",
+                      "on-error": "#690005",
+                      "primary": "#b0c6ff",
+                      "on-tertiary-fixed": "#400009",
+                      "on-tertiary-container": "#5b0011",
+                      "secondary-fixed-dim": "#00daf3",
+                      "secondary-fixed": "#9cf0ff",
+                      "secondary": "#bdf4ff",
+                      "error-container": "#93000a",
+                      "inverse-on-surface": "#313030",
+                      "tertiary-fixed-dim": "#ffb3b3",
+                      "on-primary": "#002d6f",
+                      "outline": "#8c90a1",
+                      "on-surface-variant": "#c2c6d8",
+                      "surface-container-highest": "#353534"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "20px",
+                      "lg": "24px",
+                      "sm": "8px",
+                      "xs": "4px",
+                      "md": "16px",
+                      "margin-desktop": "64px",
+                      "unit": "4px",
+                      "xl": "40px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "label-md": ["Manrope"],
+                      "body-md": ["Manrope"],
+                      "body-lg": ["Manrope"],
+                      "display-lg": ["Sora"],
+                      "headline-lg": ["Sora"],
+                      "headline-md": ["Sora"],
+                      "headline-lg-mobile": ["Sora"]
+              },
+              "fontSize": {
+                      "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary/30">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-[0_4px_20px_rgba(0,112,255,0.15)]">
+<div class="flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop w-full max-w-full">
+<div class="flex items-center gap-4">
+<span class="font-display-lg text-headline-md text-primary tracking-tighter">Guardian Shield</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<nav class="flex gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#">Dashboard</a>
+<a class="text-primary font-bold hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#">Knowledge Base</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#">Incident Log</a>
+</nav>
+<div class="flex items-center gap-4 ml-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">help</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">notifications</span>
+<img alt="Manager Profile Avatar" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="A professional headshot of a security operations manager in a dimly lit, high-tech command center. The lighting is low-key with subtle blue neon highlights from nearby monitors. The subject has a serious, focused expression, wearing a sleek black tactical uniform. The aesthetic is cyber-minimalist, clean, and authoritative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbf5802yKRtytKlXkagqI9cUArfMt_hHAVYEqD3K3qVw2Sm-wCGUCFMgamYaBKPIV-YXD87bMIu8XCe8GFAkh1LMO3fZ1syaQVOBe75qMPQ9ULNI9pa4OizBAVV6pnl_B3QF7QejhaWevKFYbjckCMN2Pd9T-GY5RWq4VLCONA5BFVqmWImWvcX7YCkj9p96GjxN3QLOF4L4XFcbXS3cSXL-W3Ri90x2NYU0KBlTL8Q5AuXNlI6TfYDHcDjV-QqSOe3DEOm2hSQfo"/>
+</div>
+</div>
+<!-- Mobile Search Toggle -->
+<div class="md:hidden flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">search</span>
+</div>
+</div>
+</header>
+<div class="flex min-h-screen pt-16">
+<!-- SideNavBar (Desktop Only) -->
+<aside class="h-screen w-64 hidden md:flex flex-col fixed left-0 top-0 pt-16 bg-surface-container-low/50 backdrop-blur-2xl border-r border-outline-variant/20 z-40">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">security</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-primary text-[18px]">Safety Hub</div>
+<div class="text-[12px] text-on-surface-variant uppercase tracking-widest font-bold">Vigilance Active</div>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="text-on-surface-variant hover:bg-surface-variant/10 px-4 py-3 flex items-center gap-3 rounded-lg transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="bg-primary-container/20 text-primary border-l-4 border-primary px-4 py-3 flex items-center gap-3 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">book_2</span>
+<span class="font-label-md text-label-md">Knowledge Base</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-variant/10 px-4 py-3 flex items-center gap-3 rounded-lg transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">security</span>
+<span class="font-label-md text-label-md">Incident Log</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-variant/10 px-4 py-3 flex items-center gap-3 rounded-lg transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">campaign</span>
+<span class="font-label-md text-label-md">Broadcast</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-variant/10 px-4 py-3 flex items-center gap-3 rounded-lg transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">settings</span>
+<span class="font-label-md text-label-md">System Admin</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto p-6 space-y-4 border-t border-outline-variant/10">
+<button class="w-full py-3 bg-primary text-on-primary rounded-xl font-bold flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined text-[20px]">contact_support</span>
+                    Contact Support
+                </button>
+<div class="space-y-1">
+<a class="text-on-surface-variant hover:bg-surface-variant/10 px-4 py-2 flex items-center gap-3 rounded-lg text-sm" href="#">
+<span class="material-symbols-outlined text-[18px]">admin_panel_settings</span> Security Settings
+                    </a>
+<a class="text-on-surface-variant hover:bg-surface-variant/10 px-4 py-2 flex items-center gap-3 rounded-lg text-sm" href="#">
+<span class="material-symbols-outlined text-[18px]">logout</span> Logout
+                    </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 ml-0 md:ml-64 p-margin-mobile md:p-margin-desktop pb-24 md:pb-12">
+<div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left: Table of Contents -->
+<nav class="hidden lg:block lg:col-span-3 space-y-6 sticky top-24 h-fit">
+<div class="glass-card p-6 rounded-2xl">
+<h3 class="font-headline-md text-headline-md text-[16px] text-primary mb-6">ON THIS PAGE</h3>
+<ul class="space-y-4">
+<li><a class="text-on-surface font-label-md text-label-md hover:text-primary transition-colors flex items-center gap-2" href="#overview"><div class="w-1.5 h-1.5 rounded-full bg-primary"></div>Overview</a></li>
+<li><a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors flex items-center gap-2" href="#broadcast-types"><div class="w-1.5 h-1.5 rounded-full bg-transparent border border-outline-variant"></div>Broadcast Types</a></li>
+<li><a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors flex items-center gap-2" href="#activation-steps"><div class="w-1.5 h-1.5 rounded-full bg-transparent border border-outline-variant"></div>Activation Steps</a></li>
+<li><a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors flex items-center gap-2" href="#critical-alerts"><div class="w-1.5 h-1.5 rounded-full bg-transparent border border-outline-variant"></div>Critical Alerts</a></li>
+<li><a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors flex items-center gap-2" href="#post-broadcast"><div class="w-1.5 h-1.5 rounded-full bg-transparent border border-outline-variant"></div>Post-Broadcast Logic</a></li>
+</ul>
+</div>
+<div class="glass-card p-6 rounded-2xl bg-primary/5 border-primary/20">
+<p class="text-sm text-on-surface-variant mb-4">Was this helpful?</p>
+<div class="flex gap-4">
+<button class="flex-1 py-2 glass-card rounded-lg flex items-center justify-center gap-2 hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-[18px]">thumb_up</span>
+</button>
+<button class="flex-1 py-2 glass-card rounded-lg flex items-center justify-center gap-2 hover:bg-error/10 transition-colors">
+<span class="material-symbols-outlined text-[18px]">thumb_down</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Center: Content -->
+<article class="lg:col-span-6 space-y-12">
+<header>
+<nav class="flex items-center gap-2 text-on-surface-variant text-sm mb-4">
+<a class="hover:text-primary" href="#">Knowledge Base</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-primary" href="#">Security Procedures</a>
+</nav>
+<h1 class="font-display-lg text-headline-lg md:text-display-lg text-on-surface mb-6">Emergency Broadcast Protocol</h1>
+<div class="flex items-center gap-4 text-on-surface-variant text-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">history</span> Updated 2h ago</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">visibility</span> 1.2k views</span>
+</div>
+</header>
+<section class="space-y-6" id="overview">
+<p class="font-body-lg text-body-lg leading-relaxed text-on-surface-variant">
+                            The Emergency Broadcast Protocol (EBP) is the primary defensive communication layer within the Guardian Shield ecosystem. It allows campus administrators to push instantaneous, un-dismissible alerts across all mobile devices, digital signage, and connected security nodes during high-priority incidents.
+                        </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="glass-card p-6 rounded-2xl">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-secondary-fixed-dim">speed</span>
+</div>
+<h4 class="font-bold mb-2">3-Second Latency</h4>
+<p class="text-sm text-on-surface-variant">Guaranteed delivery to 98.4% of devices in under 3 seconds.</p>
+</div>
+<div class="glass-card p-6 rounded-2xl">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary">cell_tower</span>
+</div>
+<h4 class="font-bold mb-2">Multi-Channel</h4>
+<p class="text-sm text-on-surface-variant">Parallel push via SMS, App Notification, and Desktop HUD.</p>
+</div>
+</div>
+</section>
+<section class="space-y-8" id="activation-steps">
+<h2 class="font-headline-lg text-headline-lg text-on-surface border-l-4 border-primary pl-6">Activation Steps</h2>
+<div class="space-y-12">
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 rounded-xl bg-surface-container-high border border-outline-variant flex items-center justify-center font-display-lg text-headline-md text-primary">01</div>
+<div class="space-y-3">
+<h3 class="font-headline-md text-headline-md">Initialize the Command Core</h3>
+<p class="text-on-surface-variant leading-relaxed">Access the 'Broadcast' module from the primary navigation. Verify your biometric credentials if prompted. This step ensures that only authorized personnel can initiate campus-wide alerts.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 rounded-xl bg-surface-container-high border border-outline-variant flex items-center justify-center font-display-lg text-headline-md text-primary">02</div>
+<div class="space-y-3">
+<h3 class="font-headline-md text-headline-md">Select Threat Level</h3>
+<p class="text-on-surface-variant leading-relaxed">Choose from pre-defined templates or select 'Custom' for unique scenarios. Threat levels are color-coded: <span class="text-secondary-fixed-dim">Cyan (Standard)</span>, <span class="text-tertiary">Amber (Caution)</span>, and <span class="text-error font-bold">Crimson (Critical)</span>.</p>
+<div class="glass-card p-4 rounded-xl border-dashed">
+<p class="text-sm italic text-on-surface-variant">Note: Templates include "Shelter in Place", "Inclement Weather", and "Facility Lockdown".</p>
+</div>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 rounded-xl bg-surface-container-high border border-outline-variant flex items-center justify-center font-display-lg text-headline-md text-primary">03</div>
+<div class="space-y-3">
+<h3 class="font-headline-md text-headline-md">Geofence Definition</h3>
+<p class="text-on-surface-variant leading-relaxed">Draw the affected area on the interactive grid. Users entering or leaving this zone will receive automated follow-up instructions based on their GPS coordinates.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="emergency-glow p-8 rounded-3xl bg-tertiary-container/5 relative overflow-hidden" id="critical-alerts">
+<div class="absolute top-0 right-0 p-8 opacity-10">
+<span class="material-symbols-outlined text-[120px] text-error">warning</span>
+</div>
+<div class="relative z-10 space-y-4">
+<div class="flex items-center gap-3 text-error">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">emergency</span>
+<h2 class="font-headline-md text-headline-md">Critical Alerts &amp; Overrides</h2>
+</div>
+<p class="font-bold text-on-error-container">The 'Critical' alert state overrides Do Not Disturb (DND) and Focus modes on all supported hardware. This is reserved for immediate life-safety threats ONLY.</p>
+<ul class="space-y-2 text-on-surface-variant">
+<li class="flex items-start gap-2"><span class="material-symbols-outlined text-error text-[20px]">check_circle</span> Audible alarms will trigger at maximum system volume.</li>
+<li class="flex items-start gap-2"><span class="material-symbols-outlined text-error text-[20px]">check_circle</span> Screen brightness will be forced to 100% to ensure readability in all conditions.</li>
+<li class="flex items-start gap-2"><span class="material-symbols-outlined text-error text-[20px]">check_circle</span> Local authorities are automatically patched into the live audio feed.</li>
+</ul>
+</div>
+</section>
+<section class="space-y-6" id="post-broadcast">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Post-Broadcast Analysis</h2>
+<p class="text-on-surface-variant leading-relaxed">
+                            Once the incident is resolved, a comprehensive report is generated. This includes heatmaps of user movement during the alert, acknowledgement rates, and response time metrics. This data is critical for refining future emergency responses.
+                        </p>
+<div class="glass-card rounded-2xl overflow-hidden aspect-video relative">
+<img class="w-full h-full object-cover opacity-50 grayscale" data-alt="A sophisticated data visualization dashboard showing a dark-themed world map with neon blue data points and glowing amber alert paths. The UI is futuristic and clean, featuring complex graphs and real-time security analytics. The mood is high-tech, focused, and professional, utilizing a deep black background and luminous blue accents to emphasize security monitoring." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgGuG9dCt8VWSxV_y2ZaOQMzci63rb8F_XXxVePZTyFn1XZQ-EmuFkXb4Bb1PLZbj4EslXoI6xCNtTF7zxYsR7s-aP4A9hO3sJFiYHfijhvPXI4xm5d6UDn-82XiJIBwptjNQeDJGBIXMkmccz_BmKGBCmL3nyx-XOhsC_E_iu3smc0Qg16MvICTENGLV3Bp4ZGZo3if0cuOYOAcEUOkYxgA_Ld6RrE0cl9kyiXTBQDkskW2dGyCeaqT8UzJsoe_zsVeMdZlxZDV8"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<button class="p-4 bg-primary text-on-primary rounded-full shadow-lg hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</div>
+<p class="text-center text-sm text-outline">Video Tutorial: Analyzing Incident Response Data (4:20)</p>
+</section>
+</article>
+<!-- Right: Related Articles Sidebar -->
+<aside class="lg:col-span-3 space-y-8">
+<div class="glass-card p-6 rounded-2xl">
+<h3 class="font-headline-md text-headline-md text-[16px] text-primary mb-6">RELATED ARTICLES</h3>
+<div class="space-y-6">
+<a class="group block space-y-2" href="#">
+<h4 class="font-bold text-on-surface group-hover:text-primary transition-colors">Lockdown Sequence Omega</h4>
+<p class="text-xs text-on-surface-variant line-clamp-2">Detailed guide on secondary containment protocols and biometric sealing mechanisms.</p>
+</a>
+<div class="h-px bg-outline-variant/20"></div>
+<a class="group block space-y-2" href="#">
+<h4 class="font-bold text-on-surface group-hover:text-primary transition-colors">Biometric Auth Recovery</h4>
+<p class="text-xs text-on-surface-variant line-clamp-2">Steps to follow if facial recognition or fingerprint sensors fail during an alert.</p>
+</a>
+<div class="h-px bg-outline-variant/20"></div>
+<a class="group block space-y-2" href="#">
+<h4 class="font-bold text-on-surface group-hover:text-primary transition-colors">Mobile Hub Offline Mode</h4>
+<p class="text-xs text-on-surface-variant line-clamp-2">Maintaining connectivity when campus Wi-Fi or cellular networks are compromised.</p>
+</a>
+</div>
+</div>
+<div class="glass-card p-6 rounded-2xl space-y-4">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined">description</span>
+<span class="font-bold">Resource Pack</span>
+</div>
+<p class="text-sm text-on-surface-variant">Download the 2024 Safety Protocol Handbook (PDF, 12MB)</p>
+<button class="w-full py-2 border border-primary/30 text-primary rounded-lg text-sm font-bold hover:bg-primary/10 transition-colors">
+                            Download Now
+                        </button>
+</div>
+<div class="bg-surface-container-high rounded-2xl p-6 relative overflow-hidden group cursor-pointer">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent"></div>
+<div class="relative z-10 space-y-3">
+<h4 class="font-bold">Join Training Session</h4>
+<p class="text-xs text-on-surface-variant">Live demo of the Broadcast Protocol next Tuesday at 10:00 AM.</p>
+<span class="text-primary text-xs font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">Register Now <span class="material-symbols-outlined text-[14px]">arrow_forward</span></span>
+</div>
+</div>
+</aside>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full md:hidden z-50 rounded-t-xl bg-background/90 backdrop-blur-lg border-t border-outline-variant/30 shadow-[0_-4px_20px_rgba(0,112,255,0.1)]">
+<div class="flex justify-around items-center h-20 px-4 pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-[10px] mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary bg-primary-container/10 rounded-xl p-2 px-4" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="font-label-md text-[10px] mt-1">KB</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2" href="#">
+<span class="material-symbols-outlined">emergency</span>
+<span class="font-label-md text-[10px] mt-1">Alerts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2" href="#">
+<span class="material-symbols-outlined">contact_support</span>
+<span class="font-label-md text-[10px] mt-1">Support</span>
+</a>
+</div>
+</nav>
+</body></html>

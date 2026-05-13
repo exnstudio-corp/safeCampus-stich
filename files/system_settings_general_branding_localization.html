@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#bdf4ff",
+                    "surface-container-low": "#1c1b1b",
+                    "inverse-on-surface": "#313030",
+                    "surface-bright": "#3a3939",
+                    "tertiary-container": "#ff5260",
+                    "secondary-container": "#00e3fd",
+                    "on-surface-variant": "#c2c6d8",
+                    "tertiary": "#ffb3b3",
+                    "inverse-primary": "#0058cb",
+                    "surface-container-high": "#2a2a2a",
+                    "error": "#ffb4ab",
+                    "outline": "#8c90a1",
+                    "on-background": "#e5e2e1",
+                    "on-tertiary-fixed-variant": "#920021",
+                    "on-secondary-container": "#00616d",
+                    "error-container": "#93000a",
+                    "background": "#131313",
+                    "primary-container": "#568dff",
+                    "surface-container": "#201f1f",
+                    "inverse-surface": "#e5e2e1",
+                    "tertiary-fixed": "#ffdad9",
+                    "surface-variant": "#353534",
+                    "on-primary-fixed": "#001945",
+                    "secondary-fixed": "#9cf0ff",
+                    "on-primary-container": "#002661",
+                    "surface-dim": "#131313",
+                    "primary": "#b0c6ff",
+                    "on-secondary": "#00363d",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-tertiary-container": "#5b0011",
+                    "surface": "#131313",
+                    "on-surface": "#e5e2e1",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-highest": "#353534",
+                    "tertiary-fixed-dim": "#ffb3b3",
+                    "outline-variant": "#424655",
+                    "on-secondary-fixed": "#001f24",
+                    "surface-tint": "#b0c6ff",
+                    "on-primary-fixed-variant": "#00429c",
+                    "on-tertiary": "#680015",
+                    "secondary-fixed-dim": "#00daf3",
+                    "primary-fixed": "#d9e2ff",
+                    "on-tertiary-fixed": "#400009",
+                    "on-secondary-fixed-variant": "#004f58",
+                    "on-primary": "#002d6f",
+                    "primary-fixed-dim": "#b0c6ff",
+                    "on-error": "#690005"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "xl": "40px",
+                    "sm": "8px",
+                    "gutter": "16px",
+                    "lg": "24px",
+                    "margin-mobile": "20px",
+                    "xs": "4px",
+                    "unit": "4px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "label-md": ["Manrope"],
+                    "headline-md": ["Sora"],
+                    "body-md": ["Manrope"],
+                    "headline-lg-mobile": ["Sora"],
+                    "body-lg": ["Manrope"],
+                    "headline-lg": ["Sora"],
+                    "display-lg": ["Sora"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #e5e2e1;
+        }
+        .glass-card {
+            backdrop-filter: blur(20px);
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .neon-glow {
+            box-shadow: 0px 4px 20px rgba(0, 112, 255, 0.15);
+        }
+        .cyber-border-focus:focus-within {
+            border-bottom: 2px solid #b0c6ff;
+            box-shadow: 0 4px 12px -4px rgba(176, 198, 255, 0.4);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex font-body-md bg-background overflow-hidden">
+<!-- SideNavBar Component -->
+<aside class="hidden md:flex flex-col h-screen p-md space-y-2 bg-surface-container-lowest/50 backdrop-blur-2xl border-r border-white/5 docked h-full left-0 w-64">
+<div class="mb-xl px-sm">
+<h1 class="font-headline-lg text-primary">GuardianOS</h1>
+<div class="flex items-center mt-md gap-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center border border-white/10">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div>
+<p class="font-label-md text-on-surface leading-none">System Node</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mt-1">v4.2.0-Secure</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="group flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-white/5 hover:bg-surface-variant/30 transition-all duration-300 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">gpp_maybe</span>
+<span>Security</span>
+</a>
+<a class="group flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-white/5 hover:bg-surface-variant/30 transition-all duration-300 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">notifications_active</span>
+<span>Notifications</span>
+</a>
+<a class="group flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-white/5 hover:bg-surface-variant/30 transition-all duration-300 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">lan</span>
+<span>Network</span>
+</a>
+<a class="group flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-white/5 hover:bg-surface-variant/30 transition-all duration-300 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">api</span>
+<span>API</span>
+</a>
+<a class="group flex items-center gap-md px-md py-sm rounded-lg bg-primary/10 text-primary border-r-4 border-primary transition-all duration-300 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">settings</span>
+<span>General</span>
+</a>
+</nav>
+<div class="mt-auto p-sm">
+<button class="w-full py-3 rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:brightness-110 active:scale-95 transition-all neon-glow">
+                Backup System
+            </button>
+</div>
+</aside>
+<div class="flex-1 flex flex-col h-screen overflow-hidden">
+<!-- TopNavBar Component -->
+<header class="flex justify-between items-center px-margin-desktop w-full h-16 bg-surface/80 backdrop-blur-xl border-b border-white/10 shadow-[0px_4px_20px_rgba(0,112,255,0.15)] z-50">
+<div class="flex items-center gap-xl">
+<div class="flex items-center gap-sm bg-surface-container-low px-md py-1.5 rounded-full border border-white/5">
+<span class="material-symbols-outlined text-primary text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-md w-64 text-on-surface-variant placeholder:text-outline/50" placeholder="Global system search..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-md pr-lg border-r border-white/10">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer active:scale-95 transition-colors duration-200">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer active:scale-95 transition-colors duration-200">wifi</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer active:scale-95 transition-colors duration-200">security</button>
+</div>
+<div class="flex items-center gap-sm pl-2">
+<div class="text-right hidden sm:block">
+<p class="font-label-md text-on-surface text-xs">Super Admin</p>
+<p class="text-[10px] text-primary">Node-01-Active</p>
+</div>
+<img alt="Administrator profile" class="w-8 h-8 rounded-full border border-primary/30" data-alt="A macro close-up portrait of a sleek, futuristic biometric identification scan interface displaying a highly detailed human eye with digital data overlays. The image uses a deep obsidian black background with sharp neon blue light grids and glowing circuitry lines. The style is ultra-high-definition cyber-minimalism with soft focus backgrounds." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrcZA-JTfuUHHZp1lXMLbhEFXk64BCs0qG0Z-NoEMYMpmKfjdZRdddddLszkI21EqqiFXtiSpb0jlToBpOdMyX94ny-J3Gw3GGBTo1rnRZxisti7ez_mSH6jhfvAlkmaQowGoFqBg4IyxneVMwmFgwra-6MwHTpu6AIkcnHqTvuxPYW3XkpUZot3qVv-MitSuR9LF6Yd98PLNAz6oo0ooUr27LBUJ__TN9R4o3lm3RjI1KfRwqrdC-RgrcvvaSsRXQLOOTUFxu_Vc"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 overflow-y-auto p-lg md:p-xl space-y-lg custom-scrollbar">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-md">
+<div>
+<h2 class="font-display-lg text-headline-lg text-on-surface tracking-tight">General Configuration</h2>
+<p class="font-body-md text-on-surface-variant max-w-xl">Configure the global identity and localization parameters for the SafeCampus ecosystem. These settings synchronize across all distributed nodes.</p>
+</div>
+<div class="flex gap-sm">
+<button class="px-lg py-2 border border-outline/20 rounded-lg text-label-md text-on-surface-variant hover:bg-white/5 transition-all">Revert Changes</button>
+<button class="px-lg py-2 bg-primary text-on-primary rounded-lg text-label-md font-bold neon-glow hover:brightness-110 active:scale-95 transition-all">Publish Config</button>
+</div>
+</div>
+<!-- Settings Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+<!-- Campus Identity Card -->
+<div class="md:col-span-8 glass-card rounded-xl p-lg space-y-lg">
+<div class="flex items-center gap-md border-b border-white/5 pb-md">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Campus Identity</h3>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-xl">
+<div class="space-y-sm cyber-border-focus">
+<label class="font-label-md text-xs text-primary uppercase tracking-widest">University Name</label>
+<input class="w-full bg-background/50 border-0 border-b border-white/10 py-3 text-on-surface font-body-md focus:ring-0" type="text" value="SafeCampus Global University"/>
+</div>
+<div class="space-y-sm cyber-border-focus">
+<label class="font-label-md text-xs text-primary uppercase tracking-widest">Campus Terminal ID</label>
+<input class="w-full bg-background/50 border-0 border-b border-white/10 py-3 text-on-surface font-body-md focus:ring-0" type="text" value="SC-NODE-992-ALPHA"/>
+</div>
+<div class="sm:col-span-2 space-y-sm cyber-border-focus">
+<label class="font-label-md text-xs text-primary uppercase tracking-widest">Administrative Domain</label>
+<input class="w-full bg-background/50 border-0 border-b border-white/10 py-3 text-on-surface font-body-md focus:ring-0" type="text" value="admin.safecampus.edu"/>
+</div>
+</div>
+</div>
+<!-- Branding / Logo Card -->
+<div class="md:col-span-4 glass-card rounded-xl p-lg flex flex-col items-center justify-center text-center space-y-md">
+<div class="w-24 h-24 rounded-2xl border-2 border-dashed border-primary/30 flex items-center justify-center bg-surface-container-lowest group cursor-pointer hover:border-primary transition-colors">
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-primary text-3xl">upload_file</span>
+<span class="text-[10px] text-on-surface-variant font-label-md uppercase">Upload Logo</span>
+</div>
+</div>
+<div>
+<h4 class="font-headline-md text-body-lg text-on-surface">System Branding</h4>
+<p class="text-xs text-on-surface-variant px-md mt-2">Recommended: SVG or PNG with transparency (512x512px).</p>
+</div>
+<div class="w-full pt-md flex justify-center gap-4">
+<div class="w-8 h-8 rounded-full bg-primary ring-2 ring-white ring-offset-4 ring-offset-background cursor-pointer"></div>
+<div class="w-8 h-8 rounded-full bg-secondary cursor-pointer hover:ring-2 hover:ring-white/50 transition-all"></div>
+<div class="w-8 h-8 rounded-full bg-tertiary-container cursor-pointer hover:ring-2 hover:ring-white/50 transition-all"></div>
+<div class="w-8 h-8 rounded-full bg-on-secondary-container cursor-pointer hover:ring-2 hover:ring-white/50 transition-all"></div>
+</div>
+</div>
+<!-- Localization Card -->
+<div class="md:col-span-12 glass-card rounded-xl p-lg">
+<div class="flex items-center gap-md border-b border-white/5 pb-md mb-lg">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">language</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Localization &amp; Regional</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-xl">
+<div class="space-y-sm">
+<label class="font-label-md text-xs text-primary uppercase tracking-widest">Primary Language</label>
+<div class="relative">
+<select class="w-full bg-surface-container-low border border-white/10 rounded-lg py-3 px-md text-on-surface appearance-none focus:ring-primary/50 focus:border-primary">
+<option>English (Global)</option>
+<option>Spanish (ES)</option>
+<option>Mandarin (ZH)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3.5 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+<div class="space-y-sm">
+<label class="font-label-md text-xs text-primary uppercase tracking-widest">System Timezone</label>
+<div class="relative">
+<select class="w-full bg-surface-container-low border border-white/10 rounded-lg py-3 px-md text-on-surface appearance-none focus:ring-primary/50 focus:border-primary">
+<option>(GMT-05:00) Eastern Time</option>
+<option>(GMT-08:00) Pacific Time</option>
+<option>(GMT+00:00) UTC</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3.5 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+<div class="space-y-sm">
+<label class="font-label-md text-xs text-primary uppercase tracking-widest">Measurement System</label>
+<div class="flex bg-surface-container-low border border-white/10 rounded-lg p-1">
+<button class="flex-1 py-2 rounded-md bg-primary text-on-primary text-xs font-bold transition-all">Metric (m/km)</button>
+<button class="flex-1 py-2 rounded-md text-on-surface-variant text-xs hover:text-on-surface transition-all">Imperial (ft/mi)</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Technical Diagnostics Card (Cyber-Minimal Accent) -->
+<div class="md:col-span-12 glass-card rounded-xl border-l-4 border-l-primary p-lg overflow-hidden relative">
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-md relative z-10">
+<div class="flex items-center gap-lg">
+<div class="p-3 bg-primary/10 rounded-full">
+<span class="material-symbols-outlined text-primary text-3xl">terminal</span>
+</div>
+<div>
+<h4 class="font-headline-md text-body-lg text-on-surface">Configuration Integrity</h4>
+<p class="text-sm text-on-surface-variant">Last localized sync: 04:00:23 UTC. All 42 child nodes are healthy.</p>
+</div>
+</div>
+<button class="flex items-center gap-2 text-primary font-label-md hover:underline decoration-2 underline-offset-4">
+<span>Run Full System Audit</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>SafeCampus | Request Safety Escort</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#5b0011",
+                    "on-tertiary-fixed": "#400009",
+                    "secondary-fixed": "#9cf0ff",
+                    "surface-container": "#201f1f",
+                    "on-error": "#690005",
+                    "surface-dim": "#131313",
+                    "on-primary-fixed": "#001945",
+                    "surface-container-highest": "#353534",
+                    "primary-fixed": "#d9e2ff",
+                    "background": "#131313",
+                    "on-primary-container": "#002661",
+                    "error-container": "#93000a",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#ffb3b3",
+                    "surface-tint": "#b0c6ff",
+                    "on-secondary-fixed": "#001f24",
+                    "primary-fixed-dim": "#b0c6ff",
+                    "on-secondary-container": "#00616d",
+                    "error": "#ffb4ab",
+                    "surface-container-high": "#2a2a2a",
+                    "secondary-fixed-dim": "#00daf3",
+                    "on-background": "#e5e2e1",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-bright": "#3a3939",
+                    "primary-container": "#568dff",
+                    "on-tertiary-fixed-variant": "#920021",
+                    "on-secondary-fixed-variant": "#004f58",
+                    "tertiary-fixed": "#ffdad9",
+                    "secondary": "#bdf4ff",
+                    "surface-variant": "#353534",
+                    "tertiary": "#ffb3b3",
+                    "on-primary-fixed-variant": "#00429c",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-surface": "#e5e2e1",
+                    "inverse-surface": "#e5e2e1",
+                    "outline": "#8c90a1",
+                    "primary": "#b0c6ff",
+                    "on-tertiary": "#680015",
+                    "on-primary": "#002d6f",
+                    "inverse-primary": "#0058cb",
+                    "inverse-on-surface": "#313030",
+                    "on-secondary": "#00363d",
+                    "tertiary-container": "#ff5260",
+                    "surface": "#131313",
+                    "secondary-container": "#00e3fd",
+                    "outline-variant": "#424655",
+                    "on-surface-variant": "#c2c6d8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "margin-desktop": "64px",
+                    "xs": "4px",
+                    "lg": "24px",
+                    "xl": "40px",
+                    "sm": "8px",
+                    "unit": "4px",
+                    "margin-mobile": "20px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Sora"],
+                    "body-md": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "label-md": ["Manrope"],
+                    "headline-lg": ["Sora"],
+                    "display-lg": ["Sora"],
+                    "headline-lg-mobile": ["Sora"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #e5e2e1;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-card {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card-active {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 112, 255, 0.3);
+            box-shadow: 0px 4px 20px rgba(0, 112, 255, 0.15);
+        }
+        .cyber-button-outline {
+            position: relative;
+        }
+        .cyber-button-outline::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border: 1px solid rgba(0, 218, 243, 0.4);
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+        .cyber-button-outline:hover::after {
+            opacity: 1;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0e0e0e;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #424655;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface-container-low/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="shield_with_heart">shield_with_heart</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tight">SafeCampus</h1>
+</div>
+<div class="flex items-center gap-lg">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors active:scale-95" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors active:scale-95" data-icon="account_circle">account_circle</button>
+</div>
+</header>
+<main class="pt-24 pb-32 px-margin-mobile md:px-margin-desktop max-w-[1200px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg lg:gap-xl">
+<!-- Form Section -->
+<div class="md:col-span-7 space-y-lg">
+<header class="mb-xl">
+<h2 class="font-display-lg text-display-lg text-primary mb-xs">Safety Escort</h2>
+<p class="text-on-surface-variant font-body-lg">Request a verified security officer to walk you to your destination.</p>
+</header>
+<form class="space-y-lg">
+<!-- Location Fields -->
+<div class="glass-card rounded-xl p-lg space-y-md">
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]" data-icon="my_location">my_location</span>
+                                CURRENT LOCATION
+                            </label>
+<div class="relative">
+<input class="w-full bg-[#050505] border-0 border-b-2 border-outline-variant focus:border-primary-container focus:ring-0 text-on-surface py-md px-0 transition-all" placeholder="Search building or campus area" type="text"/>
+<button class="absolute right-0 top-1/2 -translate-y-1/2 text-secondary-fixed-dim font-label-md flex items-center gap-xs hover:text-secondary-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="near_me">near_me</span>
+                                    Use My Location
+                                </button>
+</div>
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]" data-icon="place">place</span>
+                                DESTINATION
+                            </label>
+<input class="w-full bg-[#050505] border-0 border-b-2 border-outline-variant focus:border-primary-container focus:ring-0 text-on-surface py-md px-0 transition-all" placeholder="Where are you going?" type="text"/>
+</div>
+</div>
+<!-- Details Row -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-md">
+<div class="glass-card rounded-xl p-lg space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]" data-icon="group">group</span>
+                                NUMBER OF PEOPLE
+                            </label>
+<select class="w-full bg-transparent border-0 text-on-surface font-headline-md p-0 focus:ring-0 cursor-pointer">
+<option class="bg-surface-container">Just me</option>
+<option class="bg-surface-container">2 People</option>
+<option class="bg-surface-container">3 People</option>
+<option class="bg-surface-container">4+ People</option>
+</select>
+</div>
+<div class="glass-card rounded-xl p-lg space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]" data-icon="schedule">schedule</span>
+                                PREFERRED TIME
+                            </label>
+<div class="flex gap-sm pt-xs">
+<button class="flex-1 py-sm rounded-lg font-label-md transition-all glass-card-active text-secondary-fixed-dim" type="button">Now</button>
+<button class="flex-1 py-sm rounded-lg font-label-md transition-all glass-card text-on-surface-variant hover:text-on-surface" type="button">Schedule</button>
+</div>
+</div>
+</div>
+<!-- Primary Action -->
+<div class="pt-lg">
+<button class="w-full py-xl rounded-full bg-secondary-container text-on-secondary font-headline-md cyber-button-outline active:scale-95 transition-all shadow-[0px_0px_30px_rgba(0,227,253,0.2)]" type="submit">
+                            Request Escort
+                        </button>
+<p class="text-center text-label-md text-on-surface-variant mt-md">Estimated wait: <span class="text-secondary-fixed-dim">4 - 6 minutes</span></p>
+</div>
+</form>
+</div>
+<!-- Visual Preview Section -->
+<aside class="md:col-span-5 space-y-lg">
+<!-- Map Preview -->
+<div class="glass-card rounded-2xl overflow-hidden h-[300px] md:h-[450px] relative group">
+<img class="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-80 transition-opacity duration-700" data-alt="A sophisticated dark-themed campus map visualization with glowing neon blue paths and high-contrast red safety markers. The aesthetic is cyber-minimalist, featuring sharp grid lines, translucent UI overlays, and a deep black void-like background. Luminous primary blue lines illustrate a suggested walking route between modern campus buildings, evoking a sense of high-tech security and precision navigation." data-location="University Campus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtfOZfxtdlktR0pUvhffMBUbkSSjoPdXq0oHylm-5kS7MtpfhvpybjPHIOTBEwZo0VQSCmeyzHuu2Ls-yfnOXkp2UfX1t5FVxonvZv6vNW2Po28R_EhjIeUsFAaW0Ob1oDfldSQXUEq1X6IyS0zd2fNBhms4Pe1PLzkCHy8NOuqieaM0fGC8QuDjC439QweJs2mTFTkJXjccmXpg4iQXwPf42GE0H8ahahZ1s4WTQvYYL9YVysKnColIFRTU4mXVyoj2gW1QABwEM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent"></div>
+<!-- Map Floating Labels -->
+<div class="absolute top-lg left-lg glass-card-active rounded-full px-md py-sm flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed-dim shadow-[0_0_8px_#00daf3]"></span>
+<span class="font-label-md text-secondary-fixed-dim">Route Calculated</span>
+</div>
+<div class="absolute bottom-lg inset-x-lg flex justify-between items-end">
+<div class="glass-card rounded-xl p-md">
+<p class="text-label-md text-on-surface-variant">Distance</p>
+<p class="font-headline-md text-primary">0.8 km</p>
+</div>
+<div class="glass-card rounded-xl p-md">
+<p class="text-label-md text-on-surface-variant">Est. Walk</p>
+<p class="font-headline-md text-primary">12 min</p>
+</div>
+</div>
+</div>
+<!-- Info Card -->
+<div class="glass-card rounded-xl p-lg border-l-4 border-l-secondary-container">
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-secondary-container" data-icon="verified_user">verified_user</span>
+<div>
+<h4 class="font-label-md text-on-surface font-bold mb-xs">Safety Guaranteed</h4>
+<p class="text-label-md text-on-surface-variant">All escorts are conducted by trained, background-checked campus security officers equipped with real-time GPS tracking.</p>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-surface-container-lowest/90 backdrop-blur-2xl border-t border-outline-variant/20 shadow-lg rounded-t-xl">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 rounded-full transition-all p-2 active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-label-md text-label-md">Map</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary-fixed-dim font-bold hover:bg-surface-container-highest/50 rounded-full transition-all p-2 active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="font-label-md text-label-md">Check-in</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 rounded-full transition-all p-2 active:scale-90 duration-200">
+<div class="w-12 h-12 bg-error-container rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(147,0,10,0.5)]">
+<span class="material-symbols-outlined text-error" data-icon="emergency">emergency</span>
+</div>
+<span class="font-label-md text-label-md mt-1">SOS</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 rounded-full transition-all p-2 active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span class="font-label-md text-label-md">Support</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 rounded-full transition-all p-2 active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</button>
+</nav>
+<!-- Overlay Emergency State (Hidden by default) -->
+<div class="fixed inset-0 pointer-events-none ring-[12px] ring-error/10 animate-pulse z-[60] hidden"></div>
+</body></html>

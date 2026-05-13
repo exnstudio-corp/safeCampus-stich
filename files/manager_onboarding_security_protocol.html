@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Manager Onboarding - Step 4</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#0e0e0e",
+                    "tertiary-fixed-dim": "#ffb3b3",
+                    "surface": "#131313",
+                    "primary-fixed-dim": "#b0c6ff",
+                    "on-tertiary-container": "#5b0011",
+                    "secondary": "#bdf4ff",
+                    "inverse-on-surface": "#313030",
+                    "secondary-container": "#00e3fd",
+                    "primary": "#b0c6ff",
+                    "secondary-fixed-dim": "#00daf3",
+                    "on-primary-container": "#002661",
+                    "background": "#131313",
+                    "secondary-fixed": "#9cf0ff",
+                    "outline-variant": "#424655",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-container": "#00616d",
+                    "surface-container-high": "#2a2a2a",
+                    "tertiary-container": "#ff5260",
+                    "on-tertiary-fixed-variant": "#920021",
+                    "on-background": "#e5e2e1",
+                    "on-tertiary-fixed": "#400009",
+                    "on-surface": "#e5e2e1",
+                    "surface-dim": "#131313",
+                    "primary-container": "#568dff",
+                    "surface-container-highest": "#353534",
+                    "surface-variant": "#353534",
+                    "on-primary": "#002d6f",
+                    "inverse-primary": "#0058cb",
+                    "tertiary-fixed": "#ffdad9",
+                    "tertiary": "#ffb3b3",
+                    "error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#004f58",
+                    "on-tertiary": "#680015",
+                    "inverse-surface": "#e5e2e1",
+                    "surface-container": "#201f1f",
+                    "on-error": "#690005",
+                    "outline": "#8c90a1",
+                    "on-primary-fixed": "#001945",
+                    "error": "#ffb4ab",
+                    "on-secondary": "#00363d",
+                    "on-secondary-fixed": "#001f24",
+                    "on-primary-fixed-variant": "#00429c",
+                    "surface-bright": "#3a3939",
+                    "surface-tint": "#b0c6ff",
+                    "on-surface-variant": "#c2c6d8",
+                    "primary-fixed": "#d9e2ff",
+                    "surface-container-low": "#1c1b1b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "gutter": "16px",
+                    "unit": "4px",
+                    "sm": "8px",
+                    "lg": "24px",
+                    "xs": "4px",
+                    "xl": "40px",
+                    "margin-mobile": "20px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Sora"],
+                    "body-lg": ["Manrope"],
+                    "label-md": ["Manrope"],
+                    "headline-lg": ["Sora"],
+                    "headline-md": ["Sora"],
+                    "display-lg": ["Sora"],
+                    "body-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { background-color: theme('colors.surface-container-lowest'); }
+    </style>
+</head>
+<body class="text-on-surface min-h-screen flex flex-col items-center py-xl px-margin-mobile md:px-margin-desktop font-body-md">
+<!-- Header / Progress -->
+<header class="w-full max-w-[1200px] flex justify-between items-center mb-xl">
+<div class="font-headline-md text-headline-md font-bold text-primary tracking-tight">SafeCampus</div>
+<div class="flex items-center gap-sm">
+<span class="font-label-md text-label-md text-on-surface-variant hidden md:inline-block">Step 4 of 4</span>
+<div class="flex gap-unit">
+<div class="h-1 w-4 bg-surface-container-high rounded-full"></div>
+<div class="h-1 w-4 bg-surface-container-high rounded-full"></div>
+<div class="h-1 w-4 bg-surface-container-high rounded-full"></div>
+<div class="h-1 w-8 bg-primary rounded-full shadow-[0_0_8px_rgba(176,198,255,0.5)]"></div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-[1000px] flex-1 flex flex-col gap-xl justify-center pb-xl">
+<div class="text-center max-w-2xl mx-auto mb-lg">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-sm">Security &amp; Permissions</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Finalize your cryptographic device pairing and review your operational clearance levels.</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg w-full">
+<!-- 2FA Setup Card (Left/Top) -->
+<div class="md:col-span-5 bg-surface/30 backdrop-blur-[20px] border border-outline-variant/30 rounded-xl p-lg flex flex-col items-center relative overflow-hidden">
+<!-- Decorative background glow -->
+<div class="absolute -top-24 -left-24 w-64 h-64 bg-primary/5 rounded-full blur-[60px] pointer-events-none"></div>
+<div class="w-full flex justify-between items-center mb-xl relative z-10">
+<h2 class="font-headline-md text-headline-md text-on-surface">Two-Factor Auth</h2>
+<span class="material-symbols-outlined text-primary text-[28px]">qr_code_scanner</span>
+</div>
+<div class="w-56 h-56 bg-surface-container border border-outline-variant/50 rounded-lg mb-lg relative overflow-hidden flex items-center justify-center p-sm">
+<img alt="QR Code" class="w-full h-full object-cover rounded shadow-inner" data-alt="A highly detailed, futuristic QR code rendered in glowing neon cyan lines against a deep, pitch-black glass background. The cryptographic pattern appears to be floating slightly, illuminated by a subtle volumetric light from behind. The visual style is cyber-minimalist, sleek, and high-contrast, conveying absolute digital security and advanced technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbUb8tSiBHHljLTXe28_WyC--BExj4EaRrd9tNzYsblrT1yC4nEfjpBX58wMjqE7UshgcHpWAgEkXdBzJrm_6_G_MNG0EgI2zqrqUjSJRfqxVloF47-n_jmQyMIHd5Vhjn7whY_MpN-FHg_41eNSOLWSL7fAQe2P_tfGX_NFa5sAozGDh096K9GBZwaupuX7ZJo4mFD6c1Q_lRoJO7b6BJil9VJ_MrPIqcIO1sJAebBbBRsYikwipbAMPZSRVd-qorzUf8OTfiuS8"/>
+<!-- Scanning overlay line -->
+<div class="absolute top-1/2 left-0 w-full h-[2px] bg-primary shadow-[0_0_10px_rgba(176,198,255,0.8)] opacity-50"></div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-center mb-lg px-md">Scan via authenticator app to establish a secure hardware token.</p>
+<div class="w-full px-md">
+<input class="bg-surface-container-lowest border-b-2 border-outline-variant/50 text-on-surface px-sm py-md text-center font-headline-lg text-headline-lg tracking-[0.25em] w-full focus:border-primary focus:shadow-[0_4px_20px_-10px_rgba(176,198,255,0.5)] focus:outline-none transition-all duration-300 placeholder:text-surface-variant" placeholder="000 000" type="text"/>
+</div>
+</div>
+<!-- Permissions Granted Card (Right/Bottom) -->
+<div class="md:col-span-7 bg-surface/30 backdrop-blur-[20px] border border-outline-variant/30 rounded-xl p-lg flex flex-col relative">
+<div class="w-full flex justify-between items-center mb-xl">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Clearance Level</h2>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-xs">Moderator capabilities granted</p>
+</div>
+<span class="material-symbols-outlined text-secondary-fixed-dim text-[28px]">shield_person</span>
+</div>
+<div class="flex-1 flex flex-col gap-md justify-center">
+<!-- Permission Item: Review Reports -->
+<div class="flex items-start gap-md p-md bg-surface-container-lowest/50 rounded-lg border border-outline-variant/20 hover:border-outline-variant/50 hover:bg-surface-container-low transition-all duration-300 group">
+<div class="bg-surface-container text-primary p-sm rounded-full flex items-center justify-center border border-primary/20 group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+</div>
+<div class="flex-1">
+<h3 class="font-label-md text-label-md text-on-surface mb-xs">Review Reports</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-[14px]">Access and adjudicate incoming student safety reports, location pings, and environmental anomalies.</p>
+</div>
+</div>
+<!-- Permission Item: Flag Scams -->
+<div class="flex items-start gap-md p-md bg-surface-container-lowest/50 rounded-lg border border-outline-variant/20 hover:border-outline-variant/50 hover:bg-surface-container-low transition-all duration-300 group">
+<div class="bg-surface-container text-secondary-fixed-dim p-sm rounded-full flex items-center justify-center border border-secondary-fixed-dim/20 group-hover:bg-secondary-fixed-dim/10 transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">gpp_bad</span>
+</div>
+<div class="flex-1">
+<h3 class="font-label-md text-label-md text-on-surface mb-xs">Flag Scams</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-[14px]">Identify, tag, and isolate potential phishing attempts or dangerous entities within the campus digital perimeter.</p>
+</div>
+</div>
+<!-- Permission Item: Emergency Broadcast (High Alert Styling) -->
+<div class="flex items-start gap-md p-md bg-surface-container-lowest/50 rounded-lg border border-tertiary-container/30 relative overflow-hidden">
+<!-- Subtle red warning glow -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-tertiary-container/5 blur-[40px] pointer-events-none"></div>
+<div class="bg-tertiary-container/10 text-tertiary-container p-sm rounded-full flex items-center justify-center border border-tertiary-container/30 relative z-10">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">campaign</span>
+</div>
+<div class="flex-1 relative z-10">
+<h3 class="font-label-md text-label-md text-tertiary-fixed-dim mb-xs">Emergency Broadcast</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-[14px]">Authorize and dispatch high-priority push alerts to all connected devices in specified containment sectors.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Area -->
+<div class="mt-lg flex flex-col items-center gap-md">
+<button class="bg-primary text-on-primary font-label-md text-label-md px-xl py-lg rounded-full w-full md:w-auto min-w-[320px] hover:bg-primary-fixed hover:outline hover:outline-1 hover:outline-primary hover:outline-offset-4 transition-all duration-300 shadow-[0_4px_20px_rgba(176,198,255,0.15)] flex justify-center items-center gap-sm group relative overflow-hidden">
+<div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
+<span class="relative z-10">Finalize Access</span>
+<span class="material-symbols-outlined relative z-10 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<div class="flex items-center gap-xs text-on-surface-variant opacity-80">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span class="font-body-md text-body-md text-[13px]">End-to-end encrypted provisioning</span>
+</div>
+</div>
+</main>
+</body></html>

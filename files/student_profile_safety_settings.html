@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&amp;family=Manrope:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-container": "#00e3fd",
+            "primary": "#b0c6ff",
+            "on-tertiary-fixed-variant": "#920021",
+            "background": "#131313",
+            "on-tertiary-fixed": "#400009",
+            "surface-container-highest": "#353534",
+            "on-primary-fixed": "#001945",
+            "surface": "#131313",
+            "outline-variant": "#424655",
+            "on-background": "#e5e2e1",
+            "tertiary": "#ffb3b3",
+            "surface-tint": "#b0c6ff",
+            "secondary": "#bdf4ff",
+            "on-primary-container": "#002661",
+            "on-error-container": "#ffdad6",
+            "tertiary-container": "#ff5260",
+            "primary-fixed": "#d9e2ff",
+            "primary-container": "#568dff",
+            "on-surface-variant": "#c2c6d8",
+            "outline": "#8c90a1",
+            "error-container": "#93000a",
+            "surface-container": "#201f1f",
+            "surface-bright": "#3a3939",
+            "on-error": "#690005",
+            "on-surface": "#e5e2e1",
+            "surface-dim": "#131313",
+            "primary-fixed-dim": "#b0c6ff",
+            "secondary-fixed-dim": "#00daf3",
+            "tertiary-fixed-dim": "#ffb3b3",
+            "surface-container-low": "#1c1b1b",
+            "inverse-on-surface": "#313030",
+            "on-secondary": "#00363d",
+            "on-tertiary-container": "#5b0011",
+            "on-secondary-fixed-variant": "#004f58",
+            "on-primary-fixed-variant": "#00429c",
+            "error": "#ffb4ab",
+            "tertiary-fixed": "#ffdad9",
+            "inverse-surface": "#e5e2e1",
+            "on-secondary-container": "#00616d",
+            "on-tertiary": "#680015",
+            "surface-variant": "#353534",
+            "surface-container-lowest": "#0e0e0e",
+            "surface-container-high": "#2a2a2a",
+            "on-primary": "#002d6f",
+            "secondary-fixed": "#9cf0ff",
+            "inverse-primary": "#0058cb",
+            "on-secondary-fixed": "#001f24"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "md": "16px",
+            "margin-desktop": "64px",
+            "sm": "8px",
+            "xs": "4px",
+            "unit": "4px",
+            "lg": "24px",
+            "margin-mobile": "20px",
+            "gutter": "16px",
+            "xl": "40px"
+          },
+          "fontFamily": {
+            "label-md": ["Manrope"],
+            "display-lg": ["Sora"],
+            "headline-md": ["Sora"],
+            "headline-lg-mobile": ["Sora"],
+            "body-lg": ["Manrope"],
+            "headline-lg": ["Sora"],
+            "body-md": ["Manrope"]
+          },
+          "fontSize": {
+            "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+            "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .emergency-glow {
+      box-shadow: 0 0 20px rgba(255, 82, 96, 0.2);
+    }
+    .primary-glow {
+      box-shadow: 0 4px 20px rgba(0, 112, 255, 0.15);
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary/30">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm">
+<div class="flex items-center gap-xs">
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">SafeCampus</span>
+</div>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors scale-95 active:opacity-80 transition-all" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors scale-95 active:opacity-80 transition-all" data-icon="help">help</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary/30">
+<img alt="Manager Avatar" class="w-full h-full object-cover" data-alt="A professional close-up portrait of a young student manager with a confident expression. The lighting is soft and cinematic, with subtle neon blue highlights reflecting off their features. The background is a blurred high-tech campus environment with dark surfaces and minimalist glass elements." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBKq1nOlqbSECzlOMdP7-yAit0u1_I6VdPmAZVOTfjpKNr-3aoIXWqPJZBcfFe_UV3jy1R2zhzXg6AfQpbibXClnR6TaGqTyJyxN0F_PXZ5C6Ynh1x8Jj1PkEVNN_HvN3m5xVNwUSqH5GOvYOy3VtXGfg0TLZZBDdXdAvQUYo0ZDcyyQ4mxnPaBklUh-DPSGiBVGfYOKaOEXDyv5UJiQePVIhgnsnjUs5uwdDb1jOoWeJhnF1zfretDs7XMBSVaD2Rvl7RmTHONH8"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-margin-mobile md:px-margin-desktop max-w-[1200px] mx-auto">
+<!-- User Hero Section -->
+<section class="mb-xl">
+<div class="flex flex-col md:flex-row items-center gap-lg">
+<div class="relative">
+<div class="w-32 h-32 rounded-full border-2 border-primary-container p-1">
+<img class="w-full h-full rounded-full object-cover" data-alt="Close up portrait of a college student with a friendly smile, set against a dark, futuristic background with subtle blue glowing lines. The image is crisp, with high-end digital photography aesthetics, capturing details of their professional attire in a cyber-minimalist campus setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrgqz332l3BW1t7FleW-6igYFWf0IZYWQvyb26J9qbohUoTe9uvxQwP_qOU1EcXO0SroDCcR3Esv4U-mY9bchvqmJOwxKm9sXGcGSQ5XhLW5QCgFe7hTHF20A7GBc3JtyLbWELRXZDk1NfCOtg9fENUzhxqFjcpTdd0mUV6CUzcAQW_esrgEkYTBIBbjWCPX2LIh4873L9PH625RCILJUVOkCQmURp6D57km3HyddIYsneFSh-sx7aZjhX7MZDOPRvoBUdFV6ii30"/>
+</div>
+<div class="absolute bottom-1 right-1 bg-secondary-container text-on-secondary-container rounded-full p-1 border-2 border-background">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="text-center md:text-left">
+<h1 class="font-headline-lg text-headline-lg mb-xs">Marcus Chen</h1>
+<p class="text-on-surface-variant font-label-md">Computer Science Senior • ID: 29481-SC</p>
+<div class="mt-md flex flex-wrap justify-center md:justify-start gap-sm">
+<span class="px-md py-1 rounded-full bg-secondary-container/10 border border-secondary-container/30 text-secondary-container font-label-md">Status: Secured</span>
+<span class="px-md py-1 rounded-full bg-primary/10 border border-primary/30 text-primary font-label-md">Verified Node</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Content -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Safety Passport Card -->
+<div class="md:col-span-8 glass-card rounded-xl p-lg flex flex-col gap-md">
+<div class="flex justify-between items-center">
+<h2 class="font-headline-md text-headline-md text-primary flex items-center gap-sm">
+<span class="material-symbols-outlined" data-icon="shield">shield</span>
+            Safety Passport
+          </h2>
+<span class="text-on-surface-variant font-label-md">Last Check-in: 14m ago</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-md mt-sm">
+<div class="p-md rounded-lg bg-surface-container-lowest border border-outline-variant/30">
+<p class="text-on-surface-variant font-label-md mb-xs">Verification Level</p>
+<div class="flex items-end gap-sm">
+<span class="text-headline-md font-bold text-secondary-container">Tier 3</span>
+<span class="text-xs text-secondary-container/60 mb-1">Advanced Security</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full mt-md">
+<div class="bg-secondary-container w-[85%] h-full rounded-full shadow-[0_0_10px_#00e3fd]"></div>
+</div>
+</div>
+<div class="p-md rounded-lg bg-surface-container-lowest border border-outline-variant/30">
+<p class="text-on-surface-variant font-label-md mb-xs">Safety Score</p>
+<div class="flex items-end gap-sm">
+<span class="text-headline-md font-bold text-primary">98</span>
+<span class="text-xs text-primary/60 mb-1">Excellent Standing</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full mt-md">
+<div class="bg-primary w-[98%] h-full rounded-full shadow-[0_0_10px_#b0c6ff]"></div>
+</div>
+</div>
+</div>
+<div class="mt-md">
+<p class="font-label-md text-on-surface-variant mb-md">Recent Check-in History</p>
+<div class="space-y-sm">
+<div class="flex items-center justify-between p-sm border-b border-outline-variant/20">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-secondary-container" data-icon="location_on">location_on</span>
+<div>
+<p class="font-body-md">Engineering Hall North</p>
+<p class="text-xs text-on-surface-variant">Automated Verification</p>
+</div>
+</div>
+<span class="text-xs font-label-md text-on-surface-variant">Today, 8:42 PM</span>
+</div>
+<div class="flex items-center justify-between p-sm border-b border-outline-variant/20">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-secondary-container" data-icon="sensors">sensors</span>
+<div>
+<p class="font-body-md">Campus Gateway B</p>
+<p class="text-xs text-on-surface-variant">Node Proximity Entry</p>
+</div>
+</div>
+<span class="text-xs font-label-md text-on-surface-variant">Today, 6:15 PM</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Advanced Security Toggles -->
+<div class="md:col-span-4 glass-card rounded-xl p-lg flex flex-col gap-md">
+<h2 class="font-headline-md text-headline-md text-primary flex items-center gap-sm">
+<span class="material-symbols-outlined" data-icon="lock">lock</span>
+          Advanced Security
+        </h2>
+<div class="space-y-lg mt-sm">
+<div class="flex items-center justify-between">
+<div>
+<p class="font-body-md font-semibold">Biometric Lock</p>
+<p class="text-xs text-on-surface-variant">Require FaceID/TouchID</p>
+</div>
+<div class="w-10 h-5 bg-primary rounded-full relative flex items-center px-1">
+<div class="w-3 h-3 bg-on-primary rounded-full translate-x-5"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<p class="font-body-md font-semibold">Automatic SOS</p>
+<p class="text-xs text-on-surface-variant">Trigger on unusual motion</p>
+</div>
+<div class="w-10 h-5 bg-surface-container-highest rounded-full relative flex items-center px-1">
+<div class="w-3 h-3 bg-on-surface-variant rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<p class="font-body-md font-semibold">Stealth Mode</p>
+<p class="text-xs text-on-surface-variant">Hidden location masking</p>
+</div>
+<div class="w-10 h-5 bg-surface-container-highest rounded-full relative flex items-center px-1">
+<div class="w-3 h-3 bg-on-surface-variant rounded-full"></div>
+</div>
+</div>
+</div>
+<button class="mt-auto w-full py-md rounded-lg bg-surface-container-high border border-outline-variant/30 text-primary font-label-md hover:bg-surface-container-highest transition-colors flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="refresh">refresh</span>
+          Reset Encryption Keys
+        </button>
+</div>
+<!-- Emergency Contacts & Preferences -->
+<div class="md:col-span-12 grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Emergency Contacts -->
+<div class="glass-card rounded-xl p-lg">
+<div class="flex justify-between items-center mb-md">
+<h2 class="font-headline-md text-headline-md text-tertiary-container flex items-center gap-sm">
+<span class="material-symbols-outlined" data-icon="contact_emergency">contact_emergency</span>
+              Emergency Contacts
+            </h2>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary" data-icon="add_circle">add_circle</button>
+</div>
+<div class="space-y-md">
+<div class="flex items-center gap-md p-md rounded-lg bg-surface-container-low border border-tertiary-container/20">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/10 flex items-center justify-center text-tertiary-container">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md font-semibold">Elena Chen</p>
+<p class="text-xs text-on-surface-variant">Primary Contact • +1 (555) 0123</p>
+</div>
+<span class="px-sm py-xs rounded bg-tertiary-container/20 text-[10px] text-tertiary-container font-bold uppercase tracking-wider">SMS + Call</span>
+</div>
+<div class="flex items-center gap-md p-md rounded-lg bg-surface-container-low border border-outline-variant/20">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md font-semibold">David Miller</p>
+<p class="text-xs text-on-surface-variant">Secondary Contact • +1 (555) 4567</p>
+</div>
+<span class="px-sm py-xs rounded bg-surface-container-highest text-[10px] text-on-surface-variant font-bold uppercase tracking-wider">SMS Only</span>
+</div>
+</div>
+</div>
+<!-- Notification Preferences -->
+<div class="glass-card rounded-xl p-lg">
+<h2 class="font-headline-md text-headline-md text-primary flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+            Notification Preferences
+          </h2>
+<div class="grid grid-cols-2 gap-md">
+<div class="p-md rounded-lg border border-primary/30 bg-primary/5 flex flex-col items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="notifications_active">notifications_active</span>
+<p class="font-label-md">Push Alerts</p>
+<p class="text-[10px] text-primary/70 text-center">Instant app system notifications</p>
+<div class="mt-sm w-8 h-4 bg-primary rounded-full relative flex items-center px-1">
+<div class="w-2 h-2 bg-on-primary rounded-full translate-x-4"></div>
+</div>
+</div>
+<div class="p-md rounded-lg border border-outline-variant/30 bg-surface-container-lowest flex flex-col items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-3xl" data-icon="sms">sms</span>
+<p class="font-label-md">SMS Direct</p>
+<p class="text-[10px] text-on-surface-variant/70 text-center">Text messages during outages</p>
+<div class="mt-sm w-8 h-4 bg-surface-container-highest rounded-full relative flex items-center px-1">
+<div class="w-2 h-2 bg-on-surface-variant rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Emergency FAB (Highly Contextual) -->
+<button class="fixed bottom-24 right-margin-mobile md:right-margin-desktop w-16 h-16 rounded-full bg-tertiary-container text-on-tertiary-container shadow-lg emergency-glow z-50 flex items-center justify-center hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">emergency_home</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center h-20 pb-safe px-4 bg-surface/80 backdrop-blur-xl border-t border-outline-variant/30 shadow-[0_-4px_20px_rgba(0,112,255,0.1)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary-fixed-dim" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="font-label-md text-label-md">Verify</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary fill-primary scale-110 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="badge" style="font-variation-settings: 'FILL' 1;">badge</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary-fixed-dim" href="#">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+<span class="font-label-md text-label-md">Nodes</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary-fixed-dim" href="#">
+<span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span>
+<span class="font-label-md text-label-md">Security</span>
+</a>
+</nav>
+</body></html>

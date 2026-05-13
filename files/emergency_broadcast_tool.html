@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SafeCampus - Emergency Broadcast</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&amp;family=Manrope:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#201f1f",
+                        "surface-bright": "#3a3939",
+                        "secondary": "#bdf4ff",
+                        "secondary-fixed": "#9cf0ff",
+                        "outline": "#8c90a1",
+                        "on-primary-fixed": "#001945",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-container": "#002661",
+                        "on-secondary-fixed": "#001f24",
+                        "on-secondary-container": "#00616d",
+                        "primary-fixed": "#d9e2ff",
+                        "primary": "#b0c6ff",
+                        "primary-container": "#568dff",
+                        "primary-fixed-dim": "#b0c6ff",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-highest": "#353534",
+                        "secondary-fixed-dim": "#00daf3",
+                        "tertiary-fixed": "#ffdad9",
+                        "inverse-primary": "#0058cb",
+                        "on-tertiary-container": "#5b0011",
+                        "on-secondary": "#00363d",
+                        "surface-dim": "#131313",
+                        "on-tertiary-fixed-variant": "#920021",
+                        "tertiary": "#ffb3b3",
+                        "secondary-container": "#00e3fd",
+                        "on-error": "#690005",
+                        "on-tertiary": "#680015",
+                        "background": "#131313",
+                        "on-surface-variant": "#c2c6d8",
+                        "on-tertiary-fixed": "#400009",
+                        "on-primary": "#002d6f",
+                        "tertiary-container": "#ff5260",
+                        "inverse-surface": "#e5e2e1",
+                        "inverse-on-surface": "#313030",
+                        "surface-container-low": "#1c1b1b",
+                        "tertiary-fixed-dim": "#ffb3b3",
+                        "on-primary-fixed-variant": "#00429c",
+                        "outline-variant": "#424655",
+                        "surface-variant": "#353534",
+                        "surface-container-high": "#2a2a2a",
+                        "error": "#ffb4ab",
+                        "error-container": "#93000a",
+                        "surface": "#131313",
+                        "on-secondary-fixed-variant": "#004f58",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-tint": "#b0c6ff",
+                        "on-background": "#e5e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "md": "16px",
+                        "unit": "4px",
+                        "margin-mobile": "20px",
+                        "lg": "24px",
+                        "gutter": "16px",
+                        "xl": "40px",
+                        "sm": "8px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Sora"],
+                        "body-lg": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "display-lg": ["Sora"],
+                        "body-md": ["Manrope"],
+                        "headline-lg-mobile": ["Sora"],
+                        "headline-lg": ["Sora"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.on-background'); }
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .emergency-glow {
+            box-shadow: 0 0 40px rgba(255, 82, 96, 0.15);
+            border-color: rgba(255, 82, 96, 0.3);
+        }
+        .input-cyber {
+            background-color: theme('colors.surface-dim');
+            border: none;
+            border-bottom: 2px solid theme('colors.surface-variant');
+            transition: all 0.2s ease;
+        }
+        .input-cyber:focus {
+            outline: none;
+            border-bottom-color: theme('colors.primary');
+            box-shadow: 0 4px 12px rgba(176, 198, 255, 0.1);
+        }
+        
+        /* Custom Checkbox/Toggle styles */
+        .cyber-toggle:checked + div {
+            background-color: theme('colors.primary');
+        }
+        .cyber-toggle:checked + div > div {
+            transform: translateX(100%);
+        }
+        
+        /* Slide to confirm slider track */
+        .slide-track {
+            background: linear-gradient(90deg, rgba(255, 82, 96, 0.1) 0%, rgba(255, 82, 96, 0.3) 100%);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-md antialiased pb-24 md:pb-0 pt-16">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm">
+<div class="flex items-center gap-4">
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tight">SafeCampus</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:text-primary-container transition-colors scale-95 active:opacity-80 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary-container transition-colors scale-95 active:opacity-80 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">help</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/30 ml-2">
+<img alt="Manager Avatar" class="w-full h-full object-cover" data-alt="A close-up portrait of a professional manager with a neutral expression, set against a dark, minimalist cyber-aesthetic background. Subtle neon blue edge lighting softly illuminates the side of the face." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfMHzCrE9834Jcd0KGqoHVpFs0CwQ3wKvXR4heiYGYxnAf_L3zXKjsr0Fa90zbeDYw-gsGTASanw0TywYuiDDBwazbYryOk-zjsouhiEoqXLGm0-8PvPKzgQHe3QPI8Nkr6YolR2wYvV-mYVMxKHl3TxwEnWTimnalmglNYzBNWoLB4KPebyzlNX-qHqMzjHtoqqoOWIR0wi9ZibIFbYJ86ojBRmTpp68ihkHQUmx4FPlfk6iJZs8cFObblUNc04i9bQtwku1HS2Q"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow px-margin-mobile md:px-margin-desktop py-lg md:py-xl max-w-[1200px] mx-auto w-full relative">
+<!-- Peripheral Emergency Glow -->
+<div class="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-error/5 via-background to-background opacity-50"></div>
+<div class="mb-lg">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-xs flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary-container" style="font-variation-settings: 'FILL' 1;">campaign</span>
+                Broadcast Command
+            </h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Initiate immediate, multi-channel alerts to campus sectors. Use with extreme caution.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg relative z-10">
+<!-- Left Column: Configuration -->
+<div class="lg:col-span-7 flex flex-col gap-lg">
+<!-- Alert Type Selection -->
+<section class="glass-panel rounded-xl p-lg emergency-glow">
+<h3 class="font-label-md text-label-md text-on-surface mb-md flex items-center gap-2 uppercase tracking-widest text-outline">
+<span class="material-symbols-outlined text-sm">warning</span>
+                        Alert Type
+                    </h3>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-sm">
+<!-- Immediate Threat (Active) -->
+<button class="flex flex-col items-center justify-center p-md rounded-lg border border-tertiary-container bg-tertiary-container/10 transition-all">
+<span class="material-symbols-outlined text-tertiary-container mb-sm text-[32px]" style="font-variation-settings: 'FILL' 1;">error</span>
+<span class="font-label-md text-label-md text-tertiary-container text-center">Immediate Threat</span>
+</button>
+<!-- Weather Emergency -->
+<button class="flex flex-col items-center justify-center p-md rounded-lg border border-outline-variant/30 hover:border-primary/50 hover:bg-surface-variant transition-all group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary mb-sm text-[32px]">severe_cold</span>
+<span class="font-label-md text-label-md text-on-surface-variant group-hover:text-on-surface text-center">Weather</span>
+</button>
+<!-- Medical Alert -->
+<button class="flex flex-col items-center justify-center p-md rounded-lg border border-outline-variant/30 hover:border-primary/50 hover:bg-surface-variant transition-all group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary mb-sm text-[32px]">medical_services</span>
+<span class="font-label-md text-label-md text-on-surface-variant group-hover:text-on-surface text-center">Medical</span>
+</button>
+<!-- System Maintenance -->
+<button class="flex flex-col items-center justify-center p-md rounded-lg border border-outline-variant/30 hover:border-primary/50 hover:bg-surface-variant transition-all group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary mb-sm text-[32px]">build_circle</span>
+<span class="font-label-md text-label-md text-on-surface-variant group-hover:text-on-surface text-center">System</span>
+</button>
+</div>
+</section>
+<!-- Target Parameters -->
+<section class="glass-panel rounded-xl p-lg">
+<h3 class="font-label-md text-label-md text-on-surface mb-md flex items-center gap-2 uppercase tracking-widest text-outline">
+<span class="material-symbols-outlined text-sm">my_location</span>
+                        Target Sectors
+                    </h3>
+<div class="flex flex-col gap-md">
+<!-- Entire Campus Option -->
+<label class="flex items-center justify-between p-md rounded-lg border border-primary bg-primary/5 cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">apartment</span>
+<div>
+<div class="font-label-md text-label-md text-on-surface">Entire Campus</div>
+<div class="font-body-md text-body-md text-on-surface-variant text-sm">~14,500 active devices</div>
+</div>
+</div>
+<div class="w-5 h-5 rounded-full border-2 border-primary flex items-center justify-center">
+<div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+</div>
+</label>
+<!-- Specific Sectors Option -->
+<div class="flex flex-col gap-sm border border-outline-variant/30 rounded-lg p-md opacity-70 hover:opacity-100 transition-opacity">
+<label class="flex items-center justify-between cursor-pointer mb-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">grid_view</span>
+<div>
+<div class="font-label-md text-label-md text-on-surface">Specific Sectors</div>
+<div class="font-body-md text-body-md text-on-surface-variant text-sm">Select isolated zones</div>
+</div>
+</div>
+<div class="w-5 h-5 rounded-full border-2 border-outline-variant"></div>
+</label>
+<div class="flex flex-wrap gap-2 pl-10">
+<span class="px-3 py-1 rounded-full border border-outline-variant/50 text-on-surface-variant text-sm cursor-pointer hover:border-primary hover:text-primary transition-colors">North Dorms</span>
+<span class="px-3 py-1 rounded-full border border-outline-variant/50 text-on-surface-variant text-sm cursor-pointer hover:border-primary hover:text-primary transition-colors">Main Library</span>
+<span class="px-3 py-1 rounded-full border border-outline-variant/50 text-on-surface-variant text-sm cursor-pointer hover:border-primary hover:text-primary transition-colors">Parking Structure B</span>
+</div>
+</div>
+<!-- Staff Only Option -->
+<label class="flex items-center justify-between p-md rounded-lg border border-outline-variant/30 hover:border-primary/50 cursor-pointer transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">badge</span>
+<div>
+<div class="font-label-md text-label-md text-on-surface">Staff &amp; Administration Only</div>
+<div class="font-body-md text-body-md text-on-surface-variant text-sm">~1,200 active devices</div>
+</div>
+</div>
+<div class="w-5 h-5 rounded-full border-2 border-outline-variant"></div>
+</label>
+</div>
+</section>
+</div>
+<!-- Right Column: Composer & Trigger -->
+<div class="lg:col-span-5 flex flex-col gap-lg">
+<!-- Message Composer -->
+<section class="glass-panel rounded-xl p-lg flex-grow flex flex-col">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-label-md text-label-md text-on-surface flex items-center gap-2 uppercase tracking-widest text-outline">
+<span class="material-symbols-outlined text-sm">edit_note</span>
+                            Message Payload
+                        </h3>
+<span class="font-body-md text-sm text-tertiary-container">142 / 160 chars</span>
+</div>
+<textarea class="input-cyber w-full rounded-t-md p-md text-on-surface resize-none font-body-lg h-32 mb-4" placeholder="Enter high-impact alert text..."></textarea>
+<div class="mt-auto">
+<h4 class="font-label-md text-label-md text-on-surface-variant mb-3 text-sm">Distribution Channels</h4>
+<div class="space-y-3">
+<label class="flex items-center justify-between cursor-pointer group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">send_to_mobile</span>
+<span class="font-body-md text-body-md text-on-surface">App Push Notification</span>
+</div>
+<div class="relative">
+<input checked="" class="sr-only cyber-toggle" type="checkbox"/>
+<div class="block w-10 h-6 rounded-full bg-surface-variant transition-colors border border-outline-variant/50">
+<div class="absolute left-1 top-1 bg-on-surface w-4 h-4 rounded-full transition-transform transform translate-x-4 bg-white"></div>
+</div>
+</div>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">sms</span>
+<span class="font-body-md text-body-md text-on-surface">SMS Fallback</span>
+</div>
+<div class="relative">
+<input checked="" class="sr-only cyber-toggle" type="checkbox"/>
+<div class="block w-10 h-6 rounded-full bg-surface-variant transition-colors border border-outline-variant/50">
+<div class="absolute left-1 top-1 bg-on-surface w-4 h-4 rounded-full transition-transform transform translate-x-4 bg-white"></div>
+</div>
+</div>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">desktop_windows</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Desktop Notification</span>
+</div>
+<div class="relative">
+<input class="sr-only cyber-toggle" type="checkbox"/>
+<div class="block w-10 h-6 rounded-full bg-surface-container transition-colors border border-outline-variant/50">
+<div class="absolute left-1 top-1 bg-outline w-4 h-4 rounded-full transition-transform"></div>
+</div>
+</div>
+</label>
+</div>
+</div>
+</section>
+<!-- Trigger Mechanism -->
+<section class="glass-panel rounded-xl p-md border-tertiary-container/50 bg-tertiary-container/5">
+<div class="relative h-16 w-full rounded-full slide-track flex items-center px-2 overflow-hidden border border-tertiary-container/30 group">
+<!-- Track Text -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<span class="font-label-md text-label-md text-tertiary-container uppercase tracking-widest opacity-70 group-hover:opacity-100 transition-opacity">Slide to Initialize</span>
+</div>
+<!-- Draggable Button (Simulated static UI) -->
+<div class="h-12 w-12 rounded-full bg-tertiary-container flex items-center justify-center cursor-ew-resize shadow-[0_0_15px_rgba(255,82,96,0.5)] z-10 hover:scale-105 transition-transform relative">
+<span class="material-symbols-outlined text-on-tertiary-container">double_arrow</span>
+</div>
+</div>
+<p class="text-center mt-3 text-xs text-on-surface-variant opacity-70 font-label-md tracking-wider uppercase">Action cannot be undone</p>
+</section>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center h-20 pb-safe px-4 bg-surface/80 backdrop-blur-xl border-t border-outline-variant/30 shadow-[0_-4px_20px_rgba(0,112,255,0.1)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary-fixed-dim scale-110 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined mb-1">verified_user</span>
+<span class="font-label-md text-label-md text-xs">Verify</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary-fixed-dim scale-110 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined mb-1">badge</span>
+<span class="font-label-md text-label-md text-xs">Profile</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary fill-primary hover:text-secondary-fixed-dim scale-110 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">hub</span>
+<span class="font-label-md text-label-md text-xs">Nodes</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary-fixed-dim scale-110 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined mb-1">admin_panel_settings</span>
+<span class="font-label-md text-label-md text-xs">Security</span>
+</a>
+</nav>
+</body></html>

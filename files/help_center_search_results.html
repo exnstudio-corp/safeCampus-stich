@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guardian Shield | Search Results</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card-hover:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(176, 198, 255, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 112, 255, 0.1);
+        }
+        body {
+            background-color: #050505;
+            color: #e5e2e1;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed-dim": "#00daf3",
+                      "surface-variant": "#353534",
+                      "surface-dim": "#131313",
+                      "surface": "#131313",
+                      "outline-variant": "#424655",
+                      "surface-container-lowest": "#0e0e0e",
+                      "surface-tint": "#b0c6ff",
+                      "primary-fixed-dim": "#b0c6ff",
+                      "outline": "#8c90a1",
+                      "error-container": "#93000a",
+                      "secondary-fixed": "#9cf0ff",
+                      "surface-container-highest": "#353534",
+                      "primary-fixed": "#d9e2ff",
+                      "primary-container": "#568dff",
+                      "on-tertiary-fixed": "#400009",
+                      "tertiary": "#ffb3b3",
+                      "on-surface": "#e5e2e1",
+                      "tertiary-container": "#ff5260",
+                      "on-secondary-container": "#00616d",
+                      "on-error-container": "#ffdad6",
+                      "inverse-on-surface": "#313030",
+                      "on-background": "#e5e2e1",
+                      "on-primary-container": "#002661",
+                      "on-secondary-fixed": "#001f24",
+                      "secondary": "#bdf4ff",
+                      "on-primary-fixed": "#001945",
+                      "on-secondary-fixed-variant": "#004f58",
+                      "tertiary-fixed": "#ffdad9",
+                      "secondary-container": "#00e3fd",
+                      "background": "#131313",
+                      "surface-bright": "#3a3939",
+                      "on-tertiary": "#680015",
+                      "error": "#ffb4ab",
+                      "surface-container-high": "#2a2a2a",
+                      "on-surface-variant": "#c2c6d8",
+                      "on-primary-fixed-variant": "#00429c",
+                      "on-error": "#690005",
+                      "tertiary-fixed-dim": "#ffb3b3",
+                      "surface-container-low": "#1c1b1b",
+                      "surface-container": "#201f1f",
+                      "primary": "#b0c6ff",
+                      "on-secondary": "#00363d",
+                      "on-primary": "#002d6f",
+                      "on-tertiary-fixed-variant": "#920021",
+                      "inverse-surface": "#e5e2e1",
+                      "on-tertiary-container": "#5b0011",
+                      "inverse-primary": "#0058cb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "xs": "4px",
+                      "margin-desktop": "64px",
+                      "xl": "40px",
+                      "md": "16px",
+                      "lg": "24px",
+                      "sm": "8px",
+                      "margin-mobile": "20px",
+                      "unit": "4px"
+              },
+              "fontFamily": {
+                      "label-md": ["Manrope"],
+                      "display-lg": ["Sora"],
+                      "headline-md": ["Sora"],
+                      "body-lg": ["Manrope"],
+                      "headline-lg": ["Sora"],
+                      "body-md": ["Manrope"],
+                      "headline-lg-mobile": ["Sora"]
+              },
+              "fontSize": {
+                      "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="font-body-md text-body-md min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-[0_4px_20px_rgba(0,112,255,0.15)]">
+<div class="flex justify-between items-center h-16 px-margin-mobile md:px-margin-desktop w-full max-w-full">
+<div class="flex items-center gap-8">
+<span class="font-display-lg text-headline-md text-primary tracking-tighter">Guardian Shield</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#">Dashboard</a>
+<a class="text-primary font-bold hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#">Knowledge Base</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#">Alerts</a>
+</nav>
+</div>
+<div class="flex items-center gap-4 flex-1 max-w-xl justify-end">
+<div class="relative w-full max-w-md hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-lowest border-none border-b-2 border-primary/50 focus:border-primary focus:ring-0 text-on-surface rounded-t-lg pl-10 h-10 font-body-md" type="text" value="Emergency Broadcast"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-on-surface-variant hover:text-primary active:scale-95 duration-200 transition-colors">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary active:scale-95 duration-200 transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<img alt="Manager Profile Avatar" class="w-8 h-8 rounded-full border border-primary/30" data-alt="A professional headshot of a campus safety manager with a focused expression, wearing a modern dark charcoal uniform. The background is a clean, softly blurred corporate office with subtle blue accent lighting, conveying a sense of authority and calm vigilance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBID4hHpW8r7G1qocQ19-IC-KBlr6Br2wXUrPXrShyzdV9HFsKt06TJO3pHs9tdDMdyEnfEnkTY59jZFksYO1RaQoB9fwUmF1LAL5aLnhBw-h2STFh4BUOE7uQB7_hqdlJx39wx3JyZHRzNLjujFOPxTBNYnS5bfvgJOvfKnX__tVOKfUcVvlXKgeC-j72rgc6ocXZMP-QtQ7x2-oVQ734IzoYPr_561XilnkpZtWEkGEKJHHvwv-Wqs2lrPjJn_MPrjLSyT186jZo"/>
+</div>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Hidden on Mobile) -->
+<aside class="fixed left-0 top-0 h-full pt-16 h-screen w-64 hidden md:flex flex-col bg-surface-container-low/50 backdrop-blur-2xl border-r border-outline-variant/20 z-40">
+<div class="px-6 py-8">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-primary" data-icon="security" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="font-headline-md text-headline-md text-primary">Safety Hub</span>
+</div>
+<p class="text-on-surface-variant text-xs uppercase tracking-widest font-bold">Vigilance Active</p>
+</div>
+<nav class="flex-1 px-2 space-y-1">
+<a class="text-on-surface-variant hover:bg-surface-variant/10 px-4 py-3 flex items-center gap-3 transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="bg-primary-container/20 text-primary border-l-4 border-primary px-4 py-3 flex items-center gap-3 transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="book_2" style="font-variation-settings: 'FILL' 1;">book_2</span>
+                Knowledge Base
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant/10 px-4 py-3 flex items-center gap-3 transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+                Incident Log
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant/10 px-4 py-3 flex items-center gap-3 transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+                Broadcast
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant/10 px-4 py-3 flex items-center gap-3 transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                System Admin
+            </a>
+</nav>
+<div class="p-4 border-t border-outline-variant/10">
+<button class="w-full bg-primary text-on-primary font-bold py-3 rounded-xl flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="contact_support">contact_support</span>
+                Contact Support
+            </button>
+<div class="mt-4 space-y-1">
+<a class="text-on-surface-variant hover:bg-surface-variant/10 px-4 py-2 flex items-center gap-3 rounded-lg text-sm transition-all" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="admin_panel_settings">admin_panel_settings</span>
+                    Security Settings
+                </a>
+<a class="text-on-surface-variant hover:bg-surface-variant/10 px-4 py-2 flex items-center gap-3 rounded-lg text-sm transition-all text-error" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+                    Logout
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="pt-24 pb-20 md:pb-8 md:pl-72 pr-margin-mobile md:pr-margin-desktop min-h-screen">
+<div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Sidebar Filters -->
+<aside class="lg:col-span-3 space-y-8">
+<section>
+<h3 class="font-headline-md text-lg text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+                        Filter by Category
+                    </h3>
+<div class="space-y-2">
+<label class="flex items-center gap-3 p-3 rounded-xl glass-card border-none hover:bg-surface-container-high transition-colors cursor-pointer">
+<input checked="" class="rounded border-outline bg-transparent text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-on-surface-variant font-label-md">Protocols</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl glass-card border-none hover:bg-surface-container-high transition-colors cursor-pointer">
+<input class="rounded border-outline bg-transparent text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-on-surface-variant font-label-md">Technical</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl glass-card border-none hover:bg-surface-container-high transition-colors cursor-pointer">
+<input class="rounded border-outline bg-transparent text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-on-surface-variant font-label-md">Onboarding</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl glass-card border-none hover:bg-surface-container-high transition-colors cursor-pointer">
+<input class="rounded border-outline bg-transparent text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-on-surface-variant font-label-md">Video Academy</span>
+</label>
+</div>
+</section>
+<section>
+<h3 class="font-headline-md text-lg text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="priority_high">priority_high</span>
+                        Filter by Priority
+                    </h3>
+<div class="space-y-2">
+<label class="flex items-center gap-3 p-3 rounded-xl glass-card border-none hover:bg-surface-container-high transition-colors cursor-pointer">
+<input class="bg-transparent border-outline text-primary focus:ring-primary" name="priority" type="radio"/>
+<span class="text-tertiary font-bold font-label-md">Critical</span>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-xl glass-card border-none hover:bg-surface-container-high transition-colors cursor-pointer">
+<input class="bg-transparent border-outline text-primary focus:ring-primary" name="priority" type="radio"/>
+<span class="text-on-surface-variant font-label-md">Standard</span>
+</label>
+</div>
+</section>
+</aside>
+<!-- Results Area -->
+<div class="lg:col-span-9 space-y-6">
+<!-- Results Summary -->
+<div class="flex items-end justify-between border-b border-outline-variant/20 pb-4">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Search Results</h1>
+<p class="text-on-surface-variant font-body-md mt-1">
+<span class="text-primary font-bold">24 results</span> found for <span class="text-primary">"Emergency Broadcast"</span>
+</p>
+</div>
+<div class="hidden sm:block">
+<select class="bg-surface-container border-outline-variant/30 rounded-lg text-on-surface-variant text-sm focus:ring-primary focus:border-primary">
+<option>Relevance</option>
+<option>Newest First</option>
+<option>Oldest First</option>
+</select>
+</div>
+</div>
+<!-- Featured Result -->
+<section class="p-6 rounded-2xl glass-card border-l-4 border-l-primary shadow-[0_4px_30px_rgba(0,112,255,0.1)]">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="bg-primary/20 text-primary text-[10px] font-bold px-2 py-0.5 rounded tracking-widest uppercase">Featured Result</span>
+<span class="bg-tertiary-container/30 text-tertiary text-[10px] font-bold px-2 py-0.5 rounded tracking-widest uppercase">Critical Protocol</span>
+</div>
+<h2 class="font-headline-lg text-2xl text-on-surface">Emergency Broadcast Protocol</h2>
+<p class="text-on-surface-variant max-w-2xl">
+                                Complete operational guide for triggering campus-wide <span class="text-primary font-bold">Emergency Broadcasts</span> during high-alert incidents. Includes step-by-step authorization and message templates.
+                            </p>
+</div>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:scale-105 transition-transform active:scale-95 whitespace-nowrap">
+                            Quick Link
+                            <span class="material-symbols-outlined" data-icon="open_in_new">open_in_new</span>
+</button>
+</div>
+</section>
+<!-- List of Search Result Cards -->
+<div class="space-y-4">
+<!-- Result 1 -->
+<div class="p-6 rounded-2xl glass-card glass-card-hover transition-all group cursor-pointer">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+<div class="space-y-2">
+<div class="flex items-center gap-3">
+<span class="bg-surface-variant text-on-surface-variant text-[10px] font-bold px-2 py-0.5 rounded tracking-widest uppercase">Article</span>
+<span class="text-outline-variant text-xs font-label-md">Last Updated: Oct 12, 2023</span>
+</div>
+<h3 class="font-headline-md text-xl text-on-surface group-hover:text-primary transition-colors">Configuring the <span class="text-primary">Emergency Broadcast</span> System</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2">
+                                    This manual covers the technical setup for the <span class="text-primary font-semibold">Emergency Broadcast</span> hardware, including server sync and secondary power backup verification...
+                                </p>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Result 2 -->
+<div class="p-6 rounded-2xl glass-card glass-card-hover transition-all group cursor-pointer">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+<div class="space-y-2">
+<div class="flex items-center gap-3">
+<span class="bg-secondary-container/20 text-secondary-fixed-dim text-[10px] font-bold px-2 py-0.5 rounded tracking-widest uppercase">Video</span>
+<span class="text-outline-variant text-xs font-label-md">Last Updated: Sep 28, 2023</span>
+</div>
+<h3 class="font-headline-md text-xl text-on-surface group-hover:text-primary transition-colors">Safety Academy: Sending a Silent <span class="text-primary">Broadcast</span></h3>
+<p class="text-on-surface-variant text-sm line-clamp-2">
+                                    A 5-minute training walkthrough on how to utilize the <span class="text-primary font-semibold">broadcast</span> feature without audible alerts for covert security responses...
+                                </p>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Result 3 -->
+<div class="p-6 rounded-2xl glass-card glass-card-hover transition-all group cursor-pointer">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+<div class="space-y-2">
+<div class="flex items-center gap-3">
+<span class="bg-surface-variant text-on-surface-variant text-[10px] font-bold px-2 py-0.5 rounded tracking-widest uppercase">Manual</span>
+<span class="text-outline-variant text-xs font-label-md">Last Updated: Aug 05, 2023</span>
+</div>
+<h3 class="font-headline-md text-xl text-on-surface group-hover:text-primary transition-colors">Administrative <span class="text-primary">Broadcast</span> Permissions</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2">
+                                    Review and assign hierarchy-based access levels for the <span class="text-primary font-semibold">emergency broadcast</span> console across different campus zones...
+                                </p>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Footer CTA -->
+<section class="mt-12 p-8 rounded-3xl bg-surface-container-high border border-primary/10 text-center space-y-4">
+<h4 class="font-headline-md text-xl text-on-surface">Can't find what you're looking for?</h4>
+<p class="text-on-surface-variant max-w-md mx-auto">
+                        Our support team is available 24/7 to assist with technical queries and protocol clarification.
+                    </p>
+<a class="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all" href="#">
+                        Contact Support 
+                        <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</section>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Visible on Mobile Only) -->
+<nav class="fixed bottom-0 w-full md:hidden z-50 rounded-t-xl bg-background/90 backdrop-blur-lg border-t border-outline-variant/30 shadow-[0_-4px_20px_rgba(0,112,255,0.1)] flex justify-around items-center h-20 px-4 pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary active:scale-90 transition-transform font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+            Home
+        </a>
+<a class="flex flex-col items-center justify-center text-primary bg-primary-container/10 rounded-xl p-2 active:scale-90 transition-transform font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+            KB
+        </a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary active:scale-90 transition-transform font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="emergency">emergency</span>
+            Alerts
+        </a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:text-primary active:scale-90 transition-transform font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+            Support
+        </a>
+</nav>
+</body></html>

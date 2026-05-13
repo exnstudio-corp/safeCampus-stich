@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guardian Admin | Support Team Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&amp;family=Manrope:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#353534",
+                      "tertiary": "#ffb3b3",
+                      "surface-container-highest": "#353534",
+                      "on-secondary-container": "#00616d",
+                      "tertiary-fixed": "#ffdad9",
+                      "on-tertiary-fixed": "#400009",
+                      "on-secondary-fixed-variant": "#004f58",
+                      "secondary-fixed-dim": "#00daf3",
+                      "surface-container-low": "#1c1b1b",
+                      "surface": "#131313",
+                      "surface-tint": "#b0c6ff",
+                      "outline": "#8c90a1",
+                      "on-error-container": "#ffdad6",
+                      "inverse-surface": "#e5e2e1",
+                      "primary-fixed": "#d9e2ff",
+                      "outline-variant": "#424655",
+                      "on-surface": "#e5e2e1",
+                      "tertiary-container": "#ff5260",
+                      "surface-dim": "#131313",
+                      "secondary-fixed": "#9cf0ff",
+                      "on-secondary-fixed": "#001f24",
+                      "on-primary-fixed": "#001945",
+                      "inverse-primary": "#0058cb",
+                      "on-tertiary-fixed-variant": "#920021",
+                      "inverse-on-surface": "#313030",
+                      "primary-container": "#568dff",
+                      "on-tertiary-container": "#5b0011",
+                      "on-primary-container": "#002661",
+                      "primary-fixed-dim": "#b0c6ff",
+                      "secondary-container": "#00e3fd",
+                      "error-container": "#93000a",
+                      "error": "#ffb4ab",
+                      "tertiary-fixed-dim": "#ffb3b3",
+                      "surface-container-high": "#2a2a2a",
+                      "on-primary-fixed-variant": "#00429c",
+                      "on-tertiary": "#680015",
+                      "background": "#131313",
+                      "on-background": "#e5e2e1",
+                      "secondary": "#bdf4ff",
+                      "surface-bright": "#3a3939",
+                      "on-primary": "#002d6f",
+                      "primary": "#b0c6ff",
+                      "surface-container": "#201f1f",
+                      "on-surface-variant": "#c2c6d8",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-secondary": "#00363d",
+                      "on-error": "#690005"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "gutter": "16px",
+                      "xl": "40px",
+                      "margin-desktop": "64px",
+                      "md": "16px",
+                      "sm": "8px",
+                      "xs": "4px",
+                      "margin-mobile": "20px",
+                      "lg": "24px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Sora"],
+                      "body-lg": ["Manrope"],
+                      "headline-lg": ["Sora"],
+                      "label-md": ["Manrope"],
+                      "display-lg": ["Sora"],
+                      "headline-md": ["Sora"],
+                      "body-md": ["Manrope"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .active-glow {
+            box-shadow: 0px 4px 20px rgba(0, 112, 255, 0.15);
+        }
+        .emergency-glow {
+            box-shadow: 0px 0px 15px rgba(255, 82, 96, 0.4);
+        }
+        .cyber-border-focus:focus-within {
+            border-bottom: 2px solid #b0c6ff;
+            filter: drop-shadow(0 0 4px #b0c6ff);
+        }
+        body {
+            background-color: #050505;
+        }
+    </style>
+</head>
+<body class="text-on-surface font-body-md overflow-hidden">
+<!-- SIDEBAR NAVIGATION -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r border-outline-variant bg-opacity-5 backdrop-blur-xl shadow-lg shadow-primary/5 flex flex-col h-full py-lg z-50">
+<div class="px-lg mb-xl">
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">Guardian Admin</h1>
+<p class="text-on-surface-variant font-label-md text-label-md">Security Ops Center</p>
+</div>
+<nav class="flex-grow space-y-xs px-sm">
+<!-- Queue Item (Active) -->
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-primary font-bold border-r-2 border-primary bg-primary/5 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-label-md">Queue</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-variant/20 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dns">dns</span>
+<span class="font-label-md">Infrastructure</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-variant/20 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-md">Analytics</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-variant/20 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-md">Team</span>
+</a>
+</nav>
+<div class="px-lg py-md border-t border-outline-variant/30">
+<button class="w-full bg-primary text-on-primary py-sm rounded-lg font-label-md hover:brightness-110 active:scale-95 transition-all mb-lg">
+                New Alert
+            </button>
+<div class="space-y-xs">
+<a class="flex items-center gap-md px-md py-xs rounded-lg text-on-surface-variant hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-md px-md py-xs rounded-lg text-on-surface-variant hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-md">Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- TOP BAR -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 bg-surface/10 backdrop-blur-md border-b border-outline-variant flex justify-between items-center px-lg z-40">
+<div class="flex items-center gap-lg flex-1">
+<div class="relative w-64 cyber-border-focus bg-surface-container-lowest border-b border-outline-variant/30">
+<span class="absolute left-sm top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant text-body-md" data-icon="search">search</span>
+<input class="bg-transparent border-none text-label-md w-full pl-xl focus:ring-0" placeholder="Search system logs..." type="text"/>
+</div>
+<div class="flex items-center gap-sm">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="text-secondary-fixed-dim font-label-md">Status: Online</span>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all" data-icon="shield">shield</button>
+</div>
+<div class="flex items-center gap-sm border-l border-outline-variant pl-lg">
+<div class="text-right">
+<p class="font-label-md text-on-surface leading-none">Alex Rivera</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Senior Tech</p>
+</div>
+<img alt="Tech Avatar" class="w-8 h-8 rounded-lg border border-primary/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQHPbbzxVHbUb2ohZIAtqNyJehcQn9sw1ODM5x4cVK8Lxknrgu4ZU2Yw_qTq3GVt96_wyghNhLrniL9DKF_tTQSpWsORhVJrh3n19BPDkTnWPL8d6NxxOZ0nJlbruPyfoxWJlklp3d2QDFvsTD7YCf95DMfIV4G0g17J7nIEOA2s9ivIza1dusZAhq2Ssrh0Hm_NF1cKzfDFqVkqSwa3XT51uqBDIjPqVDkmg-WL0yWW3ScHmLmKAuMl3KxhHfNJaPba8mDxE9_7E"/>
+</div>
+</div>
+</header>
+<!-- MAIN CONTENT CANVAS -->
+<main class="ml-64 mt-16 p-lg h-[calc(100vh-4rem)] overflow-y-auto bg-background">
+<!-- BENTO HEADER GRID -->
+<div class="grid grid-cols-12 gap-lg mb-lg">
+<div class="col-span-12 lg:col-span-8 glass-card rounded-xl p-lg flex flex-col justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-xs">Incident Queue</h2>
+<p class="text-on-surface-variant font-body-md">Real-time surveillance monitoring and threat mitigation queue.</p>
+</div>
+<div class="flex gap-lg mt-lg">
+<div class="flex flex-col">
+<span class="text-on-surface-variant font-label-md text-xs uppercase">Open Tickets</span>
+<span class="text-display-lg font-display-lg text-primary">24</span>
+</div>
+<div class="flex flex-col">
+<span class="text-on-surface-variant font-label-md text-xs uppercase">Avg. Response</span>
+<span class="text-display-lg font-display-lg text-secondary-fixed-dim">3.2m</span>
+</div>
+<div class="flex flex-col">
+<span class="text-on-surface-variant font-label-md text-xs uppercase">Critical Active</span>
+<span class="text-display-lg font-display-lg text-tertiary">02</span>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 glass-card rounded-xl overflow-hidden relative group">
+<img class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700" data-alt="A futuristic cybersecurity server room with glowing blue neon lines and sleek black server racks. The lighting is low-key, creating a high-tech atmosphere with sharp architectural lines and a sense of absolute digital security. Motion blur on data paths suggests high-speed connectivity within a minimalist, modern data center." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVavwiWxByK-w4DH72NoxnwWoaUZwd-MGHk5NsKgyyoZUoegaJqKPTq91eAeLmpnUsdX2_nHZf6XPqjMAZ4axg0BSiC_ejTlPGCxrbd6hUmZvD3nYJhZcZgSbTBPqS3rm3gNW1fnBcp0VMr5CZzUcO78I5lia0bw5RXIHh1NhdyyJJJ158oAzdw0ZzA1IjNUt577vHt5c8winxkCxyyu-9MgVmwqw5wMcpr-EVBTfRtgWCqLG6cxzQ4jJ_MFzAOkm3Kn4kSBUJP08"/>
+<div class="relative z-10 p-lg h-full flex flex-col justify-end">
+<div class="bg-surface/60 backdrop-blur-md p-md rounded-lg border border-outline-variant">
+<p class="font-label-md text-on-surface mb-xs">System Health</p>
+<div class="w-full h-2 bg-on-surface/10 rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-4/5"></div>
+</div>
+<p class="text-xs text-on-surface-variant mt-sm">98.4% uptime across all clusters</p>
+</div>
+</div>
+</div>
+</div>
+<!-- FILTER BAR -->
+<div class="glass-card rounded-xl p-md mb-lg flex items-center justify-between">
+<div class="flex items-center gap-md">
+<button class="bg-primary/10 text-primary px-md py-xs rounded-full border border-primary/20 font-label-md hover:bg-primary/20 transition-colors">All Tickets</button>
+<button class="text-on-surface-variant px-md py-xs rounded-full font-label-md hover:text-on-surface transition-colors">Critical</button>
+<button class="text-on-surface-variant px-md py-xs rounded-full font-label-md hover:text-on-surface transition-colors">Open</button>
+<button class="text-on-surface-variant px-md py-xs rounded-full font-label-md hover:text-on-surface transition-colors">Assigned to Me</button>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-xs text-on-surface-variant hover:text-primary transition-all"><span class="material-symbols-outlined" data-icon="filter_list">filter_list</span></button>
+<button class="p-xs text-on-surface-variant hover:text-primary transition-all"><span class="material-symbols-outlined" data-icon="refresh">refresh</span></button>
+</div>
+</div>
+<!-- HIGH DENSITY TABLE -->
+<div class="glass-card rounded-xl overflow-hidden mb-lg">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high/50 border-b border-outline-variant">
+<th class="px-lg py-md font-label-md text-on-surface-variant uppercase tracking-wider text-xs">ID</th>
+<th class="px-lg py-md font-label-md text-on-surface-variant uppercase tracking-wider text-xs">Subject</th>
+<th class="px-lg py-md font-label-md text-on-surface-variant uppercase tracking-wider text-xs">Priority</th>
+<th class="px-lg py-md font-label-md text-on-surface-variant uppercase tracking-wider text-xs">Status</th>
+<th class="px-lg py-md font-label-md text-on-surface-variant uppercase tracking-wider text-xs">Technician</th>
+<th class="px-lg py-md font-label-md text-on-surface-variant uppercase tracking-wider text-xs text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<!-- Ticket Row 1 -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-lg py-md font-label-md text-primary">#INC-8291</td>
+<td class="px-lg py-md">
+<div class="font-body-md text-on-surface font-semibold">Firewall Breach Attempt</div>
+<div class="text-xs text-on-surface-variant">Cluster A-12 • Detected 4m ago</div>
+</td>
+<td class="px-lg py-md">
+<span class="inline-flex items-center gap-xs px-sm py-xs rounded bg-tertiary-container/20 text-tertiary text-xs font-bold uppercase emergency-glow">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                                Critical
+                            </span>
+</td>
+<td class="px-lg py-md">
+<span class="text-secondary-fixed-dim text-xs font-semibold px-sm py-xs border border-secondary-fixed-dim/30 rounded">Open</span>
+</td>
+<td class="px-lg py-md">
+<div class="flex items-center gap-sm">
+<img alt="Technician" class="w-6 h-6 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPSGQB7hxijRg29HEa73p2Tur5N3Q8_PWgPH-RD4otLjYF6IqtWEnVCXy3mMoiTiu96GAjX_tV9-rG8Td33qnmGbwHOAfRXJZIVPYzWshiVpuwCSNGIOuIcXlxZ6j86VBW96HIOKoCR-Xt4t8gG6FXlXoDapmnbUDG29MYHcGggI5VxUluPe4Tne5-NuS_buxvRJ_wgyIPlgT0DkfxeAIR62LZEbU2fMASaGvCtBIqqqJk4rMaZ83_ayc-tQilUNWVQui27uzYcos"/>
+<span class="text-xs text-on-surface">Unassigned</span>
+</div>
+</td>
+<td class="px-lg py-md text-right">
+<div class="flex items-center justify-end gap-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-xs hover:text-primary"><span class="material-symbols-outlined text-body-md" data-icon="edit">edit</span></button>
+<button class="p-xs hover:text-primary"><span class="material-symbols-outlined text-body-md" data-icon="visibility">visibility</span></button>
+<button class="p-xs hover:text-secondary-fixed-dim"><span class="material-symbols-outlined text-body-md" data-icon="check_circle">check_circle</span></button>
+</div>
+</td>
+</tr>
+<!-- Ticket Row 2 -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-lg py-md font-label-md text-primary">#INC-8290</td>
+<td class="px-lg py-md">
+<div class="font-body-md text-on-surface font-semibold">Slow Response Time in East-2</div>
+<div class="text-xs text-on-surface-variant">Service Latency • Reported 12m ago</div>
+</td>
+<td class="px-lg py-md">
+<span class="inline-flex items-center gap-xs px-sm py-xs rounded bg-surface-variant text-on-surface-variant text-xs font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-on-surface-variant"></span>
+                                Medium
+                            </span>
+</td>
+<td class="px-lg py-md">
+<span class="text-primary text-xs font-semibold px-sm py-xs border border-primary/30 rounded">In Progress</span>
+</td>
+<td class="px-lg py-md">
+<div class="flex items-center gap-sm">
+<img alt="Technician" class="w-6 h-6 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALvBEFXZwbjhB0GZkUT3ufy1CZL5ApZNxv6ldhXTiyXBBbO10FmNvylmO9uiuYEBoUtSk4FuO2_yogcRhk0Ck9cT7UXxxoJbgskLlEC5dZaGSsxXVyV20enkhTqVw9fY4xQrbfAClrVxySPZeFi78TIZAV8YaKvlKjNBOYdUP0rLMLBGOU6hvek386_C7-BzD2xQjbZJdzRAxNp8bQ99X4bhEOkheR_vKjkn__GW1Jmmu-zpBud-HcE-rI_SWnbG_87o610QjeGQo"/>
+<span class="text-xs text-on-surface">Sarah J.</span>
+</div>
+</td>
+<td class="px-lg py-md text-right">
+<div class="flex items-center justify-end gap-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-xs hover:text-primary"><span class="material-symbols-outlined text-body-md" data-icon="edit">edit</span></button>
+<button class="p-xs hover:text-primary"><span class="material-symbols-outlined text-body-md" data-icon="visibility">visibility</span></button>
+<button class="p-xs hover:text-secondary-fixed-dim"><span class="material-symbols-outlined text-body-md" data-icon="check_circle">check_circle</span></button>
+</div>
+</td>
+</tr>
+<!-- Ticket Row 3 -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-lg py-md font-label-md text-primary">#INC-8289</td>
+<td class="px-lg py-md">
+<div class="font-body-md text-on-surface font-semibold">User Access Denial: Dept 404</div>
+<div class="text-xs text-on-surface-variant">Auth Failure • Reported 24m ago</div>
+</td>
+<td class="px-lg py-md">
+<span class="inline-flex items-center gap-xs px-sm py-xs rounded bg-secondary-container/20 text-secondary-fixed-dim text-xs font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed-dim"></span>
+                                High
+                            </span>
+</td>
+<td class="px-lg py-md">
+<span class="text-secondary-fixed-dim text-xs font-semibold px-sm py-xs border border-secondary-fixed-dim/30 rounded">Open</span>
+</td>
+<td class="px-lg py-md">
+<div class="flex items-center gap-sm">
+<img alt="Technician" class="w-6 h-6 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuUZ844QJlAoymVyMsJeGPgR4h-tpvBMWBY2Gfsm9RvX2ZozXWeA4nw_TNZr_GLL9-Bn57TyLvQpx41ItmJeV6EzZG-FOirl4jItOBqxcqxg5o-OwjAshn06b8OQMC5qcw8aGpSo18cSSC0zL0vPho7Q-Y4D9ajlhxIyeg9uThWvld4LVm9Ij27rbRVicAHr7jEwAXDc-qzlvA18b5qs2CvD3SB2arnYWHagGHZwhqAZR0bmP3EaSj7p872XFLRhyYHY8IQgs5M1s"/>
+<span class="text-xs text-on-surface">Mark V.</span>
+</div>
+</td>
+<td class="px-lg py-md text-right">
+<div class="flex items-center justify-end gap-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-xs hover:text-primary"><span class="material-symbols-outlined text-body-md" data-icon="edit">edit</span></button>
+<button class="p-xs hover:text-primary"><span class="material-symbols-outlined text-body-md" data-icon="visibility">visibility</span></button>
+<button class="p-xs hover:text-secondary-fixed-dim"><span class="material-symbols-outlined text-body-md" data-icon="check_circle">check_circle</span></button>
+</div>
+</td>
+</tr>
+<!-- Ticket Row 4 -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-lg py-md font-label-md text-primary">#INC-8288</td>
+<td class="px-lg py-md">
+<div class="font-body-md text-on-surface font-semibold">Certificate Expiry Warning</div>
+<div class="text-xs text-on-surface-variant">Maintenance • Detected 1h ago</div>
+</td>
+<td class="px-lg py-md">
+<span class="inline-flex items-center gap-xs px-sm py-xs rounded bg-surface-variant text-on-surface-variant text-xs font-bold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-on-surface-variant"></span>
+                                Low
+                            </span>
+</td>
+<td class="px-lg py-md">
+<span class="text-on-surface-variant text-xs font-semibold px-sm py-xs border border-outline-variant rounded">Resolved</span>
+</td>
+<td class="px-lg py-md">
+<div class="flex items-center gap-sm">
+<img alt="Technician" class="w-6 h-6 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkqobfOdicXdHB6hVARBRqAcgCY2cTTvak8hxjAcarCC7Qa2JWFjDdrcieCcL3T-xZJeccQTcxIVpW_5OPyWaRcJdkBlgUPjKW6pBli9ToOF67B-aeiRlFaXIbgTyRTWq5jVpDQiSuyHGm6tR-kjHYGcI7ZeFJ7wery7MBxqXLQcRXo_hWAyhabYh7ctmiLJyt7rPTrX_SjYFMm3AoRdMn1Xp6S0csw1Ofre9Lh5P8y5IheaG121STaRhbAIA3GmksPe5u18l0WKc"/>
+<span class="text-xs text-on-surface">Alex R.</span>
+</div>
+</td>
+<td class="px-lg py-md text-right">
+<div class="flex items-center justify-end gap-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-xs hover:text-primary"><span class="material-symbols-outlined text-body-md" data-icon="edit">edit</span></button>
+<button class="p-xs hover:text-primary"><span class="material-symbols-outlined text-body-md" data-icon="visibility">visibility</span></button>
+<button class="p-xs hover:text-secondary-fixed-dim"><span class="material-symbols-outlined text-body-md" data-icon="check_circle">check_circle</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination -->
+<div class="px-lg py-md bg-surface-container-low border-t border-outline-variant flex items-center justify-between">
+<p class="text-xs text-on-surface-variant">Showing 4 of 24 active incidents</p>
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span></button>
+<span class="text-xs font-label-md">Page 1 of 6</span>
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span></button>
+</div>
+</div>
+</div>
+<!-- QUICK ACTION CHIPS & FOOTER INFO -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<div class="glass-card rounded-xl p-lg border-l-4 border-primary active-glow">
+<div class="flex items-center gap-md mb-md">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+<h3 class="font-label-md">AI Triaging</h3>
+</div>
+<p class="text-xs text-on-surface-variant mb-md">Automatic categorization is 92% accurate today. 4 tickets awaiting approval.</p>
+<button class="text-xs font-bold text-primary uppercase tracking-widest hover:underline">Review Now</button>
+</div>
+<div class="glass-card rounded-xl p-lg border-l-4 border-secondary-container">
+<div class="flex items-center gap-md mb-md">
+<span class="material-symbols-outlined text-secondary-container" data-icon="history">history</span>
+<h3 class="font-label-md">Recent Activity</h3>
+</div>
+<ul class="space-y-sm">
+<li class="text-[10px] text-on-surface-variant"><b class="text-on-surface">Alex R.</b> closed #INC-8287 (2m ago)</li>
+<li class="text-[10px] text-on-surface-variant"><b class="text-on-surface">System</b> escalated #INC-8291 (4m ago)</li>
+</ul>
+</div>
+<div class="glass-card rounded-xl p-lg border-l-4 border-tertiary">
+<div class="flex items-center gap-md mb-md">
+<span class="material-symbols-outlined text-tertiary" data-icon="warning">warning</span>
+<h3 class="font-label-md">Ops Alert</h3>
+</div>
+<p class="text-xs text-on-surface-variant">Network congestion detected in Segment B. Performance might be affected.</p>
+</div>
+</div>
+</main>
+<!-- FLOATING ACTION BUTTON (Contextual: Home/Dashboard Only) -->
+<button class="fixed bottom-lg right-lg w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-2xl active-glow hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined" data-icon="add" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+</body></html>

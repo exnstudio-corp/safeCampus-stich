@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#5b0011",
+                        "on-tertiary-fixed": "#400009",
+                        "secondary-fixed": "#9cf0ff",
+                        "surface-container": "#201f1f",
+                        "on-error": "#690005",
+                        "surface-dim": "#131313",
+                        "on-primary-fixed": "#001945",
+                        "surface-container-highest": "#353534",
+                        "primary-fixed": "#d9e2ff",
+                        "background": "#131313",
+                        "on-primary-container": "#002661",
+                        "error-container": "#93000a",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#ffb3b3",
+                        "surface-tint": "#b0c6ff",
+                        "on-secondary-fixed": "#001f24",
+                        "primary-fixed-dim": "#b0c6ff",
+                        "on-secondary-container": "#00616d",
+                        "error": "#ffb4ab",
+                        "surface-container-high": "#2a2a2a",
+                        "secondary-fixed-dim": "#00daf3",
+                        "on-background": "#e5e2e1",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-bright": "#3a3939",
+                        "primary-container": "#568dff",
+                        "on-tertiary-fixed-variant": "#920021",
+                        "on-secondary-fixed-variant": "#004f58",
+                        "tertiary-fixed": "#ffdad9",
+                        "secondary": "#bdf4ff",
+                        "surface-variant": "#353534",
+                        "tertiary": "#ffb3b3",
+                        "on-primary-fixed-variant": "#00429c",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-surface": "#e5e2e1",
+                        "inverse-surface": "#e5e2e1",
+                        "outline": "#8c90a1",
+                        "primary": "#b0c6ff",
+                        "on-tertiary": "#680015",
+                        "on-primary": "#002d6f",
+                        "inverse-primary": "#0058cb",
+                        "inverse-on-surface": "#313030",
+                        "on-secondary": "#00363d",
+                        "tertiary-container": "#ff5260",
+                        "surface": "#131313",
+                        "secondary-container": "#00e3fd",
+                        "outline-variant": "#424655",
+                        "on-surface-variant": "#c2c6d8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "margin-desktop": "64px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "xl": "40px",
+                        "sm": "8px",
+                        "unit": "4px",
+                        "margin-mobile": "20px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Sora"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "headline-lg": ["Sora"],
+                        "display-lg": ["Sora"],
+                        "headline-lg-mobile": ["Sora"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .active-glow {
+            box-shadow: 0px 4px 20px rgba(0, 112, 255, 0.15);
+        }
+        .input-glow:focus {
+            outline: none;
+            border-bottom-color: #b0c6ff;
+            box-shadow: 0 1px 0 0 #b0c6ff;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #050505;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface antialiased pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface-container-low/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="shield_with_heart">shield_with_heart</span>
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">SafeCampus</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<main class="mt-24 px-margin-mobile max-w-2xl mx-auto">
+<!-- Header & Non-Emergency Disclaimer -->
+<section class="mb-lg">
+<h1 class="font-headline-lg text-headline-lg-mobile text-on-background mb-sm">Report Suspicious Activity</h1>
+<div class="glass-card p-md rounded-xl border-tertiary/20 bg-tertiary-container/5 flex items-start gap-md">
+<span class="material-symbols-outlined text-tertiary-fixed-dim mt-1" data-icon="info">info</span>
+<div>
+<p class="font-label-md text-tertiary-fixed-dim mb-xs">NON-EMERGENCY ONLY</p>
+<p class="font-body-md text-on-surface-variant">If there is an immediate threat to life or property, please use the <span class="text-error font-bold">SOS</span> button or dial campus emergency services immediately.</p>
+</div>
+</div>
+</section>
+<!-- Reporting Form -->
+<form class="space-y-lg">
+<!-- Category Selection -->
+<div class="glass-card p-lg rounded-xl">
+<label class="block font-label-md text-primary mb-md">Select Category</label>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-sm">
+<button class="flex items-center gap-md p-md glass-card rounded-lg hover:border-primary/50 transition-all text-left group" type="button">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary" data-icon="meeting_room">meeting_room</span>
+<span class="font-body-md">Unlocked Door</span>
+</button>
+<button class="flex items-center gap-md p-md glass-card rounded-lg border-primary bg-primary/5 active-glow text-left group" type="button">
+<span class="material-symbols-outlined text-primary" data-icon="person_search">person_search</span>
+<span class="font-body-md">Suspicious Individual</span>
+</button>
+<button class="flex items-center gap-md p-md glass-card rounded-lg hover:border-primary/50 transition-all text-left group" type="button">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary" data-icon="lightbulb_outline">lightbulb_outline</span>
+<span class="font-body-md">Lighting Issue</span>
+</button>
+<button class="flex items-center gap-md p-md glass-card rounded-lg hover:border-primary/50 transition-all text-left group" type="button">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary" data-icon="more_horiz">more_horiz</span>
+<span class="font-body-md">Other Anomaly</span>
+</button>
+</div>
+</div>
+<!-- Location Picker -->
+<div class="glass-card p-lg rounded-xl">
+<label class="block font-label-md text-primary mb-md">Location</label>
+<div class="relative h-48 rounded-lg overflow-hidden mb-md border border-outline-variant/30">
+<img class="w-full h-full object-cover opacity-60" data-alt="A top-down stylized dark-mode digital map of a university campus at night. The map features deep black backgrounds with neon blue highlighted paths and walkways. Subtle glowing points represent safety hubs and buildings are outlined in high-precision luminous white borders. The aesthetic is clean, cyber-minimal, and high-tech, focusing on clarity and security." data-location="University Campus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwsAk5Z8HenLqcm5y0aguNGHa96xtDGQqlt4jPhAHDXesALkf5cdN1HuWNc356u-eN-gOZcFQnzFO9kKR4pJg0OES2D_kIgCmnWm2Y5cOsa-DTWVL8V6oppu2rWF5tBp3jXSOAn5g03sfC7qKNF6AT09gH0MJ_BM0VT_uJCFChXaRzdM-jNCy6tn_LNgwRTUH1A6i3-mWjcfqKCJld3gcQpDdxIz_BIfmdD61iJKPVDHO92CRe1VSx7WBHmUGWwGn6xh9mIb46-hI"/>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-4xl" data-icon="location_on" data-weight="fill" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+<input class="w-full bg-surface-container-lowest border-0 border-b border-outline-variant p-md font-body-md text-on-surface input-glow transition-all" placeholder="Add specific details (e.g., North Wing, Floor 2)" type="text"/>
+</div>
+<!-- Description -->
+<div class="glass-card p-lg rounded-xl">
+<label class="block font-label-md text-primary mb-md">Observation Details</label>
+<textarea class="w-full bg-surface-container-lowest border-0 border-b border-outline-variant p-md font-body-md text-on-surface input-glow transition-all resize-none" placeholder="Describe what you observed in detail..." rows="4"></textarea>
+</div>
+<!-- Media Upload -->
+<div class="glass-card p-lg rounded-xl">
+<label class="block font-label-md text-primary mb-md">Upload Photo / Video (Optional)</label>
+<div class="border-2 border-dashed border-outline-variant/30 rounded-lg p-xl flex flex-col items-center justify-center bg-surface-container-lowest/50 hover:bg-surface-container-high/20 transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary text-3xl mb-md" data-icon="add_a_photo">add_a_photo</span>
+<p class="font-body-md text-on-surface-variant">Tap to capture or upload media</p>
+<p class="font-label-md text-outline mt-xs">Maximum file size: 20MB</p>
+</div>
+</div>
+<!-- Submit Action -->
+<div class="flex flex-col gap-md pt-lg">
+<button class="w-full bg-primary-container text-on-primary-container font-headline-md py-lg rounded-xl active-glow hover:scale-[1.02] active:scale-95 transition-all" type="submit">
+                    Submit Secure Report
+                </button>
+<button class="w-full border border-outline-variant text-on-surface-variant font-label-md py-md rounded-xl hover:bg-surface-container-high transition-all" type="button">
+                    Cancel Report
+                </button>
+</div>
+</form>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-surface-container-lowest/90 backdrop-blur-2xl border-t border-outline-variant/20 shadow-lg md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 rounded-full transition-all p-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-label-md text-label-md">Map</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 rounded-full transition-all p-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="font-label-md text-label-md">Check-in</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary-fixed-dim font-bold hover:bg-surface-container-highest/50 rounded-full transition-all p-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="emergency">emergency</span>
+<span class="font-label-md text-label-md">SOS</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 rounded-full transition-all p-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 rounded-full transition-all p-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</nav>
+</body></html>

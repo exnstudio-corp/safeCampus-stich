@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SafeCampus - Broadcast Monitoring</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&amp;family=Manrope:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#201f1f",
+                        "surface-bright": "#3a3939",
+                        "secondary": "#bdf4ff",
+                        "secondary-fixed": "#9cf0ff",
+                        "outline": "#8c90a1",
+                        "on-primary-fixed": "#001945",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-container": "#002661",
+                        "on-secondary-fixed": "#001f24",
+                        "on-secondary-container": "#00616d",
+                        "primary-fixed": "#d9e2ff",
+                        "primary": "#b0c6ff",
+                        "primary-container": "#568dff",
+                        "primary-fixed-dim": "#b0c6ff",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-highest": "#353534",
+                        "secondary-fixed-dim": "#00daf3",
+                        "tertiary-fixed": "#ffdad9",
+                        "inverse-primary": "#0058cb",
+                        "on-tertiary-container": "#5b0011",
+                        "on-secondary": "#00363d",
+                        "surface-dim": "#131313",
+                        "on-tertiary-fixed-variant": "#920021",
+                        "tertiary": "#ffb3b3",
+                        "secondary-container": "#00e3fd",
+                        "on-error": "#690005",
+                        "on-tertiary": "#680015",
+                        "background": "#131313",
+                        "on-surface-variant": "#c2c6d8",
+                        "on-tertiary-fixed": "#400009",
+                        "on-primary": "#002d6f",
+                        "tertiary-container": "#ff5260",
+                        "inverse-surface": "#e5e2e1",
+                        "inverse-on-surface": "#313030",
+                        "surface-container-low": "#1c1b1b",
+                        "tertiary-fixed-dim": "#ffb3b3",
+                        "on-primary-fixed-variant": "#00429c",
+                        "outline-variant": "#424655",
+                        "surface-variant": "#353534",
+                        "surface-container-high": "#2a2a2a",
+                        "error": "#ffb4ab",
+                        "error-container": "#93000a",
+                        "surface": "#131313",
+                        "on-secondary-fixed-variant": "#004f58",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-tint": "#b0c6ff",
+                        "on-background": "#e5e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "md": "16px",
+                        "unit": "4px",
+                        "margin-mobile": "20px",
+                        "lg": "24px",
+                        "gutter": "16px",
+                        "xl": "40px",
+                        "sm": "8px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Sora"],
+                        "body-lg": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "display-lg": ["Sora"],
+                        "body-md": ["Manrope"],
+                        "headline-lg-mobile": ["Sora"],
+                        "headline-lg": ["Sora"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background-color: rgba(5, 5, 5, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .emergency-glow {
+            box-shadow: 0 0 40px rgba(255, 82, 96, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-safe">
+<!-- Active Alert Banner -->
+<div class="fixed top-0 w-full z-50 bg-error-container text-on-error-container py-unit px-margin-mobile md:px-margin-desktop flex items-center justify-center space-x-sm shadow-[0_4px_20px_rgba(255,82,96,0.3)]">
+<span class="material-symbols-outlined text-body-md" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-label-md text-label-md uppercase tracking-widest font-bold">EMERGENCY BROADCAST ACTIVE</span>
+</div>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-40 bg-surface/80 backdrop-blur-xl docked full-width border-b border-outline-variant/30 shadow-sm flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 mt-8">
+<div class="flex items-center space-x-md">
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">SafeCampus</span>
+</div>
+<div class="flex items-center space-x-gutter">
+<button class="scale-95 active:opacity-80 transition-all text-on-surface-variant hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="scale-95 active:opacity-80 transition-all text-on-surface-variant hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container overflow-hidden border border-outline-variant/50">
+<img alt="Manager Avatar" class="w-full h-full object-cover" data-alt="A futuristic, high-resolution 3D avatar of a security manager, presented against a deep black background with subtle neon blue rim lighting, aligning with a cyber-minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMPxv-WyBoRpD6Pcoc_i2MwQNQu-d4H9wpChyp3d8eWPgbKvFxIqrJbsTEdP-vDIwu9wKCCok2e0kalOBqJKIkW1gpE577HzKsu4y6vym_fWv5lI9lQZ5_ym8ROL66rl8zibuKz7PAN--dKCj08RRCdkWZQpf7sPhdX9z6mIZEyjaqlCrMXj7rZ_lPDWefo8l_M5x8iOzWKrzc-a-5wANlSciOes20GWwrpVhRnkowFQN9EfC7kuGLoiISZxId37KeI8GXldbcKl0"/>
+</div>
+</div>
+</header>
+<main class="pt-[104px] px-margin-mobile md:px-margin-desktop py-lg max-w-[1200px] mx-auto min-h-screen flex flex-col gap-gutter">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-md mb-md">
+<div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-unit">Broadcast Alpha-Sigma</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Initiated 2 minutes ago by Security Desk 4</p>
+</div>
+<div class="flex gap-sm w-full md:w-auto">
+<button class="flex-1 md:flex-none px-lg py-md rounded-lg border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined">edit</span>
+                    Update Alert
+                </button>
+<button class="flex-1 md:flex-none px-lg py-md rounded-lg bg-tertiary-container text-on-tertiary-container font-label-md text-label-md font-bold shadow-[0_0_20px_rgba(255,82,96,0.3)] hover:bg-error transition-colors flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined">cancel</span>
+                    Terminate
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter flex-1">
+<!-- Left Column: Stats & Log -->
+<div class="lg:col-span-4 flex flex-col gap-gutter">
+<!-- Transmission Stats Card -->
+<div class="glass-card rounded-xl p-lg flex flex-col gap-md">
+<h2 class="font-headline-md text-headline-md text-on-surface border-b border-outline-variant/30 pb-sm">Transmission Status</h2>
+<div class="flex flex-col gap-unit">
+<div class="flex justify-between font-label-md text-label-md">
+<span class="text-on-surface-variant">Overall Progress</span>
+<span class="text-primary font-bold">84%</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2 overflow-hidden">
+<div class="bg-primary h-2 rounded-full" style="width: 84%"></div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-sm mt-sm">
+<div class="bg-surface-container-low rounded-lg p-sm border border-outline-variant/20 flex flex-col items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Delivered</span>
+<span class="font-headline-md text-headline-md text-secondary-container mt-xs">1,420</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-sm border border-outline-variant/20 flex flex-col items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Pending</span>
+<span class="font-headline-md text-headline-md text-primary-container mt-xs">265</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-sm border border-outline-variant/20 flex flex-col items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Failed</span>
+<span class="font-headline-md text-headline-md text-error mt-xs">12</span>
+</div>
+</div>
+</div>
+<!-- Incident Log Card -->
+<div class="glass-card rounded-xl p-lg flex-1 flex flex-col min-h-[300px]">
+<div class="flex justify-between items-center border-b border-outline-variant/30 pb-sm mb-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface">Live Receipts</h2>
+<span class="flex h-3 w-3 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+</span>
+</div>
+<div class="flex-1 overflow-y-auto pr-sm space-y-sm">
+<!-- Log Item -->
+<div class="flex items-start gap-sm p-sm rounded bg-surface-container-low border-l-2 border-secondary-container">
+<span class="material-symbols-outlined text-secondary-container text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-surface">Node 4A - North Wing</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-[12px]">Delivered to 45 devices</p>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant text-[12px]">Now</span>
+</div>
+<!-- Log Item -->
+<div class="flex items-start gap-sm p-sm rounded bg-surface-container-low border-l-2 border-secondary-container">
+<span class="material-symbols-outlined text-secondary-container text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-surface">Node 2B - Library</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-[12px]">Delivered to 120 devices</p>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant text-[12px]">12s ago</span>
+</div>
+<!-- Log Item -->
+<div class="flex items-start gap-sm p-sm rounded bg-surface-container-low border-l-2 border-error">
+<span class="material-symbols-outlined text-error text-[20px]" style="font-variation-settings: 'FILL' 1;">error</span>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-surface">Node 8C - Basement</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-[12px]">Connection timeout (3 retries)</p>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant text-[12px]">24s ago</span>
+</div>
+<!-- Log Item -->
+<div class="flex items-start gap-sm p-sm rounded bg-surface-container-low border-l-2 border-secondary-container">
+<span class="material-symbols-outlined text-secondary-container text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-surface">Node 1A - Main Hall</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-[12px]">Delivered to 310 devices</p>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant text-[12px]">45s ago</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Map Visualizer -->
+<div class="lg:col-span-8 glass-card rounded-xl p-0 overflow-hidden relative min-h-[400px] flex flex-col emergency-glow">
+<div class="absolute top-lg left-lg z-10 glass-card p-sm rounded-lg flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface">my_location</span>
+<span class="font-label-md text-label-md text-on-surface tracking-widest">PERIMETER ALPHA</span>
+</div>
+<!-- Map Background Placeholder -->
+<div class="absolute inset-0 bg-surface-container-lowest bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=2000&amp;q=80')] bg-cover bg-center opacity-40 mix-blend-luminosity" data-alt="A highly stylized, top-down dark mode map of a modern university campus. The map utilizes a deep black and dark grey color palette, featuring sharp geometric lines for buildings and roads. Subtle, luminous neon blue accents trace the pathways, evoking a high-tech, cyber-minimalist interface."></div>
+<!-- Map Overlay Gradient for depth -->
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<!-- Simulated Map UI Elements -->
+<div class="absolute inset-0 z-10 pointer-events-none flex items-center justify-center">
+<!-- Broadcast Radius -->
+<div class="absolute w-[400px] h-[400px] rounded-full border-2 border-primary/30 bg-primary/5 flex items-center justify-center">
+<div class="absolute w-full h-full rounded-full border border-primary/50 animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
+</div>
+<!-- Nodes -->
+<div class="absolute top-[30%] left-[40%] flex flex-col items-center">
+<div class="w-4 h-4 bg-secondary-container rounded-full shadow-[0_0_15px_rgba(0,227,253,0.8)]"></div>
+<span class="font-label-md text-[10px] text-secondary-container mt-1 bg-surface/80 px-1 rounded">N-4A</span>
+</div>
+<div class="absolute top-[60%] left-[55%] flex flex-col items-center">
+<div class="w-4 h-4 bg-secondary-container rounded-full shadow-[0_0_15px_rgba(0,227,253,0.8)]"></div>
+<span class="font-label-md text-[10px] text-secondary-container mt-1 bg-surface/80 px-1 rounded">N-2B</span>
+</div>
+<div class="absolute top-[45%] left-[65%] flex flex-col items-center">
+<div class="w-4 h-4 bg-error rounded-full shadow-[0_0_15px_rgba(255,180,171,0.8)] animate-pulse"></div>
+<span class="font-label-md text-[10px] text-error mt-1 bg-surface/80 px-1 rounded">N-8C</span>
+</div>
+<!-- Origin Point -->
+<div class="absolute top-[45%] left-[50%] flex flex-col items-center">
+<span class="material-symbols-outlined text-primary text-[32px] drop-shadow-[0_0_10px_rgba(176,198,255,1)]" style="font-variation-settings: 'FILL' 1;">cell_tower</span>
+</div>
+</div>
+<!-- Bottom Map Legend -->
+<div class="absolute bottom-lg left-lg right-lg z-10 flex justify-between items-end">
+<div class="glass-card p-sm rounded-lg flex gap-md">
+<div class="flex items-center gap-xs">
+<div class="w-2 h-2 rounded-full bg-secondary-container"></div>
+<span class="font-label-md text-[12px] text-on-surface-variant">Active</span>
+</div>
+<div class="flex items-center gap-xs">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<span class="font-label-md text-[12px] text-on-surface-variant">Failed</span>
+</div>
+</div>
+<div class="glass-card p-sm rounded-lg">
+<span class="font-label-md text-[12px] text-on-surface-variant">Radius: 2.5km</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Hidden on md and up based on design system rules for this context, but included for structure if needed on mobile for other views. However, context rules say suppress if linear/focused journey. This is a focused monitoring screen, so we will suppress the bottom nav entirely for a cleaner canvas.) -->
+<!-- Suppressed: BottomNavBar -->
+</body></html>

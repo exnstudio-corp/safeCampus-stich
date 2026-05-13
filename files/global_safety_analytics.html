@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Analytics &amp; Global Oversight</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#c2c6d8",
+                        "secondary": "#bdf4ff",
+                        "primary-container": "#568dff",
+                        "surface": "#131313",
+                        "tertiary-fixed-dim": "#ffb3b3",
+                        "tertiary": "#ffb3b3",
+                        "on-secondary-fixed": "#001f24",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#353534",
+                        "primary": "#b0c6ff",
+                        "primary-fixed-dim": "#b0c6ff",
+                        "on-error": "#690005",
+                        "on-primary": "#002d6f",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-secondary-container": "#00616d",
+                        "on-primary-fixed-variant": "#00429c",
+                        "on-tertiary": "#680015",
+                        "surface-dim": "#131313",
+                        "secondary-fixed": "#9cf0ff",
+                        "on-secondary-fixed-variant": "#004f58",
+                        "surface-bright": "#3a3939",
+                        "on-tertiary-fixed-variant": "#920021",
+                        "tertiary-container": "#ff5260",
+                        "surface-container-low": "#1c1b1b",
+                        "tertiary-fixed": "#ffdad9",
+                        "secondary-container": "#00e3fd",
+                        "on-background": "#e5e2e1",
+                        "on-secondary": "#00363d",
+                        "on-primary-fixed": "#001945",
+                        "inverse-primary": "#0058cb",
+                        "surface-tint": "#b0c6ff",
+                        "inverse-surface": "#e5e2e1",
+                        "background": "#131313",
+                        "on-error-container": "#ffdad6",
+                        "inverse-on-surface": "#313030",
+                        "surface-variant": "#353534",
+                        "on-tertiary-fixed": "#400009",
+                        "surface-container": "#201f1f",
+                        "outline-variant": "#424655",
+                        "surface-container-high": "#2a2a2a",
+                        "primary-fixed": "#d9e2ff",
+                        "secondary-fixed-dim": "#00daf3",
+                        "outline": "#8c90a1",
+                        "error-container": "#93000a",
+                        "on-tertiary-container": "#5b0011",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-container": "#002661"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "xs": "4px",
+                        "gutter": "16px",
+                        "xl": "40px",
+                        "sm": "8px",
+                        "unit": "4px",
+                        "margin-mobile": "20px",
+                        "md": "16px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Sora"],
+                        "display-lg": ["Sora"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "headline-md": ["Sora"],
+                        "headline-lg-mobile": ["Sora"],
+                        "label-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background-color: rgba(19, 19, 19, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .neon-glow {
+            box-shadow: 0px 4px 20px rgba(0, 112, 255, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-[#050505] text-on-surface font-body-md min-h-screen flex flex-col md:flex-row pb-24 md:pb-0">
+<!-- TopAppBar (Mobile) -->
+<header class="md:hidden bg-surface/60 backdrop-blur-xl fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile py-sm border-b border-white/10">
+<div class="font-headline-md text-headline-md font-bold text-primary">SafeCampus</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity cursor-pointer">shield</span>
+</div>
+</header>
+<!-- SideNavBar (Desktop) -->
+<nav class="hidden md:flex h-full w-64 fixed left-0 top-0 z-[60] flex-col p-lg bg-surface/90 backdrop-blur-3xl border-r border-white/8 shadow-2xl">
+<div class="mb-xl">
+<div class="font-headline-lg text-headline-lg text-primary mb-2">SafeCampus</div>
+<div class="flex items-center gap-sm mt-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden">
+<img alt="Student Avatar" class="w-full h-full object-cover" data-alt="A futuristic professional portrait of a tech administrator in a dark, neon-lit control room setting. Cyber-minimal aesthetic with deep blacks, soft primary blue lighting, and high-tech UI elements visible in the out-of-focus background. High resolution, hyper-realistic, conveying authority and security." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABKuqHcmCU6jUV8lfC69bkw3i0rs_5zJUGpQAcZI-txiSmU587MmiNpAmBxNSYXWWqFKP2b8h7mi_KplqyqrBhk9PMKoEtC75lQmHQi0L3Tl9_LYLHU5hKcgBZJJcicQigxHb-w_MOn9NDL66Xhr-vV6HWYHWYpol19R7Md9SvXji0v5Dw4kbszS5aDwtEE7BKUgp5gHUGNG6aUS2xC05Ut3rB3eaKrLR8mP65eA68-VEVO3UYMupZwB95XLYuKIDgLoNTp_m1JfU"/>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface">Student Portal</div>
+<div class="font-body-md text-[12px] text-on-surface-variant">University Verified</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-sm flex-grow">
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-white/5 transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Home
+            </a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-white/5 transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">storefront</span>
+                Market
+            </a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-white/5 transition-colors font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">campaign</span>
+                Reports
+            </a>
+<a class="flex items-center gap-md p-md rounded-lg text-primary font-bold bg-surface-container-high neon-glow font-body-md text-body-md translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+                Admin
+            </a>
+</div>
+<button class="mt-auto bg-tertiary-container text-on-surface font-label-md text-label-md py-3 px-4 rounded-lg flex items-center justify-center gap-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">warning</span>
+            SOS Emergency
+        </button>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow md:ml-64 p-margin-mobile md:p-margin-desktop pt-24 md:pt-margin-desktop">
+<div class="mb-xl flex flex-col md:flex-row justify-between items-start md:items-end gap-md">
+<div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-2">Global Oversight</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Master Administrator Analytics Dashboard</p>
+</div>
+<div class="flex gap-md">
+<div class="glass-card rounded-lg px-4 py-2 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#00e3fd] animate-pulse"></span>
+<span class="font-label-md text-label-md text-secondary">System Online</span>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+<!-- Main Trend Chart -->
+<div class="md:col-span-8 glass-card rounded-xl p-lg flex flex-col">
+<div class="flex justify-between items-center mb-md">
+<h2 class="font-headline-md text-headline-md text-on-surface">Safety Incident Trends</h2>
+<select class="bg-surface-container-high border-none text-on-surface-variant font-label-md text-label-md rounded-md py-1 px-3 focus:ring-1 focus:ring-primary">
+<option>Last 30 Days</option>
+<option>Last 90 Days</option>
+<option>Year to Date</option>
+</select>
+</div>
+<div class="flex-grow min-h-[300px] relative w-full rounded-lg overflow-hidden border border-white/5 bg-surface-container-lowest/50">
+<!-- Conceptual Chart Area - Using CSS for abstract representation -->
+<div class="absolute inset-0 flex items-end p-4 gap-2 opacity-80">
+<div class="w-1/12 h-[20%] bg-gradient-to-t from-primary/20 to-primary rounded-t-sm relative group"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-primary opacity-0 group-hover:opacity-100">12</div></div>
+<div class="w-1/12 h-[35%] bg-gradient-to-t from-primary/20 to-primary rounded-t-sm relative group"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-primary opacity-0 group-hover:opacity-100">24</div></div>
+<div class="w-1/12 h-[25%] bg-gradient-to-t from-primary/20 to-primary rounded-t-sm relative group"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-primary opacity-0 group-hover:opacity-100">18</div></div>
+<div class="w-1/12 h-[50%] bg-gradient-to-t from-primary/20 to-primary rounded-t-sm relative group"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-primary opacity-0 group-hover:opacity-100">45</div></div>
+<div class="w-1/12 h-[40%] bg-gradient-to-t from-primary/20 to-primary rounded-t-sm relative group"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-primary opacity-0 group-hover:opacity-100">32</div></div>
+<div class="w-1/12 h-[60%] bg-gradient-to-t from-tertiary-container/20 to-tertiary-container rounded-t-sm relative group"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-tertiary-container opacity-0 group-hover:opacity-100">55</div></div>
+<div class="w-1/12 h-[45%] bg-gradient-to-t from-primary/20 to-primary rounded-t-sm relative group"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-primary opacity-0 group-hover:opacity-100">38</div></div>
+<div class="w-1/12 h-[30%] bg-gradient-to-t from-primary/20 to-primary rounded-t-sm relative group"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-primary opacity-0 group-hover:opacity-100">22</div></div>
+<div class="w-1/12 h-[20%] bg-gradient-to-t from-primary/20 to-primary rounded-t-sm relative group"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-primary opacity-0 group-hover:opacity-100">15</div></div>
+<div class="w-1/12 h-[15%] bg-gradient-to-t from-primary/20 to-primary rounded-t-sm relative group"><div class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-primary opacity-0 group-hover:opacity-100">8</div></div>
+</div>
+<!-- Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none p-4">
+<div class="border-t border-white/5 w-full"></div>
+<div class="border-t border-white/5 w-full"></div>
+<div class="border-t border-white/5 w-full"></div>
+<div class="border-t border-white/5 w-full"></div>
+</div>
+</div>
+</div>
+<!-- Zambian Regional Deployment Health -->
+<div class="md:col-span-4 glass-card rounded-xl p-lg flex flex-col">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-secondary">public</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Zambian Node</h2>
+</div>
+<div class="space-y-md flex-grow">
+<!-- Uptime -->
+<div class="bg-surface-container-low rounded-lg p-md border border-white/5">
+<div class="flex justify-between items-center mb-1">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">dns</span> System Uptime</span>
+<span class="font-headline-md text-[18px] text-secondary">99.98%</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 mt-2">
+<div class="bg-secondary h-1.5 rounded-full" style="width: 99%"></div>
+</div>
+</div>
+<!-- Signal -->
+<div class="bg-surface-container-low rounded-lg p-md border border-white/5">
+<div class="flex justify-between items-center mb-1">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">wifi</span> Network Signal</span>
+<span class="font-headline-md text-[18px] text-primary">Excellent</span>
+</div>
+<div class="flex gap-1 mt-2">
+<div class="h-2 w-1/4 bg-primary rounded-sm"></div>
+<div class="h-2 w-1/4 bg-primary rounded-sm"></div>
+<div class="h-2 w-1/4 bg-primary rounded-sm"></div>
+<div class="h-2 w-1/4 bg-primary rounded-sm opacity-30"></div>
+</div>
+</div>
+<!-- Battery / Power -->
+<div class="bg-surface-container-low rounded-lg p-md border border-white/5">
+<div class="flex justify-between items-center mb-1">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">battery_charging_full</span> Grid Power</span>
+<span class="font-headline-md text-[18px] text-[#00e3fd]">Stable</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 mt-2">
+<div class="bg-[#00e3fd] h-1.5 rounded-full" style="width: 85%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Campus Management List -->
+<div class="md:col-span-12 glass-card rounded-xl p-lg">
+<div class="flex justify-between items-center mb-md">
+<h2 class="font-headline-md text-headline-md text-on-surface">Campus Management</h2>
+<button class="text-primary font-label-md text-label-md hover:underline flex items-center gap-1">View All <span class="material-symbols-outlined text-[16px]">arrow_forward</span></button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-white/10 text-on-surface-variant font-label-md text-label-md">
+<th class="py-3 px-4 font-normal">Campus Location</th>
+<th class="py-3 px-4 font-normal">Active Users</th>
+<th class="py-3 px-4 font-normal">Current Status</th>
+<th class="py-3 px-4 font-normal">Last Incident</th>
+<th class="py-3 px-4 font-normal text-right">Action</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md">
+<tr class="border-b border-white/5 hover:bg-white/5 transition-colors group">
+<td class="py-4 px-4 text-on-surface flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+</div>
+                                    Lusaka Main Campus
+                                </td>
+<td class="py-4 px-4 text-on-surface-variant">4,205</td>
+<td class="py-4 px-4">
+<span class="px-2 py-1 rounded-full bg-[#00e3fd]/10 text-[#00e3fd] border border-[#00e3fd]/20 text-[12px]">Secure</span>
+</td>
+<td class="py-4 px-4 text-on-surface-variant">2 hrs ago</td>
+<td class="py-4 px-4 text-right">
+<button class="material-symbols-outlined text-outline hover:text-primary transition-colors">more_vert</button>
+</td>
+</tr>
+<tr class="border-b border-white/5 hover:bg-white/5 transition-colors group">
+<td class="py-4 px-4 text-on-surface flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-tertiary-container/20 flex items-center justify-center text-tertiary-container neon-glow">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+</div>
+                                    Copperbelt Branch
+                                </td>
+<td class="py-4 px-4 text-on-surface-variant">1,832</td>
+<td class="py-4 px-4">
+<span class="px-2 py-1 rounded-full bg-tertiary-container/10 text-tertiary-container border border-tertiary-container/20 text-[12px] animate-pulse">Elevated</span>
+</td>
+<td class="py-4 px-4 text-on-surface-variant">10 mins ago</td>
+<td class="py-4 px-4 text-right">
+<button class="material-symbols-outlined text-outline hover:text-primary transition-colors">more_vert</button>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="py-4 px-4 text-on-surface flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+</div>
+                                    Livingstone Institute
+                                </td>
+<td class="py-4 px-4 text-on-surface-variant">950</td>
+<td class="py-4 px-4">
+<span class="px-2 py-1 rounded-full bg-[#00e3fd]/10 text-[#00e3fd] border border-[#00e3fd]/20 text-[12px]">Secure</span>
+</td>
+<td class="py-4 px-4 text-on-surface-variant">1 day ago</td>
+<td class="py-4 px-4 text-right">
+<button class="material-symbols-outlined text-outline hover:text-primary transition-colors">more_vert</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface/80 backdrop-blur-2xl border-t border-white/10 shadow-[0px_-4px_20px_rgba(0,112,255,0.15)] flex justify-around items-center px-4 pb-4 pt-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:text-primary transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined mb-1">dashboard</span>
+            Home
+        </a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:text-primary transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined mb-1">storefront</span>
+            Market
+        </a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:text-primary transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined mb-1">campaign</span>
+            Reports
+        </a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-2 scale-90 duration-200 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">admin_panel_settings</span>
+            Admin
+        </a>
+</nav>
+</body></html>

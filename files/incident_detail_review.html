@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SafeCampus - Incident Report Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&amp;family=Manrope:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#c2c6d8",
+                        "secondary": "#bdf4ff",
+                        "primary-container": "#568dff",
+                        "surface": "#131313",
+                        "tertiary-fixed-dim": "#ffb3b3",
+                        "tertiary": "#ffb3b3",
+                        "on-secondary-fixed": "#001f24",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#353534",
+                        "primary": "#b0c6ff",
+                        "primary-fixed-dim": "#b0c6ff",
+                        "on-error": "#690005",
+                        "on-primary": "#002d6f",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-secondary-container": "#00616d",
+                        "on-primary-fixed-variant": "#00429c",
+                        "on-tertiary": "#680015",
+                        "surface-dim": "#131313",
+                        "secondary-fixed": "#9cf0ff",
+                        "on-secondary-fixed-variant": "#004f58",
+                        "surface-bright": "#3a3939",
+                        "on-tertiary-fixed-variant": "#920021",
+                        "tertiary-container": "#ff5260",
+                        "surface-container-low": "#1c1b1b",
+                        "tertiary-fixed": "#ffdad9",
+                        "secondary-container": "#00e3fd",
+                        "on-background": "#e5e2e1",
+                        "on-secondary": "#00363d",
+                        "on-primary-fixed": "#001945",
+                        "inverse-primary": "#0058cb",
+                        "surface-tint": "#b0c6ff",
+                        "inverse-surface": "#e5e2e1",
+                        "background": "#131313",
+                        "on-error-container": "#ffdad6",
+                        "inverse-on-surface": "#313030",
+                        "surface-variant": "#353534",
+                        "on-tertiary-fixed": "#400009",
+                        "surface-container": "#201f1f",
+                        "outline-variant": "#424655",
+                        "surface-container-high": "#2a2a2a",
+                        "primary-fixed": "#d9e2ff",
+                        "secondary-fixed-dim": "#00daf3",
+                        "outline": "#8c90a1",
+                        "error-container": "#93000a",
+                        "on-tertiary-container": "#5b0011",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-container": "#002661"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "xs": "4px",
+                        "gutter": "16px",
+                        "xl": "40px",
+                        "sm": "8px",
+                        "unit": "4px",
+                        "margin-mobile": "20px",
+                        "md": "16px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Sora"],
+                        "display-lg": ["Sora"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "headline-md": ["Sora"],
+                        "headline-lg-mobile": ["Sora"],
+                        "label-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-24 md:pb-0 md:pl-64 antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl md:pl-64 border-b border-white/10 flex justify-between items-center px-margin-mobile py-sm h-16">
+<div class="flex items-center gap-sm">
+<button class="md:hidden text-primary hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">SafeCampus</h1>
+</div>
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">shield</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden border border-white/10">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A close-up portrait of a professional individual in a dimly lit, high-tech environment. Subtle neon blue light illuminates one side of their face, adhering to a cyber-minimal aesthetic. The background is a deep, out-of-focus black void." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAnNdvWV2mtke4VaVVNaCMQQkZ1oLWkQcJpZSN7aYZ8NopO1KdfBEqyoJA6CGPBg-0mrPW1XRAEsCRMbU_MxgZBGeaZdFvCPsRxyH6BOoM-P01Vxm1Q2fQx3aRzZkYuB8cy0RevbJjqErddMiVXncGsLSTDKLFhINcClKjP6HzcihHV9Y_ZSd67_fulJNjQmQdQtvIqG2-8MQYapNyMHWg5tp_GQO05Mn9dBHb7FYy3GcWl1nYUDdaBTwEv21j691wIY3K-Tw6HUU"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Desktop) -->
+<nav class="hidden md:flex flex-col h-full w-64 fixed left-0 top-0 z-[60] bg-surface/90 backdrop-blur-3xl border-r border-white/8 shadow-2xl p-lg">
+<div class="mb-xl flex flex-col items-center text-center">
+<div class="w-20 h-20 rounded-full bg-surface-container-high mb-md overflow-hidden border-2 border-primary/20">
+<img alt="Student Avatar" class="w-full h-full object-cover" data-alt="A close-up portrait of a professional individual in a dimly lit, high-tech environment. Subtle neon blue light illuminates one side of their face, adhering to a cyber-minimal aesthetic. The background is a deep, out-of-focus black void." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS0AdZv11uUxqDm5U8YZvapeB4lvhaF4OVNJSrk3sh5W-IAPvJSjw9ZvuwKRh7j_AA1sWLeEsrQfVoqFVhN1FvT7IhbNLgaeKCkMTcH4MjRhP7ppvgNLo5AraesYcCoX49PMU0F1lBRwW0bNhFq-iQZ8ODspNx5l4RuGpfLg0QQcUhpdOzyNqGycfpZ0fS6PUco19CedQbZJYNA_jTpyl6y__pshJrwnHuhCKLtT8Wlfj5idXTYees_VncWtslNGk88roAjEy3voo"/>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary">Student Portal</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">University Verified</p>
+</div>
+<ul class="flex flex-col gap-sm flex-1">
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-md text-label-md">Safety Map</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-label-md text-label-md">Scam Board</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined">find_in_page</span>
+<span class="font-label-md text-label-md">Lost &amp; Found</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-md text-label-md">Resources</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</li>
+<li class="mt-auto pt-lg border-t border-white/8">
+<!-- Admin specific link for context, though technically unselected based on intent -->
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-primary font-bold bg-surface-container-high transition-transform translate-x-1" href="#">
+<span class="material-symbols-outlined fill">admin_panel_settings</span>
+<span class="font-label-md text-label-md">Admin</span>
+</a>
+</li>
+</ul>
+<button class="mt-lg w-full py-md rounded-lg bg-tertiary-container text-on-tertiary font-label-md text-label-md font-bold shadow-[0_0_15px_rgba(255,82,96,0.3)] hover:shadow-[0_0_25px_rgba(255,82,96,0.5)] transition-shadow">
+            SOS Emergency
+        </button>
+</nav>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-2xl border-t border-white/10 shadow-[0px_-4px_20px_rgba(0,112,255,0.15)] rounded-t-xl pb-4 pt-2 flex justify-around items-center">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-md text-label-md mt-1">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">campaign</span>
+<span class="font-label-md text-label-md mt-1">Reports</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-2 scale-90 duration-200" href="#">
+<span class="material-symbols-outlined fill">admin_panel_settings</span>
+<span class="font-label-md text-label-md mt-1">Admin</span>
+</a>
+</nav>
+<!-- Main Canvas -->
+<main class="pt-24 px-margin-mobile md:px-margin-desktop max-w-[1200px] mx-auto min-h-screen">
+<!-- Header Actions -->
+<div class="flex items-center justify-between mb-lg">
+<button class="flex items-center gap-xs text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined">arrow_back</span>
+                Back to Reports
+            </button>
+<div class="px-sm py-xs rounded-full bg-surface-container-high border border-white/10 font-label-md text-label-md text-secondary flex items-center gap-xs">
+<div class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(189,244,255,0.8)]"></div>
+                Under Investigation
+            </div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- Left Column: Incident Details -->
+<div class="lg:col-span-8 flex flex-col gap-lg">
+<!-- Core Detail Card -->
+<div class="bg-surface/40 backdrop-blur-xl border border-white/10 rounded-xl p-lg relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none"></div>
+<div class="flex flex-wrap items-start justify-between gap-md mb-md border-b border-white/10 pb-md">
+<div>
+<h2 class="font-display-lg text-display-lg text-on-surface mb-xs">Theft / Robbery</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant flex items-center gap-sm">
+<span class="material-symbols-outlined text-outline">calendar_today</span>
+                                Oct 24, 2023 • 23:45 PM
+                            </p>
+</div>
+<div class="text-right">
+<p class="font-label-md text-label-md text-outline mb-1">INCIDENT ID</p>
+<p class="font-body-lg text-body-lg text-primary tracking-wider">#RPT-8892A</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md mb-lg">
+<div>
+<p class="font-label-md text-label-md text-outline mb-xs">REPORTED BY</p>
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container overflow-hidden">
+<img alt="Reporter" class="w-full h-full object-cover" data-alt="A portrait of a young male student in a dark setting, subtly lit by a neon blue rim light. He looks serious. The aesthetic matches the cyber-minimal deep black and neon blue theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_11zjRiiUToGczUiuz13p2VmdsYEq52qMZbyNhlsv68d5aW8jyHSzcYgnmEHOFvlbRs0mIwj21RA-ZxVz4JuPlZssPgvlTmbz95FTS3B4feV6-JscOOLsnI9f7jtSrX54ZY-z75eGS0tKLuaFP8EdbgtsKepYU7fIQ-QkZfJSb4r9WWQi9iUNCFU3bEWSgVyuIWCAe_VI-9O-arT32n2rYmULBzIWKmb73S0yYUJggOl_hyHtXJM2UwhhRtP143cokQcgW_XFjF4"/>
+</div>
+<div>
+<p class="font-body-md text-body-md text-on-surface">Alex Mercer</p>
+<p class="font-label-md text-label-md text-on-surface-variant text-xs">Student ID: 44291</p>
+</div>
+</div>
+</div>
+<div>
+<p class="font-label-md text-label-md text-outline mb-xs">LOCATION</p>
+<p class="font-body-md text-body-md text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">location_on</span>
+                                North Parking Lot, Section C
+                            </p>
+</div>
+</div>
+<div>
+<p class="font-label-md text-label-md text-outline mb-sm">STUDENT NARRATIVE</p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed bg-surface-container/50 p-md rounded-lg border border-white/5">
+                            "I was walking back to my car after a late study session at the library. Two individuals approached me near the D-block exit. They demanded my backpack and laptop. I handed it over and they ran towards the eastern gate. I wasn't harmed but they took my Macbook Pro and course materials."
+                        </p>
+</div>
+</div>
+<!-- Evidence & Attachments -->
+<div class="bg-surface/40 backdrop-blur-xl border border-white/10 rounded-xl p-lg">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">attachment</span>
+                        Evidence &amp; Media
+                    </h3>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-md">
+<!-- Image Placeholder -->
+<div class="aspect-square bg-surface-container rounded-lg border border-white/10 overflow-hidden relative group cursor-pointer">
+<img alt="Evidence 1" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity" data-alt="A blurry, dark photograph taken at night in an empty parking lot. Sparse yellow streetlights illuminate concrete pillars. The image feels tense and raw, adhering to the cyber-minimal dark aesthetic with high contrast shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0wsU4MIlEzACfCuF-KKWkbVC2mZ8iPjLmpBHjU6doIg7rAhDq_srokLo16wHMmcBcvcCZTdPeK6mnFOy3jTG8JkEg8-YEQZAdY_YoD2c1KnpBdz8zk6Q29d9THQPD-mKzu8jg8hfH05-dddPYgG3Pz1KMUWpt8Dic8Ko4ww-ijeec3V-KFJ0iUXafCIQhFEOwfqxEJizWhoaHiYskuaFGE5tDmiu5I-qo_gerkzdIrTHDwk4hdNfI8ITxrOB1jRY-AMyfINOcS7I"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-80 flex items-end p-sm">
+<span class="font-label-md text-label-md text-on-surface truncate w-full">IMG_8921.jpg</span>
+</div>
+</div>
+<!-- Document Placeholder -->
+<div class="aspect-square bg-surface-container rounded-lg border border-white/10 flex flex-col items-center justify-center gap-sm hover:border-primary/50 transition-colors cursor-pointer p-sm text-center">
+<span class="material-symbols-outlined text-display-lg text-primary opacity-80">description</span>
+<span class="font-label-md text-label-md text-on-surface truncate w-full">Police_Statement.pdf</span>
+<span class="font-label-md text-label-md text-outline text-xs">2.4 MB</span>
+</div>
+</div>
+</div>
+<!-- Location Map -->
+<div class="bg-surface/40 backdrop-blur-xl border border-white/10 rounded-xl p-lg h-[400px] flex flex-col">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">map</span>
+                        Precise Location
+                    </h3>
+<div class="flex-1 rounded-lg bg-surface-container border border-white/10 overflow-hidden relative">
+<!-- Simulated Map -->
+<img alt="Map View" class="w-full h-full object-cover opacity-40 grayscale sepia-[.2] hue-rotate-[180deg]" data-alt="A top-down view of a dark, abstract city map interface. The base is deep black, with streets outlined in subtle dark grey. A bright, glowing red marker indicates a specific incident location. The overall aesthetic is a high-tech, cyber-minimal digital map." data-location="University Campus Map" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfEm-MdDmmLodcwVK7SHfbP-kJ7Czc3nbo5hYbT3dUsR3yaSCpdyaLOI9FZ6QsZAfhTwhbm0dlr2fAqhigQAymvT9ESITyPIaqcZ-Ox4CyeWNKZ01CS9leUEjbDom4vbGPGhBdx9Fpb_ymLe1fP3mUPx8GNWSts5zScnBvmE9XfHVqNSLoLco-QwUtm53C5EL4dnSxrs6ndpiHGggRMwpZLHHrnzH7J5aohFa-f93cGFW-65O26zpxoX1sJ0MavzDu4S3Fz2xun8I"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<!-- Ping Animation -->
+<div class="relative">
+<div class="absolute inset-0 bg-error rounded-full animate-ping opacity-20"></div>
+<div class="w-4 h-4 bg-error rounded-full border-2 border-surface shadow-[0_0_15px_rgba(255,180,171,0.8)] relative z-10"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Action Sidebar -->
+<div class="lg:col-span-4 flex flex-col gap-lg">
+<div class="bg-surface/60 backdrop-blur-2xl border border-white/10 rounded-xl p-lg sticky top-24 shadow-[0_8px_30px_rgb(0,0,0,0.5)]">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-lg border-b border-white/10 pb-sm">Admin Actions</h3>
+<!-- Status Update -->
+<div class="mb-lg">
+<label class="block font-label-md text-label-md text-outline mb-sm">Update Status</label>
+<div class="relative">
+<select class="w-full bg-surface-container border-b border-outline hover:border-primary focus:border-primary focus:ring-0 text-on-surface font-body-md py-sm pl-sm pr-lg appearance-none transition-colors">
+<option>New Report</option>
+<option selected="">Under Investigation</option>
+<option>Requires Student Action</option>
+<option>Resolved</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline pointer-events-none">arrow_drop_down</span>
+</div>
+</div>
+<!-- Internal Notes -->
+<div class="mb-lg">
+<label class="block font-label-md text-label-md text-outline mb-sm">Internal Notes (Hidden from Student)</label>
+<textarea class="w-full bg-surface-container border-b border-outline hover:border-primary focus:border-primary focus:ring-0 text-on-surface font-body-md p-sm transition-colors resize-none h-32 placeholder:text-surface-bright" placeholder="Add investigation details..."></textarea>
+<div class="flex justify-end mt-sm">
+<button class="font-label-md text-label-md text-primary hover:text-primary-container transition-colors">Save Note</button>
+</div>
+</div>
+<div class="h-px bg-white/10 w-full mb-lg"></div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-md">
+<button class="w-full py-md rounded-lg bg-surface-container-high border border-white/10 text-on-surface font-label-md text-label-md hover:bg-white/5 transition-colors flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined">mail</span>
+                            Notify Student
+                        </button>
+<button class="w-full py-md rounded-lg bg-transparent border border-error text-error font-label-md text-label-md font-bold hover:bg-error/10 transition-colors flex items-center justify-center gap-sm shadow-[0_0_10px_rgba(255,180,171,0.1)] hover:shadow-[0_0_20px_rgba(255,180,171,0.2)]">
+<span class="material-symbols-outlined">local_police</span>
+                            Escalate to Police
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

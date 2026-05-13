@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#2a2a2a",
+                    "secondary-fixed": "#9cf0ff",
+                    "primary-container": "#568dff",
+                    "on-tertiary-container": "#5b0011",
+                    "inverse-on-surface": "#313030",
+                    "on-surface": "#e5e2e1",
+                    "on-primary": "#002d6f",
+                    "on-surface-variant": "#c2c6d8",
+                    "background": "#131313",
+                    "on-primary-container": "#002661",
+                    "surface-container-low": "#1c1b1b",
+                    "on-secondary-container": "#00616d",
+                    "tertiary-fixed": "#ffdad9",
+                    "secondary": "#bdf4ff",
+                    "on-secondary-fixed": "#001f24",
+                    "inverse-primary": "#0058cb",
+                    "surface-tint": "#b0c6ff",
+                    "primary-fixed-dim": "#b0c6ff",
+                    "surface": "#131313",
+                    "tertiary-fixed-dim": "#ffb3b3",
+                    "primary-fixed": "#d9e2ff",
+                    "surface-dim": "#131313",
+                    "secondary-container": "#00e3fd",
+                    "outline": "#8c90a1",
+                    "surface-container-highest": "#353534",
+                    "secondary-fixed-dim": "#00daf3",
+                    "on-tertiary-fixed": "#400009",
+                    "error": "#ffb4ab",
+                    "on-secondary-fixed-variant": "#004f58",
+                    "on-primary-fixed": "#001945",
+                    "error-container": "#93000a",
+                    "surface-container": "#201f1f",
+                    "primary": "#b0c6ff",
+                    "surface-container-lowest": "#0e0e0e",
+                    "outline-variant": "#424655",
+                    "inverse-surface": "#e5e2e1",
+                    "on-secondary": "#00363d",
+                    "on-tertiary": "#680015",
+                    "on-tertiary-fixed-variant": "#920021",
+                    "tertiary": "#ffb3b3",
+                    "surface-bright": "#3a3939",
+                    "on-error": "#690005",
+                    "on-background": "#e5e2e1",
+                    "on-primary-fixed-variant": "#00429c",
+                    "on-error-container": "#ffdad6",
+                    "surface-variant": "#353534",
+                    "tertiary-container": "#ff5260"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "md": "16px",
+                    "margin-desktop": "64px",
+                    "gutter": "16px",
+                    "xl": "40px",
+                    "sm": "8px",
+                    "unit": "4px",
+                    "lg": "24px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "body-md": ["Manrope"],
+                    "display-lg": ["Sora"],
+                    "body-lg": ["Manrope"],
+                    "label-md": ["Manrope"],
+                    "headline-md": ["Sora"],
+                    "headline-lg": ["Sora"],
+                    "headline-lg-mobile": ["Sora"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>.glass-level-1 {
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08)
+    }
+.glass-alert {
+    backdrop-filter: blur(32px);
+    background: rgba(147, 0, 10, 0.15);
+    border: 1px solid rgba(255, 180, 171, 0.2);
+    box-shadow: 0 0 40px rgba(147, 0, 10, 0.3)
+    }
+.emergency-pulse {
+    box-shadow: inset 0 0 100px rgba(255, 82, 96, 0.15)
+    }
+.bg-campus-blur {
+    background-image: linear-gradient(rgba(5, 5, 5, 0.8), rgba(5, 5, 5, 0.8)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuBjOhSfx0Fb1nyXoQwr2i0Z6r3zLW57uDZqxjt2S8AGw4jYR_dnzkSsMK0Gx6ZTU8ldCp9DUrgpAIU5N-CRzMpzL2ntMzwc8mXGv1K3JXuc-PFSSJBkQ-06Z8YE6Bv8Y98yFXwiuimO3EUT1HAuG_Akw3aiUPExEuZ3lTfpW5qWVTJxx5YCh19WDbawr2QtEaIUc7uLJS67LqlsSI0xJS9Sg-xjHQJMfMjZkDeLB7ppi9cHOQw5IV0zLniUTA0qHaP9Ll7o7VvQnJs);
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px);
+    transform: scale(1.1)
+    }</style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen overflow-hidden flex items-center justify-center">
+<!-- Background Layer -->
+<div class="fixed inset-0 bg-campus-blur z-0" data-alt="A blurred, wide-angle cinematic shot of a modern university campus at dusk. The architecture features glass and steel buildings illuminated by soft internal lights against a deep navy sky. The overall atmosphere is atmospheric and high-contrast, with a dark, moody cyber-minimalist aesthetic. Subtle light trails and sharp geometric lines define the campus structure through the heavy gaussian blur."></div>
+<!-- Emergency Pulse Overlay -->
+<div class="fixed inset-0 z-10 emergency-pulse pointer-events-none"></div>
+<!-- Top App Bar (Simplified for Lock Screen) -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-desktop h-16">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary" data-icon="shield_with_heart" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">SafeCampus</span>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-xs text-on-surface-variant font-label-md">
+<span class="material-symbols-outlined text-sm" data-icon="lock">lock</span>
+                SYSTEM SECURED
+            </div>
+<div class="h-8 w-8 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</header>
+<!-- Main Alert Canvas -->
+<main class="relative z-20 w-full max-w-[1200px] px-margin-desktop flex flex-col items-center">
+<!-- Central Alert Card -->
+<div class="glass-alert w-full max-w-2xl rounded-xl p-lg md:p-xl flex flex-col items-center text-center space-y-lg">
+<!-- Alert Header -->
+<div class="flex flex-col items-center gap-sm">
+<div class="bg-tertiary-container text-on-tertiary-container px-lg py-xs rounded-full flex items-center gap-xs animate-pulse">
+<span class="material-symbols-outlined text-md" data-icon="emergency" style="font-variation-settings: 'FILL' 1;">emergency</span>
+<span class="font-label-md tracking-widest uppercase">Critical Alert</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-error font-extrabold tracking-tight mt-sm">
+                    IMMEDIATE THREAT
+                </h1>
+<p class="font-headline-md text-headline-md text-on-surface font-semibold">
+                    Active Security Incident - North Campus
+                </p>
+</div>
+<!-- Countdown Timer Area -->
+<div class="flex flex-col items-center gap-xs">
+<div class="text-[64px] font-bold font-display-lg text-on-surface leading-none tracking-tighter">
+                    04:52
+                </div>
+<span class="font-label-md text-on-surface-variant uppercase tracking-[0.2em]">Safety Window Remaining</span>
+</div>
+<!-- Instructions -->
+<div class="w-full grid grid-cols-1 md:grid-cols-2 gap-md py-lg border-y border-outline-variant/20">
+<div class="flex items-start gap-md text-left">
+<div class="h-10 w-10 shrink-0 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" data-icon="door_front">door_front</span>
+</div>
+<div>
+<p class="font-label-md text-on-surface font-bold">Lock All Doors</p>
+<p class="text-sm text-on-surface-variant">Ensure all entry points are secured immediately.</p>
+</div>
+</div>
+<div class="flex items-start gap-md text-left">
+<div class="h-10 w-10 shrink-0 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" data-icon="volume_off">volume_off</span>
+</div>
+<div>
+<p class="font-label-md text-on-surface font-bold">Silence Devices</p>
+<p class="text-sm text-on-surface-variant">Switch phones to silent mode and remain quiet.</p>
+</div>
+</div>
+</div>
+<!-- Primary Action -->
+<div class="w-full flex flex-col items-center gap-lg">
+<button class="w-full py-lg bg-secondary-container text-on-secondary-container font-headline-md font-extrabold rounded-xl transition-all hover:scale-[1.02] active:scale-95 shadow-[0_0_20px_rgba(0,227,253,0.3)] group relative">
+<span class="relative z-10">I AM SAFE</span>
+<div class="absolute inset-0 border border-secondary-fixed/50 rounded-xl -m-1 group-hover:m-[-6px] transition-all duration-300 opacity-0 group-hover:opacity-100"></div>
+</button>
+<div class="flex items-center gap-xl text-on-surface-variant">
+<button class="flex items-center gap-xs hover:text-error transition-colors">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+<span class="font-label-md">911 Emergency</span>
+</button>
+<button class="flex items-center gap-xs hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+<span class="font-label-md">Share Location</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Secondary Info Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter w-full mt-lg max-w-4xl">
+<!-- Incident Map Preview -->
+<div class="glass-level-1 md:col-span-2 rounded-xl p-lg flex flex-col gap-sm overflow-hidden min-h-[200px]">
+<div class="flex justify-between items-center">
+<span class="font-label-md text-on-surface-variant uppercase font-bold">Incident Hotzone</span>
+<span class="text-xs text-error flex items-center gap-1">
+<span class="h-2 w-2 rounded-full bg-error"></span> Live Update
+                    </span>
+</div>
+<div class="flex-grow rounded-lg overflow-hidden relative grayscale contrast-125 border border-outline-variant/30">
+<img alt="Incident Map" class="w-full h-full object-cover" data-alt="A high-contrast dark mode map display of a university campus. The map features a minimalist black and charcoal gray palette with glowing neon blue streets and a pulsating soft red circle indicating an incident zone in the north quadrant. The visual style is technical, precise, and sophisticated, resembling a tactical security interface with clean vector lines and subtle digital noise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhjmJ19bskWCCb3oCUllrNc7EQzLIsz1rmijPNhNNeI1dYl6T85a4knNQH3OXeiinqcZicXLhlF00ss-Higogw1kIcmDuqHJ377gZoreZvLB3EbW720Qv7g_vg_8mfT-xjscrHGs23DlF6j4hefs4wzdzHljXIhKPudOW4H_36AX2PWTYJLmjpFwo5nSiINE5bwsTLfPZLpFmwQd53bs6_RaLeQU4fDIh2QK260ATJsbNp7thamzrDXk7ovjKUKaFal4ZXWHRDyCI"/>
+</div>
+</div>
+<!-- Protocol Card -->
+<div class="glass-level-1 rounded-xl p-lg flex flex-col justify-between">
+<div>
+<span class="font-label-md text-on-surface-variant uppercase font-bold">Safety Protocol</span>
+<p class="text-headline-md font-bold text-on-surface mt-sm">Run. Hide. Fight.</p>
+</div>
+<p class="text-sm text-on-surface-variant">Follow standard emergency procedures until campus security provides an all-clear notification.</p>
+<button class="mt-lg text-primary font-label-md flex items-center gap-xs hover:underline">
+                    View Protocol Details
+                    <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Bottom Status Bar -->
+<footer class="fixed bottom-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop py-4 glass-level-1 border-t-0 rounded-none">
+<div class="flex items-center gap-md">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary-fixed-dim" data-icon="wifi">wifi</span>
+<span class="text-xs font-label-md text-on-surface-variant">SECURE MESH ACTIVE</span>
+</div>
+<div class="h-4 w-[1px] bg-outline-variant/30"></div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary-fixed-dim" data-icon="battery_full">battery_full</span>
+<span class="text-xs font-label-md text-on-surface-variant">98%</span>
+</div>
+</div>
+<div class="text-xs font-label-md text-on-surface-variant tracking-widest uppercase">
+            SafeCampus Protocol V2.4 // ID: #SC-99210
+        </div>
+</footer>
+</body></html>

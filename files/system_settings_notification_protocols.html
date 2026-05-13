@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SafeCampus | Notification Protocols</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#131313",
+                        "on-secondary-fixed-variant": "#004f58",
+                        "error-container": "#93000a",
+                        "surface-tint": "#b0c6ff",
+                        "on-background": "#e5e2e1",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-container-low": "#1c1b1b",
+                        "tertiary-fixed-dim": "#ffb3b3",
+                        "on-primary-fixed-variant": "#00429c",
+                        "surface-variant": "#353534",
+                        "surface-container-high": "#2a2a2a",
+                        "error": "#ffb4ab",
+                        "outline-variant": "#424655",
+                        "on-surface-variant": "#c2c6d8",
+                        "on-tertiary-fixed": "#400009",
+                        "on-primary": "#002d6f",
+                        "inverse-on-surface": "#313030",
+                        "tertiary-container": "#ff5260",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary": "#ffb3b3",
+                        "on-tertiary-fixed-variant": "#920021",
+                        "on-tertiary": "#680015",
+                        "background": "#131313",
+                        "secondary-container": "#00e3fd",
+                        "on-error": "#690005",
+                        "inverse-primary": "#0058cb",
+                        "on-tertiary-container": "#5b0011",
+                        "on-secondary": "#00363d",
+                        "surface-dim": "#131313",
+                        "tertiary-fixed": "#ffdad9",
+                        "surface-container-highest": "#353534",
+                        "secondary-fixed-dim": "#00daf3",
+                        "on-secondary-container": "#00616d",
+                        "on-secondary-fixed": "#001f24",
+                        "primary-fixed": "#d9e2ff",
+                        "primary-container": "#568dff",
+                        "primary": "#b0c6ff",
+                        "primary-fixed-dim": "#b0c6ff",
+                        "on-error-container": "#ffdad6",
+                        "surface-bright": "#3a3939",
+                        "surface-container": "#201f1f",
+                        "secondary-fixed": "#9cf0ff",
+                        "secondary": "#bdf4ff",
+                        "outline": "#8c90a1",
+                        "on-primary-fixed": "#001945",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-container": "#002661"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "sm": "8px",
+                        "xl": "40px",
+                        "unit": "4px",
+                        "margin-mobile": "20px",
+                        "lg": "24px",
+                        "gutter": "16px",
+                        "md": "16px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Sora"],
+                        "body-lg": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "display-lg": ["Sora"],
+                        "body-md": ["Manrope"],
+                        "headline-lg-mobile": ["Sora"],
+                        "headline-lg": ["Sora"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #050505;
+            color: #e5e2e1;
+            font-family: 'Manrope', sans-serif;
+        }
+        .glass-card {
+            background: rgba(19, 19, 19, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .neon-border {
+            box-shadow: 0px 0px 15px rgba(0, 112, 255, 0.15);
+        }
+        .emergency-glow {
+            box-shadow: 0px 0px 30px rgba(255, 82, 96, 0.2);
+            border-color: rgba(255, 82, 96, 0.4);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(176, 198, 255, 0.3);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface overflow-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-margin-desktop w-full h-16 bg-surface/80 backdrop-blur-xl border-b border-white/10 shadow-[0px_4px_20px_rgba(0,112,255,0.15)]">
+<div class="flex items-center gap-xl">
+<span class="font-display-lg text-headline-md text-primary tracking-tighter">GuardianOS</span>
+<div class="hidden md:flex items-center bg-surface-container-low px-md py-xs rounded-lg border border-white/5">
+<span class="material-symbols-outlined text-on-surface-variant mr-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-md placeholder:text-on-surface-variant/50 w-64" placeholder="Search protocols..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary cursor-pointer active:scale-95 transition-all">notifications</span>
+<span class="material-symbols-outlined text-primary cursor-pointer active:scale-95 transition-all">wifi</span>
+<span class="material-symbols-outlined text-primary cursor-pointer active:scale-95 transition-all">security</span>
+</div>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-primary/30">
+<img alt="Administrator profile" class="h-full w-full object-cover" data-alt="A professional headshot of a high-tech security administrator. The person has a focused expression, wearing a sleek dark uniform with subtle blue fiber-optic highlights. The lighting is dramatic and moody, reflecting a cyber-minimalist aesthetic with deep blacks and neon blue background elements." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATGXyT40dzd4GcL2cGgnBPkvqzIWPHKc6WNVwIlJfhgwiX3_SN0gvo3gsT-Egm8Up_NuNtsXx4Ws8avn_84APjjIJdYJduJUClvjJlDcldMXKfgcDuhBIVmAUWXfpwXvOqPK4I8PJ9TsS8fOnvtLAJrFhUrVwgrYnXUn_i5i0jf-HV_1ZDGVIqrZ6cju3b7xecN3K0j-uOVf499DW8D-kuU9v4EPY1PD8xbFsRoQ5wy5YFqV7Q84zvgenlA261Y4wUCdAdfsEK5lc"/>
+</div>
+</div>
+</header>
+<div class="flex pt-16 h-screen">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-full w-64 bg-surface-container-lowest/50 backdrop-blur-2xl border-r border-white/5 p-md space-y-2">
+<div class="flex items-center gap-sm px-sm py-lg mb-md">
+<div class="h-10 w-10 bg-primary/10 rounded flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary">hub</span>
+</div>
+<div>
+<h3 class="font-headline-lg text-primary text-[16px] leading-tight">System Configuration</h3>
+<p class="font-label-md text-[10px] text-on-surface-variant uppercase tracking-widest">v4.2.0-Secure</p>
+</div>
+</div>
+<div class="space-y-1">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-white/5 transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">gpp_maybe</span>
+<span class="font-label-md">Security</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg bg-primary/10 text-primary border-r-4 border-primary transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">notifications_active</span>
+<span class="font-label-md">Notifications</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-white/5 transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">lan</span>
+<span class="font-label-md">Network</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-white/5 transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">api</span>
+<span class="font-label-md">API</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-white/5 transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">settings</span>
+<span class="font-label-md">General</span>
+</a>
+</div>
+<div class="mt-auto pb-lg">
+<button class="w-full py-md px-md bg-surface-container-high hover:bg-primary/20 text-primary border border-primary/20 rounded-xl font-label-md transition-all flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined text-[18px]">backup</span>
+                    Backup System
+                </button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto custom-scrollbar bg-background">
+<div class="p-margin-desktop max-w-[1200px] mx-auto space-y-lg">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md mb-xl">
+<div>
+<div class="flex items-center gap-sm mb-xs">
+<span class="h-2 w-2 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="text-secondary font-label-md uppercase tracking-tighter">Operational: Active</span>
+</div>
+<h1 class="font-display-lg text-headline-lg text-on-background">Notification Protocols</h1>
+<p class="font-body-md text-on-surface-variant max-w-2xl mt-sm">Configure multi-channel broadcast parameters for emergency and administrative communication clusters.</p>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+<!-- Alert Matrix (8/12 cols) -->
+<section class="md:col-span-8 glass-card p-lg rounded-xl space-y-lg">
+<div class="flex items-center justify-between border-b border-white/5 pb-md">
+<h2 class="font-headline-md text-on-surface flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">priority_high</span>
+                                Alert Levels &amp; Channels
+                            </h2>
+<span class="font-label-md text-on-surface-variant opacity-60">Global Routing</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="text-on-surface-variant/50 font-label-md">
+<th class="pb-md font-medium">SEVERITY</th>
+<th class="pb-md font-medium text-center">SMS</th>
+<th class="pb-md font-medium text-center">PUSH</th>
+<th class="pb-md font-medium text-center">EMAIL</th>
+</tr>
+</thead>
+<tbody class="space-y-4">
+<!-- Critical Row -->
+<tr class="group">
+<td class="py-md pr-md">
+<div class="flex items-center gap-md">
+<div class="w-1 h-8 bg-error rounded-full"></div>
+<div>
+<p class="font-label-md text-error">Critical</p>
+<p class="text-[11px] text-on-surface-variant">Immediate threat to life</p>
+</div>
+</div>
+</td>
+<td class="text-center"><input checked="" class="rounded border-white/10 bg-white/5 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="text-center"><input checked="" class="rounded border-white/10 bg-white/5 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="text-center"><input checked="" class="rounded border-white/10 bg-white/5 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+</tr>
+<!-- High Row -->
+<tr class="group border-t border-white/5">
+<td class="py-md pr-md">
+<div class="flex items-center gap-md">
+<div class="w-1 h-8 bg-tertiary rounded-full"></div>
+<div>
+<p class="font-label-md text-tertiary">High</p>
+<p class="text-[11px] text-on-surface-variant">Severe localized incidents</p>
+</div>
+</div>
+</td>
+<td class="text-center"><input checked="" class="rounded border-white/10 bg-white/5 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="text-center"><input checked="" class="rounded border-white/10 bg-white/5 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="text-center"><input checked="" class="rounded border-white/10 bg-white/5 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+</tr>
+<!-- Medium Row -->
+<tr class="group border-t border-white/5">
+<td class="py-md pr-md">
+<div class="flex items-center gap-md">
+<div class="w-1 h-8 bg-primary rounded-full"></div>
+<div>
+<p class="font-label-md text-primary">Medium</p>
+<p class="text-[11px] text-on-surface-variant">Operational disruptions</p>
+</div>
+</div>
+</td>
+<td class="text-center"><input class="rounded border-white/10 bg-white/5 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="text-center"><input checked="" class="rounded border-white/10 bg-white/5 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="text-center"><input checked="" class="rounded border-white/10 bg-white/5 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+</tr>
+<!-- Low Row -->
+<tr class="group border-t border-white/5">
+<td class="py-md pr-md">
+<div class="flex items-center gap-md">
+<div class="w-1 h-8 bg-on-surface-variant/20 rounded-full"></div>
+<div>
+<p class="font-label-md text-on-surface-variant">Low</p>
+<p class="text-[11px] text-on-surface-variant">Routine maintenance/info</p>
+</div>
+</div>
+</td>
+<td class="text-center"><input class="rounded border-white/10 bg-white/5 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="text-center"><input class="rounded border-white/10 bg-white/5 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+<td class="text-center"><input checked="" class="rounded border-white/10 bg-white/5 text-primary focus:ring-primary h-5 w-5" type="checkbox"/></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Emergency Override (4/12 cols) -->
+<section class="md:col-span-4 glass-card p-lg rounded-xl flex flex-col justify-between emergency-glow relative overflow-hidden">
+<div class="absolute -right-8 -top-8 w-32 h-32 bg-error/10 blur-3xl rounded-full"></div>
+<div class="relative z-10">
+<h2 class="font-headline-md text-error flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+                                Override Logic
+                            </h2>
+<p class="font-body-md text-on-surface-variant">Enable priority tunneling for Critical level alerts during restricted hours.</p>
+</div>
+<div class="relative z-10 space-y-md mt-lg">
+<div class="flex items-center justify-between p-md bg-error-container/20 rounded-lg border border-error/20">
+<span class="font-label-md text-error">Silent Bypass</span>
+<div class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-error"></div>
+</div>
+</div>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest text-center">Safety Protocol: MANDATORY</p>
+</div>
+</section>
+<!-- Quiet Hours Scheduler (5/12 cols) -->
+<section class="md:col-span-5 glass-card p-lg rounded-xl space-y-lg">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-on-surface">Quiet Hours</h2>
+<span class="material-symbols-outlined text-primary">schedule</span>
+</div>
+<div class="space-y-md">
+<div class="flex items-center justify-between text-on-surface-variant font-label-md">
+<span>Mon - Fri</span>
+<span class="text-primary">22:00 — 07:00</span>
+</div>
+<div class="h-12 w-full bg-surface-container-low rounded-lg border border-white/5 relative flex items-center overflow-hidden">
+<div class="h-full bg-primary/20 border-x border-primary/30 absolute left-[80%] right-0"></div>
+<div class="h-full bg-primary/20 border-x border-primary/30 absolute left-0 w-[20%]"></div>
+<div class="flex justify-between w-full px-sm text-[10px] text-on-surface-variant pointer-events-none relative z-10">
+<span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-md pt-md">
+<div class="space-y-xs">
+<label class="font-label-md text-on-surface-variant text-[11px] uppercase">Start Time</label>
+<input class="w-full bg-surface-container-highest border border-white/5 rounded-lg text-on-surface font-label-md focus:border-primary px-md py-sm" type="time" value="22:00"/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-on-surface-variant text-[11px] uppercase">End Time</label>
+<input class="w-full bg-surface-container-highest border border-white/5 rounded-lg text-on-surface font-label-md focus:border-primary px-md py-sm" type="time" value="07:00"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Digital Signage Integration (7/12 cols) -->
+<section class="md:col-span-7 glass-card p-lg rounded-xl flex gap-lg">
+<div class="flex-1 space-y-md">
+<h2 class="font-headline-md text-on-surface flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">monitor</span>
+                                Signage Broadcast
+                            </h2>
+<p class="font-body-md text-on-surface-variant">Synchronize campus-wide digital screens and PA systems with the central alert grid.</p>
+<div class="flex gap-sm">
+<span class="px-sm py-1 bg-secondary-container/10 border border-secondary/20 rounded text-[11px] text-secondary font-label-md">142 Screens Active</span>
+<span class="px-sm py-1 bg-surface-container-high border border-white/10 rounded text-[11px] text-on-surface-variant font-label-md">API V2.4 Connected</span>
+</div>
+<div class="flex items-center gap-md pt-sm">
+<button class="bg-primary px-lg py-md rounded-xl text-on-primary font-label-md hover:brightness-110 active:scale-95 transition-all">Test Sync</button>
+<button class="border border-white/10 px-lg py-md rounded-xl text-on-surface-variant font-label-md hover:bg-white/5 transition-all">Config Hub</button>
+</div>
+</div>
+<div class="hidden lg:block w-48 h-full bg-[#000] rounded-lg border border-white/10 overflow-hidden relative group">
+<div class="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"></div>
+<img class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" data-alt="A vertical digital signage board displaying a stylized 'SafeCampus' emergency graphic with high-contrast red and black elements. The board is located in a modern, glass-walled campus walkway with cool blue ambient lighting and minimalist architectural lines. The scene is futuristic and technologically sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdUWvulc1KnGqR28d29jFPB0lV-LmlBb0tbXdbplzX6qn_G2h6ouj_YwASWk_Lik-0qAWMreC5v-MsQb63JPGVB988cgFndZ5Kbc3clfeHXiQ5q3dlVays08bo74UUHUDhoHZ3ErmcVhTVzyYObdabhYiCzbs_JGmneUfUQm5KXqIeON_HPGKn3bIIPQacBG79lyoufNVExh9jM7m4AiITvjjEM783BQ7jwsDHyeY71Y3rBTHY1ryEaXOr1o6aMqGql1FAQyZkY1U"/>
+<div class="absolute bottom-4 left-4 z-20">
+<p class="text-[10px] text-error font-bold uppercase">Live Preview</p>
+</div>
+</div>
+</section>
+<!-- Template Editor (Full Width) -->
+<section class="md:col-span-12 glass-card p-lg rounded-xl space-y-lg">
+<div class="flex items-center justify-between border-b border-white/5 pb-md">
+<h2 class="font-headline-md text-on-surface">Communication Templates</h2>
+<div class="flex gap-md">
+<button class="text-primary font-label-md flex items-center gap-xs"><span class="material-symbols-outlined text-[18px]">add_circle</span> New Template</button>
+<button class="text-on-surface-variant font-label-md flex items-center gap-xs"><span class="material-symbols-outlined text-[18px]">history</span> Revision Log</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<!-- Template List -->
+<div class="space-y-sm">
+<div class="p-md bg-primary/10 border border-primary/30 rounded-xl cursor-pointer">
+<p class="font-label-md text-primary">Intruder Lockdown</p>
+<p class="text-[11px] text-on-surface-variant">Last modified 2d ago</p>
+</div>
+<div class="p-md bg-surface-container-low border border-white/5 rounded-xl hover:bg-white/5 cursor-pointer transition-all">
+<p class="font-label-md text-on-surface">Fire Evacuation</p>
+<p class="text-[11px] text-on-surface-variant">Last modified 12d ago</p>
+</div>
+<div class="p-md bg-surface-container-low border border-white/5 rounded-xl hover:bg-white/5 cursor-pointer transition-all">
+<p class="font-label-md text-on-surface">Weather Alert</p>
+<p class="text-[11px] text-on-surface-variant">Last modified 1mo ago</p>
+</div>
+</div>
+<!-- Editor Content -->
+<div class="md:col-span-2 space-y-md">
+<div class="bg-surface-container-lowest border border-white/10 rounded-xl overflow-hidden">
+<div class="flex items-center gap-md p-sm bg-surface-container-high border-b border-white/10">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-on-surface">format_bold</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-on-surface">format_italic</span>
+<div class="w-px h-4 bg-white/10 mx-xs"></div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-on-surface">link</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-on-surface">CarSimple</span>
+<div class="ml-auto flex gap-sm">
+<span class="px-xs py-1 bg-surface-container-highest rounded text-[9px] text-on-surface-variant">#campus_name</span>
+<span class="px-xs py-1 bg-surface-container-highest rounded text-[9px] text-on-surface-variant">#incident_type</span>
+</div>
+</div>
+<textarea class="w-full h-40 bg-transparent border-none focus:ring-0 p-lg font-body-md text-on-surface placeholder:text-on-surface-variant/30" placeholder="Type template message here...">[CRITICAL ALERT] #incident_type reported at #location. Immediate lockdown initiated. Stay clear of windows and remain in secure areas until further notice. This is a broadcast from #campus_name GuardianOS.</textarea>
+</div>
+<div class="flex justify-end gap-md">
+<button class="px-lg py-md font-label-md text-on-surface-variant">Discard Changes</button>
+<button class="px-lg py-md bg-primary text-on-primary font-label-md rounded-xl neon-border hover:scale-105 transition-all">Deploy Template</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Spacer for scroll bottom padding -->
+<div class="h-xl"></div>
+</div>
+</main>
+</div>
+</body></html>

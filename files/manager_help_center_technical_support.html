@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#2a2a2a",
+                    "outline-variant": "#424655",
+                    "on-tertiary-fixed-variant": "#920021",
+                    "on-secondary-fixed": "#001f24",
+                    "on-primary-container": "#002661",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-error-container": "#ffdad6",
+                    "inverse-primary": "#0058cb",
+                    "surface-variant": "#353534",
+                    "primary-fixed-dim": "#b0c6ff",
+                    "primary-fixed": "#d9e2ff",
+                    "inverse-surface": "#e5e2e1",
+                    "tertiary": "#ffb3b3",
+                    "on-secondary-container": "#00616d",
+                    "on-secondary": "#00363d",
+                    "on-primary-fixed-variant": "#00429c",
+                    "tertiary-fixed": "#ffdad9",
+                    "surface-tint": "#b0c6ff",
+                    "surface-container": "#201f1f",
+                    "surface-container-low": "#1c1b1b",
+                    "on-background": "#e5e2e1",
+                    "background": "#131313",
+                    "primary-container": "#568dff",
+                    "on-primary-fixed": "#001945",
+                    "surface": "#131313",
+                    "on-secondary-fixed-variant": "#004f58",
+                    "error": "#ffb4ab",
+                    "tertiary-container": "#ff5260",
+                    "on-tertiary": "#680015",
+                    "surface-bright": "#3a3939",
+                    "surface-dim": "#131313",
+                    "on-surface": "#e5e2e1",
+                    "secondary-container": "#00e3fd",
+                    "on-error": "#690005",
+                    "primary": "#b0c6ff",
+                    "on-tertiary-fixed": "#400009",
+                    "on-tertiary-container": "#5b0011",
+                    "secondary-fixed-dim": "#00daf3",
+                    "secondary-fixed": "#9cf0ff",
+                    "secondary": "#bdf4ff",
+                    "error-container": "#93000a",
+                    "inverse-on-surface": "#313030",
+                    "tertiary-fixed-dim": "#ffb3b3",
+                    "on-primary": "#002d6f",
+                    "outline": "#8c90a1",
+                    "on-surface-variant": "#c2c6d8",
+                    "surface-container-highest": "#353534"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "lg": "24px",
+                    "sm": "8px",
+                    "xs": "4px",
+                    "md": "16px",
+                    "margin-desktop": "64px",
+                    "unit": "4px",
+                    "xl": "40px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "label-md": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "display-lg": ["Sora"],
+                    "headline-lg": ["Sora"],
+                    "headline-md": ["Sora"],
+                    "headline-lg-mobile": ["Sora"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .emergency-glow {
+            box-shadow: 0 0 20px rgba(147, 0, 10, 0.4);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-bottom: 2px solid #b0c6ff !important;
+            box-shadow: 0 4px 12px -2px rgba(0, 112, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-[0_4px_20px_rgba(0,112,255,0.15)] h-16 flex justify-between items-center px-margin-mobile md:px-margin-desktop">
+<div class="flex items-center gap-4">
+<span class="font-display-lg text-headline-md text-primary tracking-tighter">Guardian Shield</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center gap-8 text-on-surface-variant font-label-md">
+<a class="hover:text-primary transition-colors duration-300" href="#">Dashboard</a>
+<a class="hover:text-primary transition-colors duration-300" href="#">Incidents</a>
+<a class="text-primary font-bold" href="#">Support</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer active:scale-95 duration-200" data-icon="help">help</span>
+<span class="material-symbols-outlined text-primary cursor-pointer active:scale-95 duration-200" data-icon="notifications">notifications</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Manager Profile Avatar" data-alt="A professional headshot of a campus security manager in a minimalist office setting. The lighting is crisp and modern with blue highlights reflecting off a glass partition in the background. The manager wears a dark uniform, conveying authority and calmness in a cyber-minimalist environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClQ-UyvkoSjwIuAPLyOiSVysbFnfJMb3rNyMIl8FyD0KQpR9LLjnCd0MLiPjDqfJrYlpM9odQECdmWcy2pl_7VJFUKUI1EXM_GaQSSRftcz_1XQRvlLWZZsf_64EQLZEOYn3bOBsX3iMshHurmR6ITVNv9booCQSJHRKvMSzAQvKnHo5TE8Mymhee1Hp2ZpddFr0UXWiRT_VXuakZo5_lJzqZT1LHc646y8wgczqMVO8-lYZXuR536COR-BjbYxaaC13PQyQxslFg"/>
+</div>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Desktop Only) -->
+<aside class="fixed left-0 top-0 h-full pt-16 h-screen w-64 hidden md:flex flex-col bg-surface-container-low/50 backdrop-blur-2xl border-r border-outline-variant/20 z-40">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="security" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-primary text-sm">Safety Hub</h2>
+<p class="text-xs text-on-surface-variant">Vigilance Active</p>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="text-on-surface-variant hover:bg-surface-variant/10 px-4 py-3 flex items-center gap-3 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-variant/10 px-4 py-3 flex items-center gap-3 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="book_2">book_2</span>
+<span class="font-label-md text-label-md">Knowledge Base</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-variant/10 px-4 py-3 flex items-center gap-3 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="security">security</span>
+<span class="font-label-md text-label-md">Incident Log</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-variant/10 px-4 py-3 flex items-center gap-3 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+<span class="font-label-md text-label-md">Broadcast</span>
+</a>
+<a class="bg-primary-container/20 text-primary border-l-4 border-primary px-4 py-3 flex items-center gap-3 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support" style="font-variation-settings: 'FILL' 1;">contact_support</span>
+<span class="font-label-md text-label-md">Technical Support</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto p-6 border-t border-outline-variant/10">
+<a class="text-on-surface-variant hover:bg-surface-variant/10 px-4 py-3 flex items-center gap-3 rounded-lg transition-all mb-2" href="#">
+<span class="material-symbols-outlined" data-icon="admin_panel_settings">admin_panel_settings</span>
+<span class="font-label-md text-label-md">Security Settings</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-variant/10 px-4 py-3 flex items-center gap-3 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined text-error" data-icon="logout">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="md:pl-64 pt-24 pb-24 px-margin-mobile md:px-margin-desktop max-w-[1400px] mx-auto">
+<div class="flex flex-col gap-8">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="font-display-lg text-headline-lg md:text-display-lg text-on-surface tracking-tight">Technical Support</h1>
+<p class="text-on-surface-variant mt-2 max-w-2xl">Connect with the Guardian Shield engineering team. Submit critical infrastructure tickets or access our knowledge base for rapid resolution.</p>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-high/50 p-2 rounded-full border border-outline-variant/30 backdrop-blur-md">
+<span class="text-xs font-label-md px-4 text-on-surface-variant">Live Chat Status:</span>
+<button class="bg-primary text-on-primary font-label-md text-xs px-6 py-2 rounded-full hover:shadow-[0_0_15px_rgba(176,198,255,0.4)] transition-all">
+                        Initialize Chat
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Ticket Submission Form -->
+<section class="lg:col-span-7 glass-card rounded-xl p-lg flex flex-col gap-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="edit_note">edit_note</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Submit Support Ticket</h2>
+</div>
+<form class="flex flex-col gap-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-xs text-on-surface-variant uppercase tracking-widest">Inquiry Type</label>
+<select class="bg-background border-b-2 border-outline-variant/50 text-on-surface py-3 px-1 focus:border-primary transition-all">
+<option>System Node Malfunction</option>
+<option>Access Control Issue</option>
+<option>Network Latency</option>
+<option>Hardware Failure</option>
+<option>Software Update Request</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-xs text-on-surface-variant uppercase tracking-widest">Priority Level</label>
+<div class="flex gap-2 h-full items-end">
+<button class="flex-1 py-3 text-xs font-bold rounded-lg border border-outline-variant text-on-surface-variant hover:border-primary/50 transition-all" type="button">Low</button>
+<button class="flex-1 py-3 text-xs font-bold rounded-lg border border-outline-variant text-on-surface-variant hover:border-primary/50 transition-all" type="button">Medium</button>
+<button class="flex-1 py-3 text-xs font-bold border-2 border-primary text-primary bg-primary/5 rounded-lg transition-all" type="button">High</button>
+<button class="flex-1 py-3 text-xs font-bold rounded-lg border border-error/50 text-error bg-error/5 hover:bg-error/10 transition-all uppercase tracking-tighter" type="button">Emergency</button>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-xs text-on-surface-variant uppercase tracking-widest">Subject</label>
+<input class="bg-background border-b-2 border-outline-variant/50 text-on-surface py-3 px-1 focus:border-primary transition-all placeholder:text-on-surface-variant/30" placeholder="Briefly describe the technical issue" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-xs text-on-surface-variant uppercase tracking-widest">Detailed Incident Description</label>
+<textarea class="bg-background border-b-2 border-outline-variant/50 text-on-surface py-3 px-1 focus:border-primary transition-all placeholder:text-on-surface-variant/30 resize-none" placeholder="Provide system logs, timestamps, or physical node locations..." rows="4"></textarea>
+</div>
+<div class="flex justify-between items-center mt-4">
+<div class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="attach_file">attach_file</span>
+<span class="text-xs font-label-md">Upload Diagnostic Files</span>
+</div>
+<button class="bg-primary text-on-primary px-xl py-4 rounded-xl font-headline-md text-sm hover:shadow-[0_0_30px_rgba(176,198,255,0.3)] active:scale-95 transition-all">
+                                Dispatch Support Ticket
+                            </button>
+</div>
+</form>
+</section>
+<!-- Sidebar Content -->
+<div class="lg:col-span-5 flex flex-col gap-gutter">
+<!-- System Status Widget -->
+<section class="glass-card rounded-xl p-lg">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="analytics" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">System Status</h2>
+</div>
+<span class="flex items-center gap-2 bg-secondary/10 text-secondary-fixed-dim px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">
+<span class="w-2 h-2 rounded-full bg-secondary-fixed-dim animate-pulse"></span>
+                                Real-time
+                            </span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-3 bg-background/40 rounded-lg border border-outline-variant/20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="router">router</span>
+<span class="font-label-md text-xs">North Campus Node</span>
+</div>
+<span class="text-[10px] font-bold text-secondary px-2 py-0.5 rounded border border-secondary/30">OPERATIONAL</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-background/40 rounded-lg border border-outline-variant/20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="lan">lan</span>
+<span class="font-label-md text-xs">Central Data Core</span>
+</div>
+<span class="text-[10px] font-bold text-secondary px-2 py-0.5 rounded border border-secondary/30">OPERATIONAL</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-background/40 rounded-lg border border-error-container/30 border">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error" data-icon="wifi_off">wifi_off</span>
+<span class="font-label-md text-xs">East Perimeter Sensors</span>
+</div>
+<span class="text-[10px] font-bold text-error px-2 py-0.5 rounded border border-error/30">DEGRADED</span>
+</div>
+</div>
+<div class="mt-6 pt-6 border-t border-outline-variant/20">
+<img alt="Node Visualization" class="w-full h-32 object-cover rounded-lg grayscale opacity-50 contrast-125" data-alt="A sophisticated data visualization dashboard showing interconnected network nodes on a dark digital canvas. Lines of light connect various points, with some areas glowing in neon blue and others in cautionary soft red. The overall aesthetic is highly technical, minimalist, and cyberpunk, emphasizing security monitoring and system health." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQ0EmI1HIg09Y-Pgnap04DA-kB7vSFmWWNQTzA7UKL9mVq5O3MclbEgCU-dlt-D3et7XbSMITq8uXeOq0Gfi72ifiiEdB8T0WB9g6QMxbsNipWeU01WSJus8Uw0IUDz93AQADUZNgZ40ExISuMX4xJy5EGoWQTKGGfndj9dbUizNhb9uwRd-5hqwIQeHw0uk6fRXYHKt1ZlLo3EqomsgMaZaxs0NgUhl6SWMbYHvqe8zqfzsQIRWCJuOIRRs1Yk0bPEtiRK-I3MKc"/>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="glass-card rounded-xl p-lg flex flex-col gap-4">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-primary" data-icon="help_center">help_center</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Technical FAQ</h2>
+</div>
+<div class="space-y-3">
+<details class="group bg-surface-container/50 rounded-lg border border-outline-variant/20 transition-all">
+<summary class="flex justify-between items-center p-4 cursor-pointer list-none">
+<span class="font-label-md text-xs">How do I reset biometric sensor calibration?</span>
+<span class="material-symbols-outlined text-on-surface-variant group-open:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="px-4 pb-4 text-xs text-on-surface-variant leading-relaxed">
+                                    Access the System Admin panel, navigate to Node Calibration, and select 'Hard Reset'. Ensure the physical sensor is clear of debris before initializing.
+                                </div>
+</details>
+<details class="group bg-surface-container/50 rounded-lg border border-outline-variant/20 transition-all">
+<summary class="flex justify-between items-center p-4 cursor-pointer list-none">
+<span class="font-label-md text-xs">Network latency is exceeding 50ms in Zone B.</span>
+<span class="material-symbols-outlined text-on-surface-variant group-open:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="px-4 pb-4 text-xs text-on-surface-variant leading-relaxed">
+                                    This usually indicates interference or heavy traffic on the 6GHz band. Try switching the Zone B router to 'Isolated Mode' for critical operations.
+                                </div>
+</details>
+<details class="group bg-surface-container/50 rounded-lg border border-outline-variant/20 transition-all">
+<summary class="flex justify-between items-center p-4 cursor-pointer list-none">
+<span class="font-label-md text-xs">How to provision new manager credentials?</span>
+<span class="material-symbols-outlined text-on-surface-variant group-open:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="px-4 pb-4 text-xs text-on-surface-variant leading-relaxed">
+                                    Only System Admins can provision credentials. Go to System Admin &gt; User Roles &gt; New Provisioning and follow the encrypted onboarding flow.
+                                </div>
+</details>
+</div>
+<a class="mt-2 text-primary font-label-md text-xs flex items-center gap-2 hover:translate-x-1 transition-transform" href="#">
+                            View all 48 Knowledge Base articles
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</section>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full md:hidden z-50 rounded-t-xl bg-background/90 backdrop-blur-lg border-t border-outline-variant/30 shadow-[0_-4px_20px_rgba(0,112,255,0.1)] flex justify-around items-center h-20 px-4 pb-safe">
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-[10px]">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-label-md text-[10px]">KB</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2">
+<span class="material-symbols-outlined" data-icon="emergency">emergency</span>
+<span class="font-label-md text-[10px]">Alerts</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary bg-primary-container/10 rounded-xl p-2">
+<span class="material-symbols-outlined" data-icon="contact_support" style="font-variation-settings: 'FILL' 1;">contact_support</span>
+<span class="font-label-md text-[10px]">Support</span>
+</div>
+</nav>
+<!-- Floating FAB (Suppressed for focused Support Page per instructions, but kept as comment for logic) -->
+<!-- 
+    <button class="fixed bottom-24 right-6 w-14 h-14 bg-error text-on-error rounded-full shadow-lg z-40 md:hidden flex items-center justify-center">
+        <span class="material-symbols-outlined" data-icon="emergency">emergency</span>
+    </button>
+    -->
+</body></html>

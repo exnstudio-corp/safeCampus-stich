@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SOS Emergency Layer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Sora:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#00daf3",
+                    "on-secondary-fixed-variant": "#004f58",
+                    "on-tertiary-fixed": "#400009",
+                    "surface": "#131313",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-variant": "#353534",
+                    "tertiary": "#ffb3b3",
+                    "surface-container-highest": "#353534",
+                    "on-secondary-container": "#00616d",
+                    "tertiary-fixed": "#ffdad9",
+                    "tertiary-container": "#ff5260",
+                    "on-secondary-fixed": "#001f24",
+                    "secondary-fixed": "#9cf0ff",
+                    "surface-dim": "#131313",
+                    "on-primary-fixed": "#001945",
+                    "inverse-primary": "#0058cb",
+                    "outline": "#8c90a1",
+                    "surface-tint": "#b0c6ff",
+                    "on-error-container": "#ffdad6",
+                    "inverse-surface": "#e5e2e1",
+                    "primary-fixed": "#d9e2ff",
+                    "on-surface": "#e5e2e1",
+                    "outline-variant": "#424655",
+                    "on-primary-fixed-variant": "#00429c",
+                    "surface-container-high": "#2a2a2a",
+                    "tertiary-fixed-dim": "#ffb3b3",
+                    "on-tertiary": "#680015",
+                    "background": "#050505", /* Explicitly setting deep black base as per design system */
+                    "on-tertiary-fixed-variant": "#920021",
+                    "primary-container": "#568dff",
+                    "on-tertiary-container": "#5b0011",
+                    "inverse-on-surface": "#313030",
+                    "on-primary-container": "#002661",
+                    "secondary-container": "#00e3fd",
+                    "error": "#ffb4ab",
+                    "error-container": "#93000a",
+                    "primary-fixed-dim": "#b0c6ff",
+                    "surface-container": "#201f1f",
+                    "on-surface-variant": "#c2c6d8",
+                    "on-secondary": "#00363d",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-error": "#690005",
+                    "secondary": "#bdf4ff",
+                    "on-background": "#e5e2e1",
+                    "on-primary": "#002d6f",
+                    "surface-bright": "#3a3939",
+                    "primary": "#b0c6ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "xs": "4px",
+                    "margin-mobile": "20px",
+                    "md": "16px",
+                    "sm": "8px",
+                    "unit": "4px",
+                    "gutter": "16px",
+                    "xl": "40px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Sora"],
+                    "headline-lg-mobile": ["Sora"],
+                    "body-lg": ["Manrope"],
+                    "display-lg": ["Sora"],
+                    "label-md": ["Manrope"],
+                    "headline-md": ["Sora"],
+                    "body-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Custom Keyframes for Emergency Pulsing */
+        @keyframes emergency-pulse {
+            0%, 100% { opacity: 0.1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(1.05); }
+        }
+        .animate-emergency-pulse {
+            animation: emergency-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        /* Hide scrollbar for clean app-like feel */
+        ::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md h-screen w-screen overflow-hidden flex justify-center items-center selection:bg-primary/30">
+<!-- Mobile Constraint Container for Desktop Viewing -->
+<div class="relative w-full h-full md:max-w-[428px] md:h-[926px] md:rounded-[40px] md:border-[8px] md:border-surface-container-lowest overflow-hidden flex flex-col bg-background shadow-2xl">
+<!-- Emergency Ambient Glow (Red peripheral indicator) -->
+<div class="absolute inset-0 pointer-events-none z-0 animate-emergency-pulse bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-error-container/20 via-transparent to-transparent"></div>
+<div class="absolute inset-0 pointer-events-none z-0 shadow-[inset_0_0_80px_rgba(255,82,96,0.15)]"></div>
+<!-- Header - Task Focused (No TopAppBar/SideNav as per suppression rules) -->
+<header class="px-margin-mobile py-lg flex justify-between items-center z-50 relative">
+<div class="flex items-center gap-sm">
+<div class="w-2 h-2 rounded-full bg-error animate-ping"></div>
+<span class="font-label-md text-label-md text-error tracking-[0.1em]">LIVE INCIDENT</span>
+</div>
+<button aria-label="Minimize SOS" class="w-10 h-10 rounded-full bg-surface-container-low/50 backdrop-blur-md border border-white/5 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[20px]">close_fullscreen</span>
+</button>
+</header>
+<!-- Main Content Canvas (Bento Layout) -->
+<main class="flex-1 overflow-y-auto px-margin-mobile pb-xl flex flex-col gap-gutter z-10 relative">
+<!-- Primary Status Card -->
+<div class="bg-surface/40 backdrop-blur-[20px] border border-error/20 rounded-xl p-lg flex flex-col items-center justify-center text-center shadow-[0px_4px_30px_rgba(255,180,171,0.05)]">
+<span class="material-symbols-outlined text-[56px] text-error mb-md" style="font-variation-settings: 'FILL' 1;">emergency</span>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-sm">SOS Sent</h1>
+<p class="font-body-lg text-body-lg text-error mb-xs">Broadcasting Location...</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Alerting trusted contacts &amp; campus security.</p>
+</div>
+<!-- Telemetry & Status Row -->
+<div class="grid grid-cols-2 gap-gutter">
+<!-- Battery Status -->
+<div class="bg-surface/40 backdrop-blur-[20px] border border-white/[0.08] rounded-xl p-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-[24px] text-secondary-fixed-dim">battery_4_bar</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">Battery</span>
+<span class="font-headline-md text-headline-md text-on-surface">62%</span>
+</div>
+</div>
+<!-- Network Status -->
+<div class="bg-surface/40 backdrop-blur-[20px] border border-white/[0.08] rounded-xl p-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-[24px] text-secondary-fixed-dim">signal_cellular_4_bar</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">Signal</span>
+<span class="font-headline-md text-headline-md text-on-surface">Strong</span>
+</div>
+</div>
+</div>
+<!-- Live Location Map Card -->
+<div class="bg-surface/40 backdrop-blur-[20px] border border-white/[0.08] rounded-xl overflow-hidden flex flex-col h-[240px] relative">
+<!-- Map Background Image Placeholder -->
+<div class="absolute inset-0 w-full h-full bg-cover bg-center" data-alt="A high-contrast, dark-mode digital map interface displaying a university campus environment. The map features deep black backgrounds (#050505) with subtle neon blue roads and building outlines. A prominent, pulsing soft red marker indicates an emergency location in the center, surrounded by a translucent red accuracy radius. The overall style is cyber-minimalist, sleek, and highly technical." data-location="University Campus" style="background-image: url('https://placeholder.pics/svg/300'); opacity: 0.6;">
+</div>
+<!-- Overlay Elements -->
+<div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent z-10"></div>
+<!-- Pulsing Location Marker -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex items-center justify-center">
+<div class="absolute w-24 h-24 bg-error/20 rounded-full animate-ping"></div>
+<div class="absolute w-12 h-12 bg-error/30 rounded-full animate-pulse"></div>
+<div class="w-4 h-4 bg-error rounded-full shadow-[0_0_15px_rgba(255,180,171,0.8)] border-2 border-background"></div>
+</div>
+<div class="relative z-30 mt-auto p-md flex justify-between items-end">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-error flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">my_location</span>
+                            Live Tracking Active
+                        </span>
+<span class="font-body-md text-body-md text-on-surface text-sm">Accuracy: ~5m</span>
+</div>
+<button class="w-10 h-10 rounded-full bg-surface/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[20px]">explore</span>
+</button>
+</div>
+</div>
+<!-- Trusted Contacts Status List -->
+<div class="bg-surface/40 backdrop-blur-[20px] border border-white/[0.08] rounded-xl p-md flex flex-col gap-sm">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-xs">Notification Status</h3>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[16px]">local_police</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface">Campus Security</span>
+</div>
+<span class="font-label-md text-label-md text-secondary-fixed-dim">Delivered</span>
+</div>
+<div class="h-px w-full bg-white/5"></div>
+<div class="flex items-center justify-between opacity-70">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">person</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface">Emergency Contact 1</span>
+</div>
+<div class="flex items-center gap-1">
+<div class="w-1.5 h-1.5 rounded-full bg-on-surface-variant animate-pulse"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-on-surface-variant animate-pulse" style="animation-delay: 0.2s"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-on-surface-variant animate-pulse" style="animation-delay: 0.4s"></div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Actions (Sticky) -->
+<footer class="p-margin-mobile pt-md bg-gradient-to-t from-background via-background/95 to-transparent z-50 flex flex-col gap-md relative">
+<!-- Primary Emergency Call Action -->
+<button class="w-full bg-error text-on-error py-4 rounded-xl flex items-center justify-center gap-sm font-headline-md text-headline-md shadow-[0_0_20px_rgba(255,180,171,0.2)] hover:bg-error-container hover:text-on-error-container transition-colors relative group overflow-hidden">
+<div class="absolute inset-0 border border-white/20 rounded-xl m-[2px] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">call</span>
+                Call 911 Now
+            </button>
+<!-- Secondary Action (Cancel - requires intent) -->
+<button class="w-full py-4 rounded-xl flex items-center justify-center gap-2 font-label-md text-label-md text-on-surface-variant bg-surface-container-low/50 backdrop-blur-md border border-white/5 hover:bg-surface-variant hover:text-on-surface transition-all active:scale-95">
+<span class="material-symbols-outlined text-[20px]">cancel</span>
+                Hold to Cancel SOS
+            </button>
+</footer>
+</div>
+</body></html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SafeCampus Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#c2c6d8",
+                        "secondary": "#bdf4ff",
+                        "primary-container": "#568dff",
+                        "surface": "#131313",
+                        "tertiary-fixed-dim": "#ffb3b3",
+                        "tertiary": "#ffb3b3",
+                        "on-secondary-fixed": "#001f24",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#353534",
+                        "primary": "#b0c6ff",
+                        "primary-fixed-dim": "#b0c6ff",
+                        "on-error": "#690005",
+                        "on-primary": "#002d6f",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-secondary-container": "#00616d",
+                        "on-primary-fixed-variant": "#00429c",
+                        "on-tertiary": "#680015",
+                        "surface-dim": "#131313",
+                        "secondary-fixed": "#9cf0ff",
+                        "on-secondary-fixed-variant": "#004f58",
+                        "surface-bright": "#3a3939",
+                        "on-tertiary-fixed-variant": "#920021",
+                        "tertiary-container": "#ff5260",
+                        "surface-container-low": "#1c1b1b",
+                        "tertiary-fixed": "#ffdad9",
+                        "secondary-container": "#00e3fd",
+                        "on-background": "#e5e2e1",
+                        "on-secondary": "#00363d",
+                        "on-primary-fixed": "#001945",
+                        "inverse-primary": "#0058cb",
+                        "surface-tint": "#b0c6ff",
+                        "inverse-surface": "#e5e2e1",
+                        "background": "#131313",
+                        "on-error-container": "#ffdad6",
+                        "inverse-on-surface": "#313030",
+                        "surface-variant": "#353534",
+                        "on-tertiary-fixed": "#400009",
+                        "surface-container": "#201f1f",
+                        "outline-variant": "#424655",
+                        "surface-container-high": "#2a2a2a",
+                        "primary-fixed": "#d9e2ff",
+                        "secondary-fixed-dim": "#00daf3",
+                        "outline": "#8c90a1",
+                        "error-container": "#93000a",
+                        "on-tertiary-container": "#5b0011",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-container": "#002661"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "xs": "4px",
+                        "gutter": "16px",
+                        "xl": "40px",
+                        "sm": "8px",
+                        "unit": "4px",
+                        "margin-mobile": "20px",
+                        "md": "16px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Sora"],
+                        "display-lg": ["Sora"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "headline-md": ["Sora"],
+                        "headline-lg-mobile": ["Sora"],
+                        "label-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background-color: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glow-primary {
+            box-shadow: 0px 4px 20px rgba(0, 112, 255, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-[#050505] text-on-surface font-body-md min-h-screen flex flex-col md:flex-row antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar (Mobile Only) -->
+<header class="md:hidden flex justify-between items-center px-margin-mobile py-sm w-full bg-surface/60 backdrop-blur-xl border-b border-white/10 fixed top-0 z-50">
+<div class="font-headline-md text-headline-md font-bold text-primary">SafeCampus</div>
+<div class="flex gap-4">
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">shield</span>
+</button>
+</div>
+</header>
+<!-- SideNavBar (Desktop Only) -->
+<nav class="hidden md:flex flex-col h-full w-64 fixed left-0 top-0 z-[60] bg-surface/90 backdrop-blur-3xl border-r border-white/8 p-lg shadow-2xl">
+<div class="mb-xl">
+<h1 class="font-headline-lg text-headline-lg text-primary mb-2">Student Portal</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">University Verified</p>
+</div>
+<ul class="flex-1 space-y-2">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/5 transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">map</span> Safety Map
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/5 transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">gavel</span> Scam Board
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/5 transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">find_in_page</span> Lost &amp; Found
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/5 transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">menu_book</span> Resources
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary font-bold bg-surface-container-high transition-transform translate-x-1 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">settings</span> Settings
+                </a>
+</li>
+</ul>
+<button class="mt-auto w-full py-3 rounded-lg bg-tertiary-container text-on-tertiary font-label-md text-label-md flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">sos</span> SOS Emergency
+        </button>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 pt-[72px] md:pt-0 px-margin-mobile md:px-margin-desktop py-lg max-w-[1200px] mx-auto w-full pb-24 md:pb-lg">
+<div class="mb-xl">
+<h2 class="font-display-lg text-display-lg text-on-surface mb-2">Admin Review Dashboard</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Manage pending reports and monitor campus safety metrics.</p>
+</div>
+<!-- Analytics Header Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-xl">
+<div class="glass-card rounded-xl p-lg flex flex-col gap-2">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-md text-label-md">Pending Reports</span>
+<span class="material-symbols-outlined">report</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-tertiary">24</div>
+</div>
+<div class="glass-card rounded-xl p-lg flex flex-col gap-2">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-md text-label-md">Active Scam Alerts</span>
+<span class="material-symbols-outlined">warning</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-error">7</div>
+</div>
+<div class="glass-card rounded-xl p-lg flex flex-col gap-2">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-md text-label-md">New Marketplace Listings</span>
+<span class="material-symbols-outlined">storefront</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-secondary">156</div>
+</div>
+<div class="glass-card rounded-xl p-lg flex flex-col gap-2">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-md text-label-md">Total Resolved Issues</span>
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-primary">1,204</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<!-- Moderation Queue -->
+<div class="lg:col-span-2 space-y-lg">
+<div class="glass-card rounded-xl p-lg">
+<h3 class="font-headline-md text-headline-md mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">view_list</span>
+                        Moderation Queue
+                    </h3>
+<div class="space-y-4">
+<!-- Table Header (Hidden on mobile) -->
+<div class="hidden md:grid grid-cols-5 gap-4 font-label-md text-label-md text-on-surface-variant pb-2 border-b border-white/10">
+<div>Reference ID</div>
+<div>Category</div>
+<div>Severity</div>
+<div>Time</div>
+<div>Status</div>
+</div>
+<!-- Row 1 -->
+<div class="glass-card rounded-lg p-4 grid grid-cols-1 md:grid-cols-5 gap-4 items-center hover:bg-white/5 transition-colors cursor-pointer border-l-2 border-l-tertiary glow-primary">
+<div class="font-body-md text-body-md font-bold">#INC-2023-894A</div>
+<div class="font-body-md text-body-md">Harassment</div>
+<div><span class="inline-flex px-2 py-1 rounded-full bg-tertiary/20 text-tertiary font-label-md text-label-md">High</span></div>
+<div class="font-body-md text-body-md text-on-surface-variant">10 mins ago</div>
+<div><span class="inline-flex px-2 py-1 rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md">New</span></div>
+</div>
+<!-- Row 2 -->
+<div class="glass-card rounded-lg p-4 grid grid-cols-1 md:grid-cols-5 gap-4 items-center hover:bg-white/5 transition-colors cursor-pointer">
+<div class="font-body-md text-body-md font-bold">#INC-2023-893B</div>
+<div class="font-body-md text-body-md">Theft</div>
+<div><span class="inline-flex px-2 py-1 rounded-full bg-secondary/20 text-secondary font-label-md text-label-md">Medium</span></div>
+<div class="font-body-md text-body-md text-on-surface-variant">1 hr ago</div>
+<div><span class="inline-flex px-2 py-1 rounded-full bg-primary/20 text-primary font-label-md text-label-md">Under Review</span></div>
+</div>
+</div>
+</div>
+<!-- Scam Board Management -->
+<div class="glass-card rounded-xl p-lg">
+<h3 class="font-headline-md text-headline-md mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-error">gavel</span>
+                        Scam Board Management
+                    </h3>
+<div class="space-y-4">
+<div class="bg-surface-container/50 rounded-lg p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div>
+<div class="font-body-md text-body-md font-bold mb-1">Suspicious Phishing Email Link</div>
+<div class="font-label-md text-label-md text-on-surface-variant">Reported by 12 users</div>
+</div>
+<div class="flex gap-2 w-full md:w-auto">
+<button class="flex-1 md:flex-none px-4 py-2 rounded-lg bg-surface-container-high text-on-surface font-label-md text-label-md hover:bg-white/10 transition-colors">Dismiss</button>
+<button class="flex-1 md:flex-none px-4 py-2 rounded-lg bg-error text-on-error font-label-md text-label-md hover:opacity-90 transition-opacity">Flag System-Wide</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Detail Pane (Simulated active state for #INC-2023-894A) -->
+<div class="glass-card rounded-xl p-lg flex flex-col h-fit sticky top-lg">
+<div class="flex justify-between items-start mb-6">
+<h3 class="font-headline-md text-headline-md">Report Details</h3>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">close</span>
+</div>
+<div class="mb-4">
+<div class="font-label-md text-label-md text-on-surface-variant mb-1">Reference ID</div>
+<div class="font-body-lg text-body-lg font-bold">#INC-2023-894A</div>
+</div>
+<div class="mb-6">
+<div class="font-label-md text-label-md text-on-surface-variant mb-1">Narrative</div>
+<p class="font-body-md text-body-md bg-surface-container/50 p-4 rounded-lg">
+                        Suspicious individual observed near the North Library entrance attempting to access secure areas without a badge. They left towards the East Parking Lot when approached.
+                    </p>
+</div>
+<div class="mb-8">
+<div class="font-label-md text-label-md text-on-surface-variant mb-1">Location</div>
+<div class="h-32 rounded-lg bg-surface-container-high relative overflow-hidden flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-4xl">location_on</span>
+</div>
+</div>
+<div class="mt-auto flex flex-col gap-3">
+<button class="w-full py-3 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-bold hover:opacity-90 transition-opacity relative group">
+                        Assign to Security
+                        <div class="absolute inset-[-4px] border border-primary/50 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+</button>
+<button class="w-full py-3 rounded-lg border border-white/10 text-on-surface font-label-md text-label-md hover:bg-white/5 transition-colors">
+                        Mark Resolved
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-4 pt-2 bg-surface/80 backdrop-blur-2xl border-t border-white/10 shadow-[0px_-4px_20px_rgba(0,112,255,0.15)] rounded-t-xl z-50">
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:text-primary transition-colors">
+<span class="material-symbols-outlined mb-1">dashboard</span>
+<span class="font-label-md text-label-md">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:text-primary transition-colors">
+<span class="material-symbols-outlined mb-1">storefront</span>
+<span class="font-label-md text-label-md">Market</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-2 hover:text-primary transition-colors">
+<span class="material-symbols-outlined mb-1">campaign</span>
+<span class="font-label-md text-label-md">Reports</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-2 scale-90 duration-200">
+<span class="material-symbols-outlined mb-1">admin_panel_settings</span>
+<span class="font-label-md text-label-md">Admin</span>
+</button>
+</nav>
+</body></html>
